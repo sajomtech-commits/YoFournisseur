@@ -32,8 +32,9 @@ SUPPLIERS = [
     {"id": "taurus-reps", "name": "Taurus Reps", "url": "https://deateath.x.yupoo.com/categories/4571155", "desc": "Vetements"},
 ]
 
-MAX_IMAGES = 240  # Limit to avoid huge repo / long runtime
-MAX_IMG_PER_SUPPLIER = 20
+MAX_IMAGES = 60   # Max total images
+MAX_IMG_PER_SUPPLIER = 5  # Max per supplier
+IMAGE_RETENTION_DAYS = 7   # Delete images older than this
 
 def fetch(url, timeout=20):
     req = Request(url, headers={
@@ -202,6 +203,30 @@ def scrape_supplier(supplier):
     return products
 
 
+def clean_old_images():
+    """Delete images older than IMAGE_RETENTION_DAYS"""
+    if not os.path.exists(IMG_DIR):
+        return 0, 0
+    
+    now = time.time()
+    cutoff = now - (IMAGE_RETENTION_DAYS * 86400)
+    deleted = 0
+    kept = 0
+    
+    for fname in os.listdir(IMG_DIR):
+        fpath = os.path.join(IMG_DIR, fname)
+        if not fname.endswith('.jpg'):
+            continue
+        mtime = os.path.getmtime(fpath)
+        if mtime < cutoff:
+            os.remove(fpath)
+            deleted += 1
+        else:
+            kept += 1
+    
+    return deleted, kept
+
+
 def main():
     print("=" * 60)
     print(f"🏪 YoFournisseur — Scraper V2")
@@ -247,6 +272,11 @@ def main():
     # Count images on disk
     img_count_disk = len([f for f in os.listdir(IMG_DIR) if f.endswith('.jpg')])
     img_size_mb = sum(os.path.getsize(os.path.join(IMG_DIR, f)) for f in os.listdir(IMG_DIR) if f.endswith('.jpg')) / 1024 / 1024
+    
+    # Clean old images (retention: 7 days)
+    deleted, kept = clean_old_images()
+    if deleted > 0:
+        print(f"   🧹 Images nettoyées : {deleted} supprimées (>{IMAGE_RETENTION_DAYS} jours)")
     
     print(f"\n{'=' * 60}")
     print(f"✅ Scraping terminé !")
