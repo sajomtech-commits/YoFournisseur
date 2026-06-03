@@ -32,9 +32,9 @@ SUPPLIERS = [
     {"id": "taurus-reps", "name": "Taurus Reps", "url": "https://deateath.x.yupoo.com/categories/4571155", "desc": "Vetements"},
 ]
 
-MAX_IMAGES = 120  # Max total images  
-MAX_IMG_PER_SUPPLIER = 5  # Max images per supplier
-MAX_PROD_PER_SUPPLIER = 10  # Max products per supplier
+MAX_IMAGES = 240  # Max total images  
+MAX_IMG_PER_SUPPLIER = 20  # Max images per supplier
+MAX_PROD_PER_SUPPLIER = 20  # Max products per supplier
 IMAGE_RETENTION_DAYS = 7   # Delete images older than this
 
 def fetch(url, timeout=20):
