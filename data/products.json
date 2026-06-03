@@ -1,7 +1,7 @@
 {
-  "last_updated": "2026-06-03T17:12:07.620899+00:00",
-  "total_products": 57,
-  "total_images": 6,
+  "last_updated": "2026-06-03T17:15:42.532734+00:00",
+  "total_products": 71,
+  "total_images": 9,
   "suppliers": 12,
   "products": [
     {
@@ -9,7 +9,7 @@
       "supplier_name": "Jersey Dong",
       "ref": "",
       "title": "junhaoqiumi",
-      "image_url": "",
+      "image_url": "images/junhaoqiumi_208fa96898d2.jpg",
       "category": "Maillot concept",
       "url": "https://junhaoqiumi.x.yupoo.com/",
       "price": null
@@ -19,7 +19,7 @@
       "supplier_name": "Jersey Dong",
       "ref": "",
       "title": "绿州系列短袖 长袖  卫衣",
-      "image_url": "",
+      "image_url": "images/junhaoqiumi_d004657cf17c.jpg",
       "category": "Maillot Training",
       "url": "https://junhaoqiumi.x.yupoo.com/",
       "price": null
@@ -29,7 +29,7 @@
       "supplier_name": "Jersey Dong",
       "ref": "",
       "title": "25-26特别版S-2XL",
-      "image_url": "",
+      "image_url": "images/junhaoqiumi_4b312cdc0e8f.jpg",
       "category": "Maillot concept",
       "url": "https://junhaoqiumi.x.yupoo.com/",
       "price": null
@@ -479,7 +479,7 @@
       "supplier_name": "Dongshan Sports",
       "ref": "",
       "title": "2526长拉帽衫阿迪款尺码参照表",
-      "image_url": "images/photos/dongshanstore_1c9a424c9eb4.jpg",
+      "image_url": "images/dongshanstore_1c9a424c9eb4.jpg",
       "category": "Training adultes",
       "url": "https://dongshanstore.x.yupoo.com/albums",
       "price": null
@@ -489,7 +489,7 @@
       "supplier_name": "Dongshan Sports",
       "ref": "",
       "title": "2425童装尺码表",
-      "image_url": "images/photos/dongshanstore_ae829cddce6f.jpg",
+      "image_url": "images/dongshanstore_ae829cddce6f.jpg",
       "category": "Enfants",
       "url": "https://dongshanstore.x.yupoo.com/albums",
       "price": null
@@ -499,8 +499,78 @@
       "supplier_name": "Dongshan Sports",
       "ref": "",
       "title": "微信图片_20250115163313.png",
-      "image_url": "images/photos/dongshanstore_b5daa5de2b28.jpg",
+      "image_url": "images/dongshanstore_b5daa5de2b28.jpg",
       "category": "Training adultes",
+      "url": "https://dongshanstore.x.yupoo.com/albums",
+      "price": null
+    },
+    {
+      "supplier_id": "dongshanstore",
+      "supplier_name": "Dongshan Sports",
+      "ref": "",
+      "title": "大装短袖+七分裤尺码参照表",
+      "image_url": "",
+      "category": "Maillot Training",
+      "url": "https://dongshanstore.x.yupoo.com/albums",
+      "price": null
+    },
+    {
+      "supplier_id": "dongshanstore",
+      "supplier_name": "Dongshan Sports",
+      "ref": "",
+      "title": "童装半拉尺码参照表",
+      "image_url": "",
+      "category": "Enfants",
+      "url": "https://dongshanstore.x.yupoo.com/albums",
+      "price": null
+    },
+    {
+      "supplier_id": "dongshanstore",
+      "supplier_name": "Dongshan Sports",
+      "ref": "",
+      "title": "童装短袖尺码参照表",
+      "image_url": "",
+      "category": "Maillot Training",
+      "url": "https://dongshanstore.x.yupoo.com/albums",
+      "price": null
+    },
+    {
+      "supplier_id": "dongshanstore",
+      "supplier_name": "Dongshan Sports",
+      "ref": "",
+      "title": "童装长拉尺码参照表",
+      "image_url": "",
+      "category": "Enfants",
+      "url": "https://dongshanstore.x.yupoo.com/albums",
+      "price": null
+    },
+    {
+      "supplier_id": "dongshanstore",
+      "supplier_name": "Dongshan Sports",
+      "ref": "",
+      "title": "短袖大装+长裤尺码参照表",
+      "image_url": "",
+      "category": "Maillot Training",
+      "url": "https://dongshanstore.x.yupoo.com/albums",
+      "price": null
+    },
+    {
+      "supplier_id": "dongshanstore",
+      "supplier_name": "Dongshan Sports",
+      "ref": "",
+      "title": "长拉尺码参照表",
+      "image_url": "",
+      "category": "Training adultes",
+      "url": "https://dongshanstore.x.yupoo.com/albums",
+      "price": null
+    },
+    {
+      "supplier_id": "dongshanstore",
+      "supplier_name": "Dongshan Sports",
+      "ref": "",
+      "title": "俱乐部背心尺码参照表",
+      "image_url": "",
+      "category": "Gilet / Débardeur",
       "url": "https://dongshanstore.x.yupoo.com/albums",
       "price": null
     },
@@ -549,7 +619,7 @@
       "supplier_name": "Taurus Reps",
       "ref": "",
       "title": "deateath",
-      "image_url": "images/photos/taurus-reps_891d1eaba2b5.jpg",
+      "image_url": "images/taurus-reps_891d1eaba2b5.jpg",
       "category": "Vetements",
       "url": "https://deateath.x.yupoo.com/categories/4571155",
       "price": null
@@ -559,7 +629,7 @@
       "supplier_name": "Taurus Reps",
       "ref": "",
       "title": "￥158 LACOSTE BAG 4206020375 (长45CM*宽18CM*高36CM)",
-      "image_url": "images/photos/taurus-reps_d32b724fa4c8.jpg",
+      "image_url": "images/taurus-reps_d32b724fa4c8.jpg",
       "category": "Vetements",
       "url": "https://deateath.x.yupoo.com/categories/4571155",
       "price": null
@@ -569,8 +639,78 @@
       "supplier_name": "Taurus Reps",
       "ref": "",
       "title": "￥78 LACOSTE T-SHIRT 3206020203（im 170cm 60kg i wear size L in the phot）",
-      "image_url": "images/photos/taurus-reps_b94fd0425147.jpg",
+      "image_url": "images/taurus-reps_b94fd0425147.jpg",
       "category": "Guide des Tailles",
+      "url": "https://deateath.x.yupoo.com/categories/4571155",
+      "price": null
+    },
+    {
+      "supplier_id": "taurus-reps",
+      "supplier_name": "Taurus Reps",
+      "ref": "",
+      "title": "￥78 LACOSTE T-SHIRT 3206020103（im 170cm 60kg i wear size L in the phot）",
+      "image_url": "",
+      "category": "Guide des Tailles",
+      "url": "https://deateath.x.yupoo.com/categories/4571155",
+      "price": null
+    },
+    {
+      "supplier_id": "taurus-reps",
+      "supplier_name": "Taurus Reps",
+      "ref": "",
+      "title": "￥98 LACOSTE  T-SHIRT 12622108（im 170cm 60kg i wear size S in the phot）",
+      "image_url": "",
+      "category": "Guide des Tailles",
+      "url": "https://deateath.x.yupoo.com/categories/4571155",
+      "price": null
+    },
+    {
+      "supplier_id": "taurus-reps",
+      "supplier_name": "Taurus Reps",
+      "ref": "",
+      "title": "LACOSTE",
+      "image_url": "",
+      "category": "Vetements",
+      "url": "https://deateath.x.yupoo.com/categories/4571155",
+      "price": null
+    },
+    {
+      "supplier_id": "taurus-reps",
+      "supplier_name": "Taurus Reps",
+      "ref": "",
+      "title": "￥138 LACOSTE  TROUSERS 4205280177",
+      "image_url": "",
+      "category": "Vetements",
+      "url": "https://deateath.x.yupoo.com/categories/4571155",
+      "price": null
+    },
+    {
+      "supplier_id": "taurus-reps",
+      "supplier_name": "Taurus Reps",
+      "ref": "",
+      "title": "￥98 LACOSTE  T-SHIRT  125280308（im 170cm 60kg i wear size S in the phot）",
+      "image_url": "",
+      "category": "Guide des Tailles",
+      "url": "https://deateath.x.yupoo.com/categories/4571155",
+      "price": null
+    },
+    {
+      "supplier_id": "taurus-reps",
+      "supplier_name": "Taurus Reps",
+      "ref": "",
+      "title": "￥115 LACOSTE  T-SHIRT  125280409（im 170cm 60kg i wear size M in the phot）",
+      "image_url": "",
+      "category": "Guide des Tailles",
+      "url": "https://deateath.x.yupoo.com/categories/4571155",
+      "price": null
+    },
+    {
+      "supplier_id": "taurus-reps",
+      "supplier_name": "Taurus Reps",
+      "ref": "",
+      "title": "￥115 LACOSTE  POLO 22052845170（im 170cm 60kg i wear size L in the phot）",
+      "image_url": "",
+      "category": "Polo",
       "url": "https://deateath.x.yupoo.com/categories/4571155",
       "price": null
     }
