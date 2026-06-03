@@ -32,8 +32,8 @@ SUPPLIERS = [
     {"id": "taurus-reps", "name": "Taurus Reps", "url": "https://deateath.x.yupoo.com/categories/4571155", "desc": "Vetements"},
 ]
 
-MAX_IMAGES = 36   # Max total images
-MAX_IMG_PER_SUPPLIER = 3  # Max per supplier
+MAX_IMAGES = 120  # Max total images  
+MAX_IMG_PER_SUPPLIER = 5  # Max images per supplier
 MAX_PROD_PER_SUPPLIER = 10  # Max products per supplier
 IMAGE_RETENTION_DAYS = 7   # Delete images older than this
 
@@ -112,7 +112,7 @@ def detect_category(title, default_desc):
     return default_desc
 
 def scrape_supplier(supplier):
-    """Scrape a supplier and download images"""
+    """Scrape a supplier and download images — only keep products WITH images"""
     print(f"\n🔍 {supplier['name']} ({supplier['url']})")
     html = fetch(supplier["url"])
     if not html:
@@ -122,75 +122,76 @@ def scrape_supplier(supplier):
     products = []
     seen_titles = set()
     
-    # Extract data
+    # Extract ALL image URLs from data-src AND src= attributes
+    imgs = re.findall(
+        r'(?:data-src|src)="(https://photo\.yupoo\.com/[^"]+/(?:medium|small)\.[a-z]+)"',
+        html
+    )
+    # Extract titles
     titles = re.findall(r'title="([^"]+)"', html)
-    imgs = re.findall(r'data-src="(https://photo\.yupoo\.com/[^"]+/(?:medium|small)\.(?:jpg|jpeg))"', html)
     
-    # Filter out non-product titles
-    skip_titles = {"dongshanstore", "进入后台", "前一页", "后一页", "加密相册"}
-    
+    skip_titles = {"dongshanstore", "deateath", "进入后台", "前一页", "后一页", "加密相册"}
     product_titles = [t for t in titles if t not in skip_titles and len(t) > 5]
+    
+    # Also extract from Zhidian format
     if "zhidian-inc" in supplier["url"]:
-        items = re.findall(r'data-title="([^"]*)"[^>]*data-src="([^"]*)"', html)
+        items = re.findall(r'data-title="([^"]*)"[^>]*(?:data-src|src)="([^"]*)"', html)
         for title, img_url in items:
             if title and len(title) > 3 and title not in seen_titles:
                 seen_titles.add(title)
                 img_hash = get_image_hash(img_url)
                 img_filename = f"{supplier['id']}_{img_hash}.jpg"
-                img_local_path = f"images/photos/{img_filename}"
+                img_local_path = f"images/{img_filename}"
                 img_abs_path = os.path.join(IMG_DIR, img_filename)
                 
                 if not os.path.exists(img_abs_path):
                     download_image(img_url, img_abs_path)
                 
-                cat = detect_category(title, supplier["desc"])
-                ref_match = re.match(r'([A-Z]\d+)#', title)
-                ref = ref_match.group(1) if ref_match else ""
-                
-                products.append({
-                    "supplier_id": supplier["id"],
-                    "supplier_name": supplier["name"],
-                    "ref": ref,
-                    "title": title.strip(),
-                    "image_url": img_local_path,
-                    "category": cat,
-                    "url": supplier["url"],
-                    "price": None,
-                })
+                if os.path.exists(img_abs_path):
+                    cat = detect_category(title, supplier["desc"])
+                    ref_match = re.match(r'([A-Z]\d+)#', title)
+                    ref = ref_match.group(1) if ref_match else ""
+                    
+                    products.append({
+                        "supplier_id": supplier["id"],
+                        "supplier_name": supplier["name"],
+                        "ref": ref,
+                        "title": title.strip(),
+                        "image_url": img_local_path,
+                        "category": cat,
+                        "url": supplier["url"],
+                        "price": None,
+                    })
     
-    # Standard Yupoo
-    product_img_count = 0
+    # Standard Yupoo — only keep products where image downloads successfully
+    img_count = 0
     for i, title in enumerate(product_titles):
         if title in seen_titles:
             continue
         seen_titles.add(title)
         
+        if img_count >= MAX_IMG_PER_SUPPLIER:
+            break
+        
         img_url = imgs[i] if i < len(imgs) else ""
         if img_url and "medium" not in img_url:
             img_url = img_url.replace("/small.jpg", "/medium.jpg")
         
-        img_downloaded = 0
-        if img_url and product_img_count < MAX_IMG_PER_SUPPLIER:
-            img_hash = get_image_hash(img_url)
-            img_filename = f"{supplier['id']}_{img_hash}.jpg"
-            img_local_path = f"images/{img_filename}"
-            img_abs_path = os.path.join(IMG_DIR, img_filename)
-            
-            if not os.path.exists(img_abs_path):
-                ok = download_image(img_url, img_abs_path)
-                # If download returned a renamed path, use the .jpg version
-                img_local_path = f"images/{img_filename}"
-                if ok:
-                    img_downloaded += 1
-                    product_img_count += 1
-                else:
-                    img_local_path = ""
-            else:
-                img_downloaded += 1
-                product_img_count += 1
-        else:
-            img_local_path = ""
+        if not img_url:
+            continue
         
+        img_hash = get_image_hash(img_url)
+        img_filename = f"{supplier['id']}_{img_hash}.jpg"
+        img_local_path = f"images/{img_filename}"
+        img_abs_path = os.path.join(IMG_DIR, img_filename)
+        
+        # Download or check if exists
+        if not os.path.exists(img_abs_path):
+            ok = download_image(img_url, img_abs_path)
+            if not ok:
+                continue
+        
+        img_count += 1
         ref_match = re.match(r'([A-Z]\d+)#', title)
         ref = ref_match.group(1) if ref_match else ""
         cat = detect_category(title, supplier["desc"])
@@ -206,8 +207,10 @@ def scrape_supplier(supplier):
             "price": None,
         })
     
-    print(f"    ✅ {len(products)} produits, {product_img_count} images téléchargées")
-    return products
+    print(f"    ✅ {len(products)} produits avec image")
+    
+    # Limit to MAX_PROD_PER_SUPPLIER total
+    return products[:MAX_PROD_PER_SUPPLIER]
 
 
 def clean_old_images():
