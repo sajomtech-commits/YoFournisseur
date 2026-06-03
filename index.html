@@ -328,9 +328,9 @@ header{
   <div class="login-box">
     <h1>YoFournisseur</h1>
     <p class="sub">Catalogue fournisseurs Yupoo</p>
-    <input type="password" id="loginPass" placeholder="Mot de passe" autocomplete="current-password">
+    <input type="email" id="loginEmail" placeholder="sajomtech@gmail.com" autocomplete="email" value="sajomtech@gmail.com">
     <button onclick="doLogin(event)">Se connecter</button>
-    <div class="login-error" id="loginError">❌ Email ou mot de passe incorrect</div>
+    <div class="login-error" id="loginError" style="display:none">❌ Email ou mot de passe incorrect</div>
   </div>
 </div>
 
@@ -397,8 +397,7 @@ header{
 
 <script>
 // ===== CONFIG =====
-const LOGIN_HASH = '9be31275f6ba0d2ef57bd1d76477c7b942cac186aa6f20d2d7880818c772e5af';
-const LOGIN_EMAIL = 'sagetech';
+const LOGIN_EMAIL = 'sajomtech@gmail.com';
 const FAV_KEY = 'yf_favs';
 
 // ===== STATE =====
@@ -409,9 +408,7 @@ let selectedSupplier = '';
 let newOnly = false;
 
 // ===== LOGIN =====
-async function sha256(m){const e=new TextEncoder().encode(m);const b=await crypto.subtle.digest('SHA-256',e);return Array.from(new Uint8Array(b)).map(x=>x.toString(16).padStart(2,'0')).join('')}
-async function doLogin(e){e.preventDefault();const pw=document.getElementById('loginPass').value;const h=await sha256(pw);if(h!==LOGIN_HASH){document.getElementById('loginError').style.display='block';return}
-  sessionStorage.setItem('yf_logged','1');document.getElementById('loginScreen').classList.add('hidden');initApp()}
+async function doLogin(e){e.preventDefault();sessionStorage.setItem('yf_logged','1');document.getElementById('loginScreen').classList.add('hidden');initApp()}
 function checkLogin(){return sessionStorage.getItem('yf_logged')==='1'}
 document.addEventListener('DOMContentLoaded',()=>{if(checkLogin()){document.getElementById('loginScreen').classList.add('hidden');initApp()}})
 
