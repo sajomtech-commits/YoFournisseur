@@ -4,6 +4,9 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
 <meta name="theme-color" content="#0a0a0f">
+<meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+<meta http-equiv="Pragma" content="no-cache">
+<meta http-equiv="Expires" content="0">
 <title>YoFournisseur</title>
 <style>
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
@@ -244,12 +247,9 @@ function toggleFav(title){let f=getFavs();const i=f.indexOf(title);if(i>-1)f.spl
 function isFav(title){return getFavs().includes(title)}
 
 async function loadData(){
-  const c=localStorage.getItem('yf_cache');
-  if(c){try{const d=JSON.parse(c);products=d.products||[];extractSuppliers();return}catch(e){}}
   try{
-    const r=await fetch('data/products.json');const d=await r.json();
-    products=d.products||[];localStorage.setItem('yf_cache',JSON.stringify(d));
-    extractSuppliers();
+    const r=await fetch('data/products.json?t='+Date.now());const d=await r.json();
+    products=d.products||[];extractSuppliers();
   }catch(e){products=[];extractSuppliers()}
 }
 function extractSuppliers(){
