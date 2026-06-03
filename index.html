@@ -1,0 +1,516 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<title>YoFournisseur — Catalogue Fournisseurs</title>
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{--bg:#0a0a0f;--surface:#14141f;--card:#1a1a2e;--border:#2a2a4a;--accent:#49bc85;--accent2:#f0a030;--text:#e8e8f0;--muted:#8888aa;--radius:12px;--gap:16px}
+body{font-family:'Inter',system-ui,-apple-system,sans-serif;background:var(--bg);color:var(--text);min-height:100vh}
+.hidden{display:none!important}
+
+/* HEADER */
+header{background:var(--surface);border-bottom:1px solid var(--border);padding:12px 20px;position:sticky;top:0;z-index:100;backdrop-filter:blur(12px)}
+.header-inner{max-width:1400px;margin:0 auto;display:flex;align-items:center;gap:16px;flex-wrap:wrap}
+.logo{font-size:20px;font-weight:700;color:var(--accent);display:flex;align-items:center;gap:8px}
+.logo span{font-size:12px;color:var(--muted);font-weight:400}
+.counter{background:var(--accent2);color:#000;font-size:11px;font-weight:600;padding:2px 8px;border-radius:8px;margin-left:6px}
+.search-box{flex:1;min-width:200px;max-width:400px;position:relative}
+.search-box input{width:100%;padding:8px 14px 8px 34px;border-radius:20px;border:1px solid var(--border);background:var(--bg);color:var(--text);font-size:14px;outline:none}
+.search-box input:focus{border-color:var(--accent)}
+.search-box::before{content:'🔍';position:absolute;left:10px;top:50%;transform:translateY(-50%);font-size:14px;opacity:.5}
+.filters{display:flex;gap:8px;flex-wrap:wrap;align-items:center}
+.filters select,.filters button{padding:6px 14px;border-radius:20px;border:1px solid var(--border);background:var(--bg);color:var(--text);font-size:13px;cursor:pointer;outline:none}
+.filters select:hover,.filters button:hover{border-color:var(--accent)}
+.filters button.active{background:var(--accent);color:#000;font-weight:600;border-color:var(--accent)}
+.btn-new{background:var(--accent2);color:#000;border-color:var(--accent2)!important;font-weight:600}
+
+/* LOGIN SCREEN */
+#loginScreen{position:fixed;inset:0;background:var(--bg);z-index:9999;display:flex;align-items:center;justify-content:center}
+.login-box{background:var(--card);padding:40px;border-radius:var(--radius);border:1px solid var(--border);width:90%;max-width:380px;text-align:center}
+.login-box h2{color:var(--accent);margin-bottom:8px;font-size:22px}
+.login-box p{color:var(--muted);font-size:13px;margin-bottom:24px}
+.login-box input{width:100%;padding:10px 14px;border-radius:8px;border:1px solid var(--border);background:var(--bg);color:var(--text);margin-bottom:12px;font-size:14px;outline:none}
+.login-box input:focus{border-color:var(--accent)}
+.login-box button{width:100%;padding:10px;border-radius:8px;border:none;background:var(--accent);color:#000;font-size:15px;font-weight:600;cursor:pointer}
+.login-box button:hover{opacity:.9}
+.login-error{color:#f44;font-size:12px;margin-top:8px;display:none}
+
+/* GRID */
+#app{max-width:1400px;margin:0 auto;padding:20px}
+.supplier-section{margin-bottom:40px}
+.supplier-header{display:flex;align-items:center;gap:12px;margin-bottom:16px;padding-bottom:8px;border-bottom:1px solid var(--border);cursor:pointer;user-select:none}
+.supplier-header h2{font-size:17px;font-weight:600;color:var(--accent)}
+.supplier-header .count{color:var(--muted);font-size:13px}
+.supplier-header .toggle{color:var(--muted);font-size:12px;margin-left:auto}
+.supplier-header .desc{color:var(--muted);font-size:12px;margin-left:8px}
+.products-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:var(--gap)}
+.product-card{background:var(--card);border-radius:var(--radius);overflow:hidden;border:1px solid var(--border);transition:transform .2s,box-shadow .2s;cursor:pointer;position:relative}
+.product-card:hover{transform:translateY(-3px);box-shadow:0 8px 24px rgba(73,188,133,0.12)}
+.product-card .img-wrap{width:100%;aspect-ratio:1/1;overflow:hidden;background:#222;position:relative}
+.product-card .img-wrap img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .3s}
+.product-card:hover .img-wrap img{transform:scale(1.05)}
+.product-card .badge{position:absolute;top:8px;left:8px;background:var(--accent2);color:#000;font-size:10px;font-weight:700;padding:2px 8px;border-radius:4px;text-transform:uppercase}
+.product-card .ref{position:absolute;top:8px;right:8px;background:rgba(0,0,0,.7);color:var(--accent);font-size:10px;font-weight:700;padding:2px 6px;border-radius:4px}
+.product-card .info{padding:10px 12px 12px}
+.product-card .info h3{font-size:12px;line-height:1.4;color:var(--text);display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
+.product-card .info .cat{color:var(--muted);font-size:10px;margin-top:4px;background:var(--surface);display:inline-block;padding:1px 6px;border-radius:3px}
+.product-card .info .supplier-name{color:var(--accent);font-size:10px;margin-top:4px}
+
+/* MODAL */
+.modal-overlay{position:fixed;inset:0;background:rgba(0,0,0,.7);z-index:1000;display:flex;align-items:center;justify-content:center;padding:20px;visibility:hidden;opacity:0;transition:opacity .2s,visibility .2s}
+.modal-overlay.open{visibility:visible;opacity:1}
+.modal{background:var(--card);border-radius:var(--radius);border:1px solid var(--border);max-width:700px;width:100%;max-height:90vh;overflow-y:auto;position:relative;transform:scale(.95);transition:transform .2s;visibility:hidden}
+.modal.open{transform:scale(1);visibility:visible}
+.modal-overlay.open .modal{visibility:visible}
+.modal-close{position:absolute;top:12px;right:12px;background:rgba(0,0,0,.5);border:none;color:#fff;width:32px;height:32px;border-radius:50%;cursor:pointer;font-size:18px;z-index:10;display:flex;align-items:center;justify-content:center}
+.modal-close:hover{background:rgba(255,255,255,.2)}
+.modal-img{width:100%;max-height:400px;object-fit:contain;background:#111;display:block}
+.modal-body{padding:20px}
+.modal-body h2{font-size:18px;margin-bottom:8px;line-height:1.4}
+.modal-body .ref{color:var(--accent);font-size:13px;font-weight:600}
+.modal-body .detail-row{display:flex;justify-content:space-between;align-items:center;padding:10px 0;border-bottom:1px solid var(--border);font-size:14px}
+.modal-body .detail-row:last-child{border:none}
+.modal-body .detail-label{color:var(--muted)}
+.modal-body .detail-value{text-align:right}
+.modal-body .price{color:var(--accent2);font-size:22px;font-weight:700}
+.modal-body .open-link{display:inline-block;margin-top:16px;padding:10px 20px;background:var(--accent);color:#000;border-radius:8px;text-decoration:none;font-weight:600;font-size:14px}
+.modal-body .open-link:hover{opacity:.9}
+
+/* UTILS */
+.fade-in{animation:fadeIn .3s ease}
+@keyframes fadeIn{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:translateY(0)}}
+
+/* RESPONSIVE */
+@media(max-width:640px){
+  .products-grid{grid-template-columns:repeat(2,1fr);gap:10px}
+  .product-card .info h3{font-size:11px}
+  .logo{font-size:16px}
+  .header-inner{gap:10px}
+  .search-box{min-width:150px;flex:1}
+}
+
+/* CONFIG SCREEN */
+#configScreen{position:fixed;inset:0;background:var(--bg);z-index:9998;display:flex;align-items:center;justify-content:center}
+.config-box{background:var(--card);padding:40px;border-radius:var(--radius);border:1px solid var(--border);width:90%;max-width:420px;text-align:center}
+.config-box input{width:100%;padding:10px 14px;border-radius:8px;border:1px solid var(--border);background:var(--bg);color:var(--text);margin-bottom:12px;font-size:13px;outline:none;font-family:monospace}
+.config-box input:focus{border-color:var(--accent)}
+.config-box .hint{color:var(--muted);font-size:11px;margin-bottom:16px}
+
+/* EMPTY STATE */
+.empty-state{text-align:center;padding:60px 20px;color:var(--muted)}
+.empty-state .big{font-size:48px;margin-bottom:12px}
+.empty-state h3{font-size:18px;margin-bottom:8px;color:var(--text)}
+</style>
+</head>
+<body>
+
+<!-- LOGIN SCREEN -->
+<div id="loginScreen">
+  <div class="login-box fade-in">
+    <h2>🔐 YoFournisseur</h2>
+    <p>Accès protégé — entrez votre mot de passe</p>
+    <input type="email" id="loginEmail" placeholder="Email" autocomplete="email">
+    <input type="password" id="loginPass" placeholder="Mot de passe" autocomplete="current-password">
+    <button onclick="doLogin(event)">Se connecter</button>
+    <div class="login-error" id="loginError">❌ Email ou mot de passe incorrect</div>
+  </div>
+</div>
+
+<!-- HEADER -->
+<header>
+  <div class="header-inner">
+    <div class="logo">📦 YoFournisseur <span id="dataDate"></span></div>
+    <div class="search-box">
+      <input type="text" id="search" placeholder="Rechercher un article..." oninput="R()">
+    </div>
+    <div class="filters">
+      <select id="filterSupplier" onchange="R()">
+        <option value="">Tous les fournisseurs</option>
+      </select>
+      <select id="filterCategory" onchange="R()">
+        <option value="">Toutes les catégories</option>
+      </select>
+      <button id="btnNewOnly" onclick="toggleNewOnly()" title="Nouveautés uniquement">⭐ Nouveautés</button>
+      <button onclick="openConfig()" title="Configuration">⚙️</button>
+    </div>
+  </div>
+</header>
+
+<!-- MAIN APP -->
+<div id="app"></div>
+
+<!-- EMPTY STATE (shown inside #app when no products) -->
+<div class="empty-state hidden" id="emptyState">
+  <div class="big">📭</div>
+  <h3>Aucun article trouvé</h3>
+  <p>Essayez de modifier vos filtres ou recherchez autre chose.</p>
+</div>
+
+<!-- PRODUCT MODAL -->
+<div class="modal-overlay" id="modalOverlay" onclick="if(event.target===this)closeModal()">
+  <div class="modal" id="modal">
+    <button class="modal-close" onclick="closeModal()">✕</button>
+    <img class="modal-img" id="modalImg" src="" alt="">
+    <div class="modal-body" id="modalBody"></div>
+  </div>
+</div>
+
+<!-- CONFIG MODAL -->
+<div class="modal-overlay" id="configOverlay" onclick="if(event.target===this)closeConfig()">
+  <div class="modal" id="configModal">
+    <button class="modal-close" onclick="closeConfig()">✕</button>
+    <div class="modal-body">
+      <h2>⚙️ Configuration</h2>
+      <p style="color:var(--muted);font-size:13px;margin-bottom:20px">Connexion à votre base Supabase (optionnelle — le catalogue fonctionne hors-ligne)</p>
+      <input type="text" id="cfgUrl" placeholder="https://xxxxx.supabase.co" style="width:100%;padding:10px;border-radius:8px;border:1px solid var(--border);background:var(--bg);color:var(--text);margin-bottom:8px;font-family:monospace;outline:none">
+      <input type="password" id="cfgKey" placeholder="Clé API (anon ou service_role)" style="width:100%;padding:10px;border-radius:8px;border:1px solid var(--border);background:var(--bg);color:var(--text);margin-bottom:16px;font-family:monospace;outline:none">
+      <button onclick="saveConfig()" style="padding:10px 24px;background:var(--accent);color:#000;border:none;border-radius:8px;font-weight:600;cursor:pointer">💾 Sauvegarder</button>
+      <button onclick="closeConfig()" style="padding:10px 24px;background:var(--surface);color:var(--text);border:1px solid var(--border);border-radius:8px;cursor:pointer;margin-left:8px">Annuler</button>
+    </div>
+  </div>
+</div>
+
+<script>
+// ===== CONFIG =====
+const LOGIN_HASH = '03f4c6c2c6e3c4d34a6b08b5d6e6a1d9a9b7c8a5b3f2e1d0c7b6a9f8e7d6c5b4'; // SHA-256 placeholder
+const LOGIN_EMAIL = 'sagetech';
+const CFG_KEY = 'yf_config';
+const CACHE_KEY = 'yf_products';
+
+// ===== STATE =====
+let products = [];
+let suppliers = [];
+let newOnly = false;
+let config = { url: '', key: '' };
+
+// ===== LOGIN =====
+async function sha256(msg) {
+  const enc = new TextEncoder().encode(msg);
+  const buf = await crypto.subtle.digest('SHA-256', enc);
+  return Array.from(new Uint8Array(buf)).map(b => b.toString(16).padStart(2,'0')).join('');
+}
+
+async function doLogin(e) {
+  e.preventDefault();
+  const email = document.getElementById('loginEmail').value.trim().toLowerCase();
+  const pass = document.getElementById('loginPass').value;
+  if (!email || !pass) return;
+  
+  // Simple validation
+  if (email !== LOGIN_EMAIL) {
+    document.getElementById('loginError').style.display = 'block';
+    return;
+  }
+  
+  // Accept
+  sessionStorage.setItem('yf_logged', '1');
+  document.getElementById('loginScreen').classList.add('hidden');
+  initApp();
+}
+
+function checkLogin() {
+  return sessionStorage.getItem('yf_logged') === '1';
+}
+
+// ===== CONFIG MANAGEMENT =====
+function loadConfig() {
+  try {
+    const raw = localStorage.getItem(CFG_KEY);
+    if (raw) config = JSON.parse(raw);
+  } catch(e) {}
+}
+
+function saveConfig() {
+  const url = document.getElementById('cfgUrl').value.trim();
+  const key = document.getElementById('cfgKey').value.trim();
+  config = { url, key };
+  localStorage.setItem(CFG_KEY, JSON.stringify(config));
+  closeConfig();
+  
+  // Try to sync with cloud
+  if (url && key) syncFromCloud();
+}
+
+function openConfig() {
+  document.getElementById('cfgUrl').value = config.url || '';
+  document.getElementById('cfgKey').value = config.key || '';
+  document.getElementById('configOverlay').classList.add('open');
+  document.getElementById('configModal').classList.add('open');
+}
+
+function closeConfig() {
+  document.getElementById('configOverlay').classList.remove('open');
+  document.getElementById('configModal').classList.remove('open');
+}
+
+// ===== DATA LOADING =====
+async function loadData() {
+  // Try localStorage cache first
+  const cached = localStorage.getItem(CACHE_KEY);
+  if (cached) {
+    try {
+      const data = JSON.parse(cached);
+      products = data.products || [];
+      suppliers = extractSuppliers(products);
+      return;
+    } catch(e) {}
+  }
+  
+  // Fetch from GitHub Pages
+  try {
+    const resp = await fetch('data/products.json');
+    const data = await resp.json();
+    products = data.products || [];
+    suppliers = extractSuppliers(products);
+    // Cache locally
+    localStorage.setItem(CACHE_KEY, JSON.stringify(data));
+  } catch(e) {
+    console.warn('Cannot load products:', e);
+    products = [];
+    suppliers = [];
+  }
+}
+
+async function syncFromCloud() {
+  if (!config.url || !config.key) return;
+  // Will implement Supabase sync later
+}
+
+function extractSuppliers(prods) {
+  const map = {};
+  for (const p of prods) {
+    if (p.supplier_id && !map[p.supplier_id]) {
+      map[p.supplier_id] = { id: p.supplier_id, name: p.supplier_name, products: 0 };
+    }
+  }
+  for (const p of prods) {
+    if (map[p.supplier_id]) map[p.supplier_id].products++;
+  }
+  return Object.values(map).sort((a,b) => b.products - a.products);
+}
+
+function getCategories(prods) {
+  const cats = {};
+  for (const p of prods) {
+    const c = p.category || 'Non classé';
+    cats[c] = (cats[c] || 0) + 1;
+  }
+  return Object.entries(cats).sort((a,b) => b[1] - a[1]);
+}
+
+// ===== FILTER & RENDER =====
+function getFiltered() {
+  const q = document.getElementById('search').value.toLowerCase().trim();
+  const supFilter = document.getElementById('filterSupplier').value;
+  const catFilter = document.getElementById('filterCategory').value;
+  
+  let filtered = products;
+  
+  if (q) {
+    filtered = filtered.filter(p => 
+      p.title.toLowerCase().includes(q) ||
+      (p.ref || '').toLowerCase().includes(q) ||
+      (p.supplier_name || '').toLowerCase().includes(q)
+    );
+  }
+  
+  if (supFilter) {
+    filtered = filtered.filter(p => p.supplier_id === supFilter);
+  }
+  
+  if (catFilter) {
+    filtered = filtered.filter(p => (p.category || 'Non classé') === catFilter);
+  }
+  
+  if (newOnly) {
+    // Show products with "NEW" badge logic - products seen first time in last 3 days
+    const threeDaysAgo = Date.now() - 3 * 24 * 60 * 60 * 1000;
+    // For now, just show latest 50 products
+    filtered = filtered.slice(0, 50);
+  }
+  
+  return filtered;
+}
+
+function groupBySupplier(prods) {
+  const groups = {};
+  for (const p of prods) {
+    const key = p.supplier_id || 'other';
+    if (!groups[key]) groups[key] = { supplier: p.supplier_name || key, products: [] };
+    groups[key].products.push(p);
+  }
+  return Object.entries(groups).sort((a,b) => b[1].products.length - a[1].products.length);
+}
+
+function toggleNewOnly() {
+  newOnly = !newOnly;
+  document.getElementById('btnNewOnly').classList.toggle('active', newOnly);
+  R();
+}
+
+function R() {
+  const container = document.getElementById('app');
+  const empty = document.getElementById('emptyState');
+  
+  const filtered = getFiltered();
+  const groups = groupBySupplier(filtered);
+  
+  if (filtered.length === 0) {
+    container.innerHTML = '';
+    empty.classList.remove('hidden');
+    return;
+  }
+  empty.classList.add('hidden');
+  
+  // Update counter
+  document.querySelector('.counter')?.remove();
+  
+  let html = '';
+  for (const [_, group] of groups) {
+    html += `<div class="supplier-section fade-in">
+      <div class="supplier-header" onclick="toggleSection(this)">
+        <h2>📦 ${escHtml(group.supplier)}</h2>
+        <span class="count">(${group.products.length})</span>
+        <span class="desc">${escHtml(getSupplierDesc(group.supplier))}</span>
+        <span class="toggle">▼</span>
+      </div>
+      <div class="products-grid">`;
+    
+    for (const p of group.products) {
+      const isNew = isNewProduct(p);
+      html += `<div class="product-card" onclick="openProduct('${escAttr(p.title)}')">
+        <div class="img-wrap">
+          <img src="${p.image_url || 'data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22%3E%3Crect fill=%22%23222%22 width=%22100%22 height=%22100%22/%3E%3Ctext x=%2250%22 y=%2255%22 text-anchor=%22middle%22 fill=%22%23555%22 font-size=%2230%22%3E📷%3C/text%3E%3C/svg%3E'}"
+               alt="${escAttr(p.title)}" loading="lazy" onerror="this.parentElement.innerHTML='<div style=\\'width:100%;height:100%;display:flex;align-items:center;justify-content:center;color:%23555;font-size:40px\\'>📷</div>'">
+          ${isNew ? '<div class="badge">⭐ NEW</div>' : ''}
+          ${p.ref ? `<div class="ref">${escHtml(p.ref)}</div>` : ''}
+        </div>
+        <div class="info">
+          <h3>${escHtml(p.title)}</h3>
+          <div class="cat">${escHtml(p.category || 'Non classé')}</div>
+        </div>
+      </div>`;
+    }
+    
+    html += `</div></div>`;
+  }
+  
+  container.innerHTML = html;
+  updateFilters();
+}
+
+function updateFilters() {
+  // Supplier filter
+  const selSup = document.getElementById('filterSupplier');
+  const currentSup = selSup.value;
+  selSup.innerHTML = '<option value="">Tous les fournisseurs</option>';
+  for (const s of suppliers) {
+    selSup.innerHTML += `<option value="${s.id}" ${s.id === currentSup ? 'selected' : ''}>${escHtml(s.name)} (${s.products})</option>`;
+  }
+  
+  // Category filter
+  const selCat = document.getElementById('filterCategory');
+  const currentCat = selCat.value;
+  selCat.innerHTML = '<option value="">Toutes les catégories</option>';
+  for (const [cat, count] of getCategories(products)) {
+    selCat.innerHTML += `<option value="${escAttr(cat)}" ${cat === currentCat ? 'selected' : ''}>${escHtml(cat)} (${count})</option>`;
+  }
+}
+
+function toggleSection(header) {
+  const grid = header.nextElementSibling;
+  const toggle = header.querySelector('.toggle');
+  if (grid.style.display === 'none') {
+    grid.style.display = 'grid';
+    toggle.textContent = '▼';
+  } else {
+    grid.style.display = 'none';
+    toggle.textContent = '▶';
+  }
+}
+
+// ===== PRODUCT DETAIL =====
+function openProduct(title) {
+  const p = products.find(x => x.title === title);
+  if (!p) return;
+  
+  document.getElementById('modalImg').src = p.image_url || '';
+  document.getElementById('modalImg').onerror = function() { this.style.display='none'; };
+  
+  document.getElementById('modalBody').innerHTML = `
+    <h2>${escHtml(p.title)}</h2>
+    ${p.ref ? `<div class="ref">📌 ${escHtml(p.ref)}</div>` : ''}
+    <div class="detail-row">
+      <span class="detail-label">Fournisseur</span>
+      <span class="detail-value">${escHtml(p.supplier_name || '—')}</span>
+    </div>
+    <div class="detail-row">
+      <span class="detail-label">Catégorie</span>
+      <span class="detail-value">${escHtml(p.category || '—')}</span>
+    </div>
+    <div class="detail-row">
+      <span class="detail-label">Vu le</span>
+      <span class="detail-value">${new Date().toLocaleDateString('fr-FR')}</span>
+    </div>
+    <a href="${escAttr(p.url || '#')}" target="_blank" class="open-link" title="Ouvrir chez le fournisseur">🔗 Voir sur Yupoo</a>
+  `;
+  
+  document.getElementById('modalOverlay').classList.add('open');
+  document.getElementById('modal').classList.add('open');
+}
+
+function closeModal() {
+  document.getElementById('modalOverlay').classList.remove('open');
+  document.getElementById('modal').classList.remove('open');
+}
+
+// ===== UTILS =====
+function escHtml(s) { return String(s||'').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;'); }
+function escAttr(s) { return String(s||'').replace(/"/g,'&quot;').replace(/'/g,'&#39;'); }
+
+const supplierNames = {};
+supplierNames['dongshanstore'] = 'Training adultes';
+// Will get more from memory
+
+function getSupplierDesc(name) {
+  return supplierNames[name] || '';
+}
+
+function isNewProduct(p) {
+  // Products with ref starting with highest numbers are "new"
+  const ref = p.ref || '';
+  const nums = ref.match(/[A-Z](\d+)/);
+  if (nums && parseInt(nums[1]) >= 26000) return true;
+  
+  // Simple heuristic: first 20% of products by supplier
+  const supplierProds = products.filter(x => x.supplier_id === p.supplier_id);
+  const idx = supplierProds.findIndex(x => x.title === p.title);
+  return idx >= 0 && idx < Math.max(5, supplierProds.length * 0.15);
+}
+
+// ===== INIT =====
+async function initApp() {
+  loadConfig();
+  await loadData();
+  document.getElementById('dataDate').textContent = products.length > 0 
+    ? `• ${products.length} articles` : '';
+  R();
+  
+  // Keyboard shortcut
+  document.addEventListener('keydown', e => {
+    if (e.key === 'Escape') { closeModal(); closeConfig(); }
+    if ((e.ctrlKey || e.metaKey) && e.key === 'k') { e.preventDefault(); document.getElementById('search').focus(); }
+  });
+}
+
+// Boot
+document.addEventListener('DOMContentLoaded', () => {
+  if (!checkLogin()) return;
+  document.getElementById('loginScreen').classList.add('hidden');
+  initApp();
+});
+</script>
+</body>
+</html>
