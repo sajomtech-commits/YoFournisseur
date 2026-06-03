@@ -11,7 +11,7 @@ from urllib.error import HTTPError, URLError
 # === CONFIG ===
 OUTPUT_DIR = os.path.join(os.path.dirname(__file__), "..")
 DATA_DIR = os.path.join(OUTPUT_DIR, "data")
-IMG_DIR = os.path.join(OUTPUT_DIR, "images", "photos")
+IMG_DIR = os.path.join(OUTPUT_DIR, "data", "images")
 os.makedirs(DATA_DIR, exist_ok=True)
 os.makedirs(IMG_DIR, exist_ok=True)
 
