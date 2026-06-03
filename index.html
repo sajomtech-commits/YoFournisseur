@@ -194,6 +194,7 @@ header{
     <div class="spacer"></div>
     <div class="header-actions">
       <button onclick="toggleNewOnly()" id="btnNew" title="Nouveautés">⭐</button>
+      <button onclick="refreshData()" title="Rafraîchir les données">🔄</button>
       <button onclick="scrollToTop()" title="Haut">⬆️</button>
     </div>
   </div>
@@ -330,6 +331,7 @@ function closeModal(){document.getElementById('modalOverlay').classList.remove('
 function esc(s){return String(s||'').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;')}
 function escAttr(s){return String(s||'').replace(/"/g,'&quot;').replace(/'/g,'&#39;')}
 function scrollToTop(){window.scrollTo({top:0,behavior:'smooth'})}
+function refreshData(){localStorage.removeItem('yf_cache');localStorage.removeItem('yf_c');loadData().then(()=>{renderTabs();R();toast('🔄 Données rafraîchies')})}
 function toast(msg){const t=document.getElementById('toast');t.textContent=msg;t.classList.add('show');clearTimeout(t._toast);t._toast=setTimeout(()=>t.classList.remove('show'),2000)}
 
 document.addEventListener('DOMContentLoaded',async()=>{await loadData();renderTabs();R();document.getElementById('btnNew').style.opacity='0.4';document.addEventListener('keydown',e=>{if(e.key==='Escape')closeModal()})})
