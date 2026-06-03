@@ -32,8 +32,9 @@ SUPPLIERS = [
     {"id": "taurus-reps", "name": "Taurus Reps", "url": "https://deateath.x.yupoo.com/categories/4571155", "desc": "Vetements"},
 ]
 
-MAX_IMAGES = 60   # Max total images
-MAX_IMG_PER_SUPPLIER = 5  # Max per supplier
+MAX_IMAGES = 36   # Max total images
+MAX_IMG_PER_SUPPLIER = 3  # Max per supplier
+MAX_PROD_PER_SUPPLIER = 10  # Max products per supplier
 IMAGE_RETENTION_DAYS = 7   # Delete images older than this
 
 def fetch(url, timeout=20):
@@ -252,8 +253,22 @@ def main():
         if key not in seen:
             seen.add(key)
             unique_products.append(p)
+    
+    # Keep max N per supplier
+    from collections import defaultdict
+    by_sup = defaultdict(list)
+    for p in unique_products:
+        by_sup[p['supplier_id']].append(p)
+    
+    trimmed = []
+    total_imgs = 0
+    for sid, prods in by_sup.items():
+        keep = prods[:MAX_PROD_PER_SUPPLIER]
+        trimmed.extend(keep)
+        for p in keep:
             if p.get('image_url'):
                 total_imgs += 1
+    unique_products = trimmed
     
     # Save products.json
     timestamp = datetime.now(timezone.utc).isoformat()
