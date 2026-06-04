@@ -1,41 +1,60 @@
 #!/usr/bin/env python3
 """
-YoFournisseur Scraper V2 — Scrape + download images
-Produit: data/products.json + images/photos/ (fichiers locaux pour GitHub Pages)
+yoMayssa Scraper — Scrape Dongshan + Jersey Dong uniquement
+Dongshan: scrap toutes les catégories pour 50 derniers articles
+Jersey Dong: contact WhatsApp
 """
-import re, json, os, time, hashlib, sys
+import re, json, os, time, hashlib, subprocess
 from datetime import datetime, timezone
 from urllib.request import Request, urlopen
-from urllib.error import HTTPError, URLError
 
-# === CONFIG ===
 OUTPUT_DIR = os.path.join(os.path.dirname(__file__), "..")
 DATA_DIR = os.path.join(OUTPUT_DIR, "data")
-IMG_DIR = os.path.join(OUTPUT_DIR, "data", "images")
-os.makedirs(DATA_DIR, exist_ok=True)
+IMG_DIR = os.path.join(DATA_DIR, "images")
 os.makedirs(IMG_DIR, exist_ok=True)
 
-UA = "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/125.0.0.0 Safari/537.36"
+UA = "Mozilla/5.0 (iPhone; CPU iPhone OS 16_0 like Mac OS X) AppleWebKit/605.1.15"
 
 SUPPLIERS = [
-    {"id": "junhaoqiumi", "name": "Jersey Dong", "url": "https://junhaoqiumi.x.yupoo.com/", "desc": "Maillot concept"},
-    {"id": "ronaldo97", "name": "Ronaldo97", "url": "https://ronaldo97.x.zhidian-inc.cn/", "desc": "Ensemble enfants maillot"},
-    {"id": "baocheng3f888", "name": "Baocheng", "url": "https://baocheng3f888.x.zhidian-inc.cn/", "desc": "Maillot joueurs"},
-    {"id": "classic-football", "name": "Classic Football", "url": "https://classic-football-fhirts052.x.yupoo.com/albums", "desc": "Maillot classique"},
-    {"id": "tz583276982", "name": "TZ Sports", "url": "https://tz583276982.x.yupoo.com/albums", "desc": "Ensemble classique par equipe"},
-    {"id": "dongshanstore", "name": "Dongshan Sports", "url": "https://dongshanstore.x.yupoo.com/albums", "desc": "Training adultes"},
-    {"id": "xunmei", "name": "Xunmei", "url": "https://xunmei.x.yupoo.com/albums", "desc": "Accessoires foot"},
-    {"id": "ax2084", "name": "AX2084", "url": "https://x.yupoo.com/photos/ax2084/albums", "desc": "Training enfants"},
-    {"id": "aaaajersey", "name": "AAAA Jersey", "url": "https://aaaajersey.x.yupoo.com/categories?page=2", "desc": "Habit Foot complet"},
-    {"id": "aaaabull", "name": "AAAA Bull", "url": "https://aaaabull.x.yupoo.com/", "desc": "Baskets chaussures"},
-    {"id": "okjersey", "name": "OK Jersey", "url": "https://okjersey.x.yupoo.com/", "desc": "Basketball, Rugby, F1"},
-    {"id": "taurus-reps", "name": "Taurus Reps", "url": "https://deateath.x.yupoo.com/categories/4571155", "desc": "Vetements"},
+    {
+        "id": "dongshan",
+        "name": "Dongshan Sports",
+        "url": "https://dongshanstore.x.yupoo.com/categories",
+        "whatsapp": "",
+        "whatsapp_name": "",
+        "desc": "Training sportif — adultes",
+        "categories": [
+            # All categories from the page
+            ("322332", "Short Sleeve Training"),
+            ("322331", "Long-sleeved Training"),
+            ("322329", "Jacket"),
+            ("347310", "Hoodie Long Zip"),
+            ("4912757", "Hoodie Half Zip"),
+            ("5109931", "Windbreaker"),
+            ("817047", "Cotton Padded"),
+            ("4932378", "Trench Coat"),
+            ("4912753", "Vest Set"),
+            ("653120", "Polo"),
+            ("322330", "Kids"),
+            ("3217172", "NBA Winter"),
+            ("4540246", "New Models 2425"),
+            ("3498460", "NBA Jerseys"),
+            ("479733", "Size Chart"),
+        ]
+    },
+    {
+        "id": "jerseydong",
+        "name": "Jersey Dong",
+        "url": "https://junhaoqiumi.x.yupoo.com/",
+        "whatsapp": "+8615112085009",
+        "whatsapp_name": "Jersey Dong",
+        "desc": "Maillots concept",
+        "categories": []
+    },
 ]
 
-MAX_IMAGES = 240  # Max total images  
-MAX_IMG_PER_SUPPLIER = 20  # Max images per supplier
-MAX_PROD_PER_SUPPLIER = 20  # Max products per supplier
-IMAGE_RETENTION_DAYS = 7   # Delete images older than this
+MAX_PER_CATEGORY = 20
+MAX_TOTAL = 50
 
 def fetch(url, timeout=20):
     req = Request(url, headers={
@@ -47,268 +66,170 @@ def fetch(url, timeout=20):
         with urlopen(req, timeout=timeout) as resp:
             return resp.read().decode("utf-8", errors="replace")
     except Exception as e:
-        print(f"    ⚠ FETCH ERROR: {e}")
         return None
 
-def download_image(url, output_path, max_retries=2):
-    """Download image with proper referer, return True on success"""
-    # Force .jpg extension even if source is .jpeg
-    original_path = output_path
-    if output_path.endswith('.jpeg'):
-        output_path = output_path.replace('.jpeg', '.jpg')
-    referer = "https://dongshanstore.x.yupoo.com/"
-    if "zhidian" in url:
-        referer = "https://ronaldo97.x.zhidian-inc.cn/"
-    
-    for attempt in range(max_retries):
+def download_image(url, output_path):
+    try:
         req = Request(url, headers={
             "User-Agent": UA,
-            "Referer": referer,
+            "Referer": "https://dongshanstore.x.yupoo.com/",
             "Accept": "image/webp,image/apng,image/*,*/*;q=0.8",
         })
-        try:
-            with urlopen(req, timeout=20) as resp:
-                data = resp.read()
-                if len(data) < 1000:
-                    return False  # Too small = error page
-                with open(output_path, "wb") as f:
-                    f.write(data)
-                return True
-        except Exception as e:
-            if attempt == max_retries - 1:
+        with urlopen(req, timeout=20) as resp:
+            data = resp.read()
+            if len(data) < 1000:
                 return False
-            time.sleep(1)
-    return False
+            with open(output_path, "wb") as f:
+                f.write(data)
+            return True
+    except:
+        return False
 
-def get_image_hash(url):
-    """Get a stable short hash for a URL"""
+def get_hash(url):
     return hashlib.md5(url.encode()).hexdigest()[:12]
 
-def detect_category(title, default_desc):
-    if "短袖" in title or "training" in title.lower():
-        return "Maillot Training"
-    elif "长袖" in title or "long" in title.lower():
-        return "Training Manches Longues"
-    elif "夹克" in title or "jacket" in title.lower() or "hood" in title.lower():
-        return "Veste / Hoodie"
-    elif "风衣" in title:
-        return "Coupe-Vent"
-    elif "POLO" in title or "polo" in title.lower():
-        return "Polo"
-    elif "背心" in title:
-        return "Gilet / Débardeur"
-    elif "棉衣" in title:
-        return "Doudoune"
-    elif "NBA" in title:
-        return "NBA"
-    elif "童装" in title or "kids" in title.lower():
-        return "Enfants"
-    elif "尺寸" in title or "size" in title.lower():
-        return "Guide des Tailles"
-    elif "篮球" in title or "basketball" in title.lower():
-        return "Basketball"
-    elif "鞋" in title or "chaussure" in title.lower() or "shoe" in title.lower():
-        return "Chaussures"
-    return default_desc
-
-def scrape_supplier(supplier):
-    """Scrape a supplier and download images — only keep products WITH images"""
-    print(f"\n🔍 {supplier['name']} ({supplier['url']})")
-    html = fetch(supplier["url"])
+def scrape_category(supplier_id, cat_id, cat_name):
+    """Scrape a single category page"""
+    url = f"https://dongshanstore.x.yupoo.com/categories/{cat_id}"
+    html = fetch(url)
     if not html:
-        print("    ❌ No HTML fetched")
         return []
     
-    products = []
-    seen_titles = set()
-    
-    # Extract ALL image URLs from data-src AND src= attributes
-    imgs = re.findall(
-        r'(?:data-src|src)="(https://photo\.yupoo\.com/[^"]+/(?:medium|small)\.[a-z]+)"',
-        html
-    )
-    # Extract titles
     titles = re.findall(r'title="([^"]+)"', html)
+    imgs = re.findall(r'(?:data-src|src)="(https://photo\.yupoo\.com/[^"]+/(?:medium|small)\.[a-z]+)"', html)
     
-    skip_titles = {"dongshanstore", "deateath", "进入后台", "前一页", "后一页", "加密相册"}
-    product_titles = [t for t in titles if t not in skip_titles and len(t) > 5]
+    skip = {"dongshanstore", "进入后台", "前一页", "后一页", "加密相册"}
+    product_titles = [t for t in titles if t not in skip and len(t) > 5]
     
-    # Also extract from Zhidian format
-    if "zhidian-inc" in supplier["url"]:
-        items = re.findall(r'data-title="([^"]*)"[^>]*(?:data-src|src)="([^"]*)"', html)
-        for title, img_url in items:
-            if title and len(title) > 3 and title not in seen_titles:
-                seen_titles.add(title)
-                img_hash = get_image_hash(img_url)
-                img_filename = f"{supplier['id']}_{img_hash}.jpg"
-                img_local_path = f"images/{img_filename}"
-                img_abs_path = os.path.join(IMG_DIR, img_filename)
-                
-                if not os.path.exists(img_abs_path):
-                    download_image(img_url, img_abs_path)
-                
-                if os.path.exists(img_abs_path):
-                    cat = detect_category(title, supplier["desc"])
-                    ref_match = re.match(r'([A-Z]\d+)#', title)
-                    ref = ref_match.group(1) if ref_match else ""
-                    
-                    products.append({
-                        "supplier_id": supplier["id"],
-                        "supplier_name": supplier["name"],
-                        "ref": ref,
-                        "title": title.strip(),
-                        "image_url": img_local_path,
-                        "category": cat,
-                        "url": supplier["url"],
-                        "price": None,
-                    })
-    
-    # Standard Yupoo — only keep products where image downloads successfully
+    products = []
+    seen = set()
     img_count = 0
+    
     for i, title in enumerate(product_titles):
-        if title in seen_titles:
+        if title in seen:
             continue
-        seen_titles.add(title)
+        seen.add(title)
         
-        if img_count >= MAX_IMG_PER_SUPPLIER:
+        if img_count >= MAX_PER_CATEGORY:
+            break
+        if len(products) >= MAX_TOTAL:
             break
         
         img_url = imgs[i] if i < len(imgs) else ""
-        if img_url and "medium" not in img_url:
-            img_url = img_url.replace("/small.jpg", "/medium.jpg")
-        
         if not img_url:
             continue
         
-        img_hash = get_image_hash(img_url)
-        img_filename = f"{supplier['id']}_{img_hash}.jpg"
-        img_local_path = f"images/{img_filename}"
-        img_abs_path = os.path.join(IMG_DIR, img_filename)
+        if "medium" not in img_url:
+            img_url = img_url.replace("/small.jpg", "/medium.jpg")
         
-        # Download or check if exists
-        if not os.path.exists(img_abs_path):
-            ok = download_image(img_url, img_abs_path)
+        img_hash = get_hash(img_url)
+        img_filename = f"{supplier_id}_{img_hash}.jpg"
+        img_local = f"images/{img_filename}"
+        img_abs = os.path.join(IMG_DIR, img_filename)
+        
+        if not os.path.exists(img_abs):
+            ok = download_image(img_url, img_abs)
             if not ok:
                 continue
         
         img_count += 1
-        ref_match = re.match(r'([A-Z]\d+)#', title)
-        ref = ref_match.group(1) if ref_match else ""
-        cat = detect_category(title, supplier["desc"])
+        
+        ref = ""
+        m = re.match(r'([A-Z]\d+)#', title)
+        if m:
+            ref = m.group(1)
         
         products.append({
-            "supplier_id": supplier["id"],
-            "supplier_name": supplier["name"],
+            "supplier_id": supplier_id,
+            "supplier_name": "Dongshan Sports",
             "ref": ref,
             "title": title.strip(),
-            "image_url": img_local_path,
-            "category": cat,
-            "url": supplier["url"],
+            "category": cat_name,
+            "image_url": img_local,
             "price": None,
+            "currency": "",
         })
     
-    print(f"    ✅ {len(products)} produits avec image")
-    
-    # Limit to MAX_PROD_PER_SUPPLIER total
-    return products[:MAX_PROD_PER_SUPPLIER]
+    return products
 
 
-def clean_old_images():
-    """Delete images older than IMAGE_RETENTION_DAYS"""
-    if not os.path.exists(IMG_DIR):
-        return 0, 0
+def scrape_supplier(supplier):
+    """Scrape a supplier (Dongshan = all categories, Jersey Dong = main page)"""
+    print(f"\n🔍 {supplier['name']}")
     
-    now = time.time()
-    cutoff = now - (IMAGE_RETENTION_DAYS * 86400)
-    deleted = 0
-    kept = 0
+    if supplier["id"] == "dongshan":
+        # Scrape each category
+        all_products = []
+        seen_urls = set()
+        
+        for cat_id, cat_name in supplier["categories"]:
+            print(f"   📂 {cat_name}...", end=" ", flush=True)
+            products = scrape_category(supplier["id"], cat_id, cat_name)
+            print(f"{len(products)} articles")
+            
+            for p in products:
+                key = p["image_url"]
+                if key and key not in seen_urls:
+                    seen_urls.add(key)
+                    all_products.append(p)
+            
+            if len(all_products) >= MAX_TOTAL:
+                break
+            time.sleep(0.5)
+        
+        print(f"   ✅ Total: {len(all_products)} articles avec image")
+        return all_products[:MAX_TOTAL]
     
-    for fname in os.listdir(IMG_DIR):
-        fpath = os.path.join(IMG_DIR, fname)
-        if not fname.endswith('.jpg'):
-            continue
-        mtime = os.path.getmtime(fpath)
-        if mtime < cutoff:
-            os.remove(fpath)
-            deleted += 1
-        else:
-            kept += 1
-    
-    return deleted, kept
+    else:
+        # Jersey Dong — just contacts, no scraping
+        return []
 
 
 def main():
     print("=" * 60)
-    print(f"🏪 YoFournisseur — Scraper V2")
+    print("📦 yoMayssa — Scraper")
     print(f"📅 {datetime.now(timezone.utc).isoformat()}")
     print("=" * 60)
     
     all_products = []
-    total_imgs = 0
     
     for supplier in SUPPLIERS:
         try:
-            products = scrape_supplier(supplier)
-            all_products.extend(products)
-            time.sleep(0.3)
+            prods = scrape_supplier(supplier)
+            all_products.extend(prods)
         except Exception as e:
             print(f"    ❌ Error: {e}")
     
-    # Deduplicate
-    seen = set()
-    unique_products = []
-    for p in all_products:
-        key = f"{p['supplier_id']}|{p['title']}"
-        if key not in seen:
-            seen.add(key)
-            unique_products.append(p)
-    
-    # Keep max N per supplier
-    from collections import defaultdict
-    by_sup = defaultdict(list)
-    for p in unique_products:
-        by_sup[p['supplier_id']].append(p)
-    
-    trimmed = []
-    total_imgs = 0
-    for sid, prods in by_sup.items():
-        keep = prods[:MAX_PROD_PER_SUPPLIER]
-        trimmed.extend(keep)
-        for p in keep:
-            if p.get('image_url'):
-                total_imgs += 1
-    unique_products = trimmed
-    
-    # Save products.json
-    timestamp = datetime.now(timezone.utc).isoformat()
+    # Save JSON
+    ts = datetime.now(timezone.utc).isoformat()
     output = {
-        "last_updated": timestamp,
-        "total_products": len(unique_products),
-        "total_images": total_imgs,
-        "suppliers": len(SUPPLIERS),
-        "products": unique_products
+        "last_updated": ts,
+        "total_products": len(all_products),
+        "suppliers": [
+            {
+                "id": s["id"],
+                "name": s["name"],
+                "url": s["url"],
+                "whatsapp": s["whatsapp"],
+                "whatsapp_name": s["whatsapp_name"],
+                "desc": s["desc"],
+            }
+            for s in SUPPLIERS
+        ],
+        "products": all_products
     }
     
-    output_path = os.path.join(DATA_DIR, "products.json")
-    with open(output_path, "w", encoding="utf-8") as f:
+    with open(os.path.join(DATA_DIR, "products.json"), "w", encoding="utf-8") as f:
         json.dump(output, f, ensure_ascii=False, indent=2)
     
-    # Count images on disk
-    img_count_disk = len([f for f in os.listdir(IMG_DIR) if f.endswith('.jpg')])
-    img_size_mb = sum(os.path.getsize(os.path.join(IMG_DIR, f)) for f in os.listdir(IMG_DIR) if f.endswith('.jpg')) / 1024 / 1024
-    
-    # Clean old images (retention: 7 days)
-    deleted, kept = clean_old_images()
-    if deleted > 0:
-        print(f"   🧹 Images nettoyées : {deleted} supprimées (>{IMAGE_RETENTION_DAYS} jours)")
+    # Stats
+    img_count = len([f for f in os.listdir(IMG_DIR) if f.endswith('.jpg')])
+    img_size = sum(os.path.getsize(os.path.join(IMG_DIR, f)) for f in os.listdir(IMG_DIR) if f.endswith('.jpg')) / 1024 / 1024
     
     print(f"\n{'=' * 60}")
     print(f"✅ Scraping terminé !")
-    print(f"   Produits uniques  : {len(unique_products)}")
-    print(f"   Images référencées : {total_imgs}")
-    print(f"   Images sur disque  : {img_count_disk} ({img_size_mb:.1f} MB)")
-    print(f"   Fournisseurs       : {len(SUPPLIERS)}")
-    print(f"   Fichier JSON       : {output_path}")
+    print(f"   Produits : {len(all_products)}")
+    print(f"   Images   : {img_count} ({img_size:.1f} MB)")
     print(f"{'=' * 60}")
 
 

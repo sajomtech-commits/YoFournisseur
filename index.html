@@ -2,339 +2,93 @@
 <html lang="fr">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
-<meta name="theme-color" content="#0a0a0f">
+<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
+<meta name="theme-color" content="#0d0d14">
 <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
 <meta http-equiv="Pragma" content="no-cache">
 <meta http-equiv="Expires" content="0">
 <title>yoMayssa</title>
 <style>
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
-:root{
-  --bg:#0d0d14;
-  --surface:#16161f;
-  --card:#1c1c2e;
-  --border:#2a2a40;
-  --accent:#00d4aa;
-  --gold:#f0b429;
-  --rose:#ff4d7a;
-  --text:#e8e8f0;
-  --muted:#6b6b8a;
-  --radius:14px;
-  --safe-bottom:env(safe-area-inset-bottom,0px);
-}
-html{scroll-behavior:smooth}
-body{
-  font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;
-  background:var(--bg);color:var(--text);
-  -webkit-font-smoothing:antialiased;
-  padding-bottom:calc(72px + var(--safe-bottom));
-  min-height:100vh;
-}
-/* HEADER */
-header{
-  background:var(--surface);
-  border-bottom:1px solid var(--border);
-  padding:12px 16px;
-  position:sticky;top:0;z-index:100;
-  backdrop-filter:blur(20px);
-  -webkit-backdrop-filter:blur(20px);
-}
-.header-top{display:flex;align-items:center;gap:10px}
-.header-top h1{
-  font-size:18px;font-weight:700;
-  background:linear-gradient(135deg,var(--accent),var(--gold));
-  -webkit-background-clip:text;
-  -webkit-text-fill-color:transparent;
-  background-clip:text;
-}
-.badge-count{
-  background:var(--rose);color:#fff;font-size:11px;
-  font-weight:700;padding:1px 8px;border-radius:20px;
-  margin-left:4px;
-}
-.header-top .spacer{flex:1}
-.header-actions{display:flex;gap:6px}
-.header-actions button{
-  width:36px;height:36px;border-radius:10px;
-  border:1px solid var(--border);background:var(--card);
-  color:var(--text);font-size:16px;cursor:pointer;
-  display:flex;align-items:center;justify-content:center;
-}
-/* SEARCH */
-.search-bar{display:flex;gap:8px;margin-top:10px}
-.search-bar input{
-  flex:1;padding:10px 14px;border-radius:10px;
-  border:1px solid var(--border);background:var(--bg);
-  color:var(--text);font-size:14px;outline:none;
-}
-.search-bar input:focus{border-color:var(--accent)}
-.search-bar button{
-  padding:10px 14px;border-radius:10px;
-  border:1px solid var(--border);background:var(--card);
-  color:var(--text);font-size:13px;cursor:pointer;
-  white-space:nowrap;
-}
-/* TABS */
-.tabs-wrap{overflow-x:auto;white-space:nowrap;-webkit-overflow-scrolling:touch;padding:10px 16px 0;scrollbar-width:none}
-.tabs-wrap::-webkit-scrollbar{display:none}
-.tabs{display:inline-flex;gap:6px;padding-bottom:10px}
-.tab{
-  padding:7px 16px;border-radius:20px;
-  background:var(--surface);border:1px solid var(--border);
-  color:var(--muted);font-size:13px;font-weight:500;
-  cursor:pointer;transition:all .2s;white-space:nowrap;
-}
-.tab.active{background:var(--accent);color:#000;font-weight:600;border-color:var(--accent)}
-.tab .count{font-size:11px;opacity:.7;margin-left:4px}
-/* APP */
-#app{padding:12px 12px 80px}
-.section-title{
-  padding:16px 4px 8px;
-  font-size:15px;font-weight:600;color:var(--muted);
-  display:flex;align-items:center;gap:8px;
-}
-.section-title .count{font-size:12px;font-weight:400;color:var(--muted)}
-.product-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:10px}
-.product-card{
-  background:var(--card);border-radius:var(--radius);overflow:hidden;
-  border:1px solid var(--border);cursor:pointer;transition:transform .15s;
-}
-.product-card:active{transform:scale(.97)}
-.product-card .img-wrap{width:100%;aspect-ratio:1/1;background:#111;position:relative;overflow:hidden}
-.product-card .img-wrap img{width:100%;height:100%;object-fit:cover;display:block}
-.product-card .badge{
-  position:absolute;top:6px;left:6px;
-  background:var(--gold);color:#000;
-  font-size:9px;font-weight:800;padding:2px 6px;border-radius:4px;
-  text-transform:uppercase;letter-spacing:.3px;
-}
-.product-card .ref-badge{
-  position:absolute;bottom:6px;right:6px;
-  background:rgba(0,0,0,.75);color:var(--accent);
-  font-size:9px;font-weight:700;padding:2px 6px;border-radius:4px;
-  backdrop-filter:blur(4px);
-}
-.product-card .info{padding:8px 10px 10px}
-.product-card .info h3{font-size:12px;line-height:1.4;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden;font-weight:500}
-.product-card .info .meta{display:flex;align-items:center;gap:6px;margin-top:4px}
-.product-card .info .cat{font-size:9px;color:var(--muted);background:var(--surface);padding:1px 6px;border-radius:3px}
-/* EMPTY */
-.empty-state{text-align:center;padding:80px 20px;color:var(--muted)}
-.empty-state .big{font-size:56px;margin-bottom:12px}
-.empty-state h3{font-size:18px;margin-bottom:6px;color:var(--text)}
-/* BOTTOM NAV */
-.bottom-nav{
-  position:fixed;bottom:0;left:0;right:0;
-  background:var(--surface);border-top:1px solid var(--border);
-  display:flex;padding:8px calc(12px + var(--safe-bottom));
-  z-index:99;backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);
-}
-.nav-item{
-  flex:1;display:flex;flex-direction:column;
-  align-items:center;gap:2px;
-  border:none;background:none;color:var(--muted);
-  font-size:10px;cursor:pointer;padding:4px 0;transition:color .2s;
-}
-.nav-item.active{color:var(--accent)}
-.nav-item .icon{font-size:20px;line-height:1}
-/* MODAL */
-.modal-overlay{
-  position:fixed;inset:0;z-index:1000;
-  background:rgba(0,0,0,.75);
-  display:flex;align-items:flex-end;justify-content:center;
-  visibility:hidden;opacity:0;transition:opacity .25s,visibility .25s;
-}
-.modal-overlay.open{visibility:visible;opacity:1}
-.modal{
-  background:var(--card);border-radius:var(--radius) var(--radius) 0 0;
-  width:100%;max-width:500px;max-height:92vh;overflow-y:auto;
-  transform:translateY(100%);transition:transform .35s cubic-bezier(.32,.72,0,1);
-  position:relative;
-}
-.modal.open{transform:translateY(0)}
-.modal-overlay.open .modal{transform:translateY(0)}
-.modal-handle{width:36px;height:4px;border-radius:2px;background:var(--border);margin:10px auto}
-.modal-close{
-  position:absolute;top:14px;right:14px;
-  width:32px;height:32px;border-radius:50%;
-  border:none;background:rgba(0,0,0,.5);color:#fff;font-size:16px;cursor:pointer;z-index:10;
-  display:flex;align-items:center;justify-content:center;
-}
-.modal-img{width:100%;max-height:340px;object-fit:contain;background:#111;display:block}
-.modal-body{padding:0 18px 20px}
-.modal-body .ref{color:var(--accent);font-size:12px;font-weight:600;margin-bottom:4px}
-.modal-body h2{font-size:18px;line-height:1.4;margin-bottom:12px;font-weight:700}
-.modal-body .detail-row{display:flex;justify-content:space-between;padding:10px 0;border-bottom:1px solid var(--border);font-size:14px}
-.modal-body .detail-row:last-child{border:none}
-.modal-body .detail-label{color:var(--muted)}
-.modal-body .detail-value{font-weight:500;text-align:right}
-.modal-body .open-link{
-  display:flex;align-items:center;justify-content:center;gap:8px;
-  width:100%;margin-top:16px;padding:14px;background:var(--accent);
-  color:#000;border-radius:12px;text-decoration:none;font-weight:700;font-size:15px;
-}
-/* TOAST */
-.toast{
-  position:fixed;bottom:90px;left:50%;transform:translateX(-50%);
-  background:var(--surface);color:var(--text);padding:10px 20px;
-  border-radius:10px;border:1px solid var(--border);font-size:13px;
-  z-index:2000;opacity:0;transition:opacity .3s;pointer-events:none;white-space:nowrap;
-}
-.toast.show{opacity:1}
-/* RESPONSIVE */
-@media(min-width:768px){.product-grid{grid-template-columns:repeat(3,1fr)}#app{padding:16px 24px 80px}}
-@media(min-width:1024px){.product-grid{grid-template-columns:repeat(4,1fr)}}
-@media(min-width:1400px){.product-grid{grid-template-columns:repeat(5,1fr)}}
+:root{--bg:#0d0d14;--surface:#16161f;--card:#1c1c2e;--border:#2a2a40;--accent:#00d4aa;--gold:#f0b429;--text:#e8e8f0;--muted:#6b6b8a;--sb:env(safe-area-inset-bottom,0px)}
+body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;background:var(--bg);color:var(--text);-webkit-font-smoothing:antialiased;padding-bottom:calc(90px + var(--sb));min-height:100vh}
+a{color:var(--accent);text-decoration:none}
+header{background:var(--surface);border-bottom:1px solid var(--border);padding:14px 16px;position:sticky;top:0;z-index:100;backdrop-filter:blur(20px)}
+.ht{display:flex;align-items:center;gap:10px;flex-wrap:wrap}
+.ht h1{font-size:20px;font-weight:800;background:linear-gradient(135deg,var(--accent),var(--gold));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.ht .count{background:var(--accent);color:#000;font-size:11px;font-weight:700;padding:2px 8px;border-radius:20px;margin-left:4px}
+.ht .date{color:var(--muted);font-size:11px;margin-left:auto}
+.sb{display:flex;gap:8px;margin-top:10px}
+.sb input{flex:1;padding:10px 14px;border-radius:10px;border:1px solid var(--border);background:var(--bg);color:var(--text);font-size:14px;outline:none;font-family:inherit}
+.sb input:focus{border-color:var(--accent)}
+.tw{overflow-x:auto;white-space:nowrap;padding:10px 16px 0}.ts{display:inline-flex;gap:6px;padding-bottom:10px}
+.t{padding:7px 16px;border-radius:20px;background:var(--surface);border:1px solid var(--border);color:var(--muted);font-size:13px;font-weight:500;cursor:pointer;white-space:nowrap;font-family:inherit}
+.t.active{background:var(--accent);color:#000;font-weight:600;border-color:var(--accent)}
+.st{padding:16px 4px 8px;font-size:15px;font-weight:600;color:var(--muted);display:flex;align-items:center;gap:8px;justify-content:space-between}
+.st .cat-count{font-size:12px;font-weight:400;color:var(--muted)}
+.pg{display:grid;grid-template-columns:repeat(2,1fr);gap:10px;padding:0 12px}
+.pc{background:var(--card);border-radius:14px;overflow:hidden;border:1px solid var(--border);cursor:pointer;transition:transform .15s}
+.pc:active{transform:scale(.97)}
+.pc .iw{width:100%;aspect-ratio:1;background:#111;position:relative;overflow:hidden}
+.pc .iw img{width:100%;height:100%;object-fit:cover;display:block}
+.pc .ref-badge{position:absolute;top:6px;left:6px;background:rgba(0,0,0,.75);color:var(--accent);font-size:9px;font-weight:700;padding:2px 6px;border-radius:4px;backdrop-filter:blur(4px)}
+.pc .inf{padding:8px 10px 10px}
+.pc .inf h3{font-size:12px;line-height:1.4;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden;font-weight:500}
+.pc .inf .cat{font-size:9px;color:var(--muted);background:var(--surface);padding:1px 6px;border-radius:3px;display:inline-block;margin-top:4px}
+.pc .inf .price{font-size:13px;font-weight:700;color:var(--gold);margin-top:4px}
+.es{text-align:center;padding:60px 20px;color:var(--muted)}.es .big{font-size:56px;margin-bottom:12px}.es h3{font-size:18px;margin-bottom:6px}
+/* WhatsApp floating button */
+.whatsapp-btn{position:fixed;bottom:calc(16px + var(--sb));right:16px;z-index:99;width:56px;height:56px;border-radius:50%;border:none;background:#25D366;color:#fff;font-size:28px;cursor:pointer;display:flex;align-items:center;justify-content:center;box-shadow:0 4px 16px rgba(37,211,102,.4);transition:transform .2s}
+.whatsapp-btn:active{transform:scale(.9)}
+/* Modal */
+.mo{position:fixed;inset:0;z-index:1000;background:rgba(0,0,0,.75);display:flex;align-items:flex-end;justify-content:center;visibility:hidden;opacity:0;transition:opacity .25s}
+.mo.open{visibility:visible;opacity:1}
+.md{background:var(--card);border-radius:14px 14px 0 0;width:100%;max-width:500px;max-height:92vh;overflow-y:auto;transform:translateY(100%);transition:transform .35s cubic-bezier(.32,.72,0,1);position:relative}
+.md.open{transform:translateY(0)}.mo.open .md{transform:translateY(0)}
+.mh{width:36px;height:4px;border-radius:2px;background:var(--border);margin:10px auto}
+.mi{width:100%;max-height:340px;object-fit:contain;background:#111;display:block}
+.mb{padding:0 18px 20px}.mb h2{font-size:18px;line-height:1.4;margin-bottom:12px;font-weight:700}
+.mb .dr{display:flex;justify-content:space-between;padding:10px 0;border-bottom:1px solid var(--border);font-size:14px}
+.mb .dr:last-child{border:none}.mb .dl{color:var(--muted)}.mb .dv{font-weight:500;text-align:right}
+.mb .wa-link{display:flex;align-items:center;justify-content:center;gap:8px;width:100%;margin-top:16px;padding:14px;background:#25D366;color:#fff;border-radius:12px;font-weight:700;font-size:15px}
+@media(min-width:768px){.pg{grid-template-columns:repeat(3,1fr)}}
+@media(min-width:1024px){.pg{grid-template-columns:repeat(4,1fr)}}
 </style>
 </head>
 <body>
-
 <header>
-  <div class="header-top">
-    <h1>📦 yoMayssa</h1>
-    <span class="badge-count" id="totalCount">0</span>
-    <div class="spacer"></div>
-    <div class="header-actions">
-      <button onclick="toggleNewOnly()" id="btnNew" title="Nouveautés">⭐</button>
-      <button onclick="refreshData()" title="Rafraîchir les données">🔄</button>
-      <button onclick="scrollToTop()" title="Haut">⬆️</button>
-    </div>
-  </div>
-  <div class="search-bar">
-    <input type="text" id="search" placeholder="Rechercher un article..." oninput="onSearch()" autocomplete="off">
-    <button onclick="document.getElementById('search').value='';onSearch()">✕</button>
-  </div>
+<div class="ht">
+<h1>📦 yoMayssa</h1><span class="count" id="tc">0</span>
+<div class="date" id="dateLabel"></div>
+</div>
+<div class="sb"><input type="text" id="q" placeholder="Rechercher un article..." oninput="OS()" autocomplete="off"></div>
 </header>
-
-<div class="tabs-wrap" id="tabsWrap"><div class="tabs" id="tabs"></div></div>
-
+<div class="tw"><div class="ts" id="ts"></div></div>
 <div id="app"></div>
-
-<div class="empty-state hidden" id="emptyState">
-  <div class="big">🔍</div>
-  <h3>Aucun résultat</h3>
-  <p>Essaye de modifier ta recherche</p>
-</div>
-
-<div class="bottom-nav">
-  <button class="nav-item active" data-tab="all" onclick="switchTab('all')"><span class="icon">🏪</span>Tous</button>
-  <button class="nav-item" data-tab="new" onclick="switchTab('new')"><span class="icon">⭐</span>Nouveautés</button>
-  <button class="nav-item" data-tab="favorites" onclick="switchTab('favorites')"><span class="icon">❤️</span>Favoris</button>
-  <button class="nav-item" data-tab="suppliers" onclick="switchTab('suppliers')"><span class="icon">📋</span>Fournisseurs</button>
-</div>
-
-<div class="modal-overlay" id="modalOverlay" onclick="if(event.target===this)closeModal()">
-  <div class="modal" id="modal">
-    <div class="modal-handle"></div>
-    <button class="modal-close" onclick="closeModal()">✕</button>
-    <img class="modal-img" id="modalImg" src="" alt="">
-    <div class="modal-body" id="modalBody"></div>
-  </div>
-</div>
-
-<div class="toast" id="toast"></div>
-
+<div class="es hidden" id="es"><div class="big">🔍</div><h3>Aucun résultat</h3></div>
+<button class="whatsapp-btn" id="waBtn" onclick="openWA()" title="Contacter le fournisseur">💬</button>
+<div class="mo" id="mo" onclick="if(event.target===this)CM()"><div class="md" id="md"><div class="mh"></div><img class="mi" id="mi" src=""><div class="mb" id="mb"></div></div></div>
 <script>
-const FAV_KEY = 'yf_favs';
-let products = [];
-let suppliers = [];
-let currentTab = 'all';
-let selectedSupplier = '';
-
-function getFavs(){try{return JSON.parse(localStorage.getItem(FAV_KEY)||'[]')}catch(e){return[]}}
-function toggleFav(title){let f=getFavs();const i=f.indexOf(title);if(i>-1)f.splice(i,1);else f.push(title);localStorage.setItem(FAV_KEY,JSON.stringify(f));R();toast(getFavs().includes(title)?'❤️ Favori':'🗑️ Retiré')}
-function isFav(title){return getFavs().includes(title)}
-
-async function loadData(){
-  try{
-    const r=await fetch('data/products.json?t='+Date.now());const d=await r.json();
-    products=d.products||[];extractSuppliers();
-  }catch(e){products=[];extractSuppliers()}
-}
-function extractSuppliers(){
-  const m={};
-  for(const p of products){if(p.supplier_id&&!m[p.supplier_id])m[p.supplier_id]={id:p.supplier_id,name:p.supplier_name,count:0};m[p.supplier_id].count++}
-  suppliers=Object.values(m).sort((a,b)=>b.count-a.count)
-}
-
-function getFiltered(){
-  let f=products;
-  const q=document.getElementById('search').value.toLowerCase().trim();
-  if(q)f=f.filter(p=>p.title.toLowerCase().includes(q)||(p.ref||'').toLowerCase().includes(q)||(p.supplier_name||'').toLowerCase().includes(q))
-  if(selectedSupplier)f=f.filter(p=>p.supplier_id===selectedSupplier)
-  if(currentTab==='new')f=f.slice(0,30)
-  if(currentTab==='favorites'){const favs=getFavs();f=f.filter(p=>favs.includes(p.title))}
-  return f
-}
-
-function onSearch(){selectedSupplier='';renderTabs();R()}
-
-function renderTabs(){
-  let html=`<div class="tab ${!selectedSupplier?'active':''}" onclick="selectSupplierTab('')">Tous <span class="count">${products.length}</span></div>`;
-  for(const s of suppliers)html+=`<div class="tab ${s.id===selectedSupplier?'active':''}" onclick="selectSupplierTab('${s.id}')">${esc(s.name)} <span class="count">${s.count}</span></div>`;
-  document.getElementById('tabs').innerHTML=html
-}
-function selectSupplierTab(id){selectedSupplier=id;renderTabs();R();document.getElementById('search').value=''}
-
-function switchTab(tab){
-  if(tab==='new'){selectedSupplier='';renderTabs();R();return}
-  currentTab=tab;selectedSupplier='';
-  document.querySelectorAll('.nav-item').forEach(n=>n.classList.toggle('active',n.dataset.tab===tab))
-  renderTabs();R()
-}
-
-function toggleNewOnly(){const b=document.getElementById('btnNew');b.style.opacity=b.style.opacity==='1'?'0.4':'1';switchTab('new')}
-
-function R(){
-  const container=document.getElementById('app');
-  const empty=document.getElementById('emptyState');
-  const filtered=getFiltered();
-  document.getElementById('totalCount').textContent=products.length;
-  if(filtered.length===0){container.innerHTML='';empty.classList.remove('hidden');return}
-  empty.classList.add('hidden');
-  const groups={};
-  for(const p of filtered){const k=p.supplier_id||'other';if(!groups[k])groups[k]={name:p.supplier_name||'Autre',products:[]};groups[k].products.push(p)}
-  let html='';
-  for(const [_,g] of Object.entries(groups).sort((a,b)=>b[1].products.length-a[1].products.length)){
-    html+=`<div class="section-title">📦 ${esc(g.name)} <span class="count">${g.products.length}</span></div><div class="product-grid">`;
-    for(const p of g.products){
-      const isN=isNew(p);const f=isFav(p.title);
-      html+=`<div class="product-card" onclick="openProduct('${escAttr(p.title)}')">
-        <div class="img-wrap"><img src="${p.image_url ? 'data/' + p.image_url : 'data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22%3E%3Crect fill=%22%23111%22 width=%22100%22 height=%22100%22/%3E%3Ctext x=%2250%22 y=%2255%22 text-anchor=%22middle%22 fill=%22%23333%22 font-size=%2230%22%3E📷%3C/text%3E%3C/svg%3E'}" alt="${escAttr(p.title)}" loading="lazy" onerror="this.parentElement.innerHTML='<div style=\\'display:flex;align-items:center;justify-content:center;background:%23111;width:100%;height:100%;font-size:32px\\'>📷</div>'">
-        ${isN?'<div class="badge">NEW</div>':''}${p.ref?`<div class="ref-badge">${esc(p.ref)}</div>`:''}</div>
-        <div class="info"><h3>${esc(p.title)}</h3><div class="meta"><span class="cat">${esc(p.category||'')}</span></div></div></div>`
-    }
-    html+=`</div>`
-  }
-  container.innerHTML=html
-}
-
-function isNew(p){const n=p.ref||'';const m=n.match(/[A-Z](\d+)/);return m&&parseInt(m[1])>=26000}
-
-function openProduct(title){
-  const p=products.find(x=>x.title===title);if(!p)return
-  document.getElementById('modalImg').src=p.image_url ? 'data/' + p.image_url : '';
-  document.getElementById('modalImg').onerror=function(){this.style.display='none'}
-  const fav=isFav(p.title);
-  document.getElementById('modalBody').innerHTML=`
-    ${p.ref?`<div class="ref">📌 ${esc(p.ref)}</div>`:''}
-    <h2>${esc(p.title)}</h2>
-    <div class="detail-row"><span class="detail-label">🏪 Fournisseur</span><span class="detail-value">${esc(p.supplier_name||'—')}</span></div>
-    <div class="detail-row"><span class="detail-label">📂 Catégorie</span><span class="detail-value">${esc(p.category||'—')}</span></div>
-    <div class="detail-row"><span class="detail-label">📅 Vu le</span><span class="detail-value">${new Date().toLocaleDateString('fr-FR')}</span></div>
-    <button onclick="toggleFav('${escAttr(p.title)}')" style="display:flex;align-items:center;justify-content:center;gap:8px;width:100%;margin-top:12px;padding:12px;border-radius:10px;border:1px solid var(--border);background:var(--surface);color:var(--text);font-size:14px;cursor:pointer">${fav?'❤️ Retirer des favoris':'🤍 Ajouter aux favoris'}</button>
-    <a href="${escAttr(p.url||'#')}" target="_blank" class="open-link" rel="noopener">🔗 Voir chez le fournisseur</a>`;
-  document.getElementById('modalOverlay').classList.add('open');document.getElementById('modal').classList.add('open')
-}
-function closeModal(){document.getElementById('modalOverlay').classList.remove('open');document.getElementById('modal').classList.remove('open')}
-function esc(s){return String(s||'').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;')}
-function escAttr(s){return String(s||'').replace(/"/g,'&quot;').replace(/'/g,'&#39;')}
-function scrollToTop(){window.scrollTo({top:0,behavior:'smooth'})}
-function refreshData(){localStorage.removeItem('yf_cache');localStorage.removeItem('yf_c');loadData().then(()=>{renderTabs();R();toast('🔄 Données rafraîchies')})}
-function toast(msg){const t=document.getElementById('toast');t.textContent=msg;t.classList.add('show');clearTimeout(t._toast);t._toast=setTimeout(()=>t.classList.remove('show'),2000)}
-
-document.addEventListener('DOMContentLoaded',async()=>{await loadData();renderTabs();R();document.getElementById('btnNew').style.opacity='0.4';document.addEventListener('keydown',e=>{if(e.key==='Escape')closeModal()})})
+let P=[],sup=[],supData=[],cat='';
+const $=i=>document.getElementById(i);
+const L=async()=>{try{const r=await fetch('data/products.json?t='+Date.now());const d=await r.json();P=d.products||[];supData=d.suppliers||[];E();$('dateLabel').textContent=d.last_updated?new Date(d.last_updated).toLocaleDateString('fr-FR',{day:'numeric',month:'short',hour:'2-digit',minute:'2-digit'}):''}catch(e){P=[];E()}}
+const E=()=>{const m={};for(const p of P)if(p.supplier_id&&!m[p.supplier_id])m[p.supplier_id]={id:p.supplier_id,name:p.supplier_name,c:0};sup=Object.values(m).sort((a,b)=>b.c-a.c)}
+const G=()=>{let f=P;const q=$('q').value.toLowerCase().trim();if(q)f=f.filter(p=>p.title.toLowerCase().includes(q)||(p.ref||'').toLowerCase().includes(q)||(p.category||'').toLowerCase().includes(q))
+if(cat)f=f.filter(p=>p.category===cat);return f}
+const OS=()=>{cat='';RT();R()}
+const RT=()=>{let h='<div class="t '+(cat?'':'active')+'" onclick="SL(\'\')">Tous <span class="cnt">'+P.length+'</span></div>';const cats={};for(const p of P){const c=p.category||'Autre';cats[c]=(cats[c]||0)+1};Object.entries(cats).sort((a,b)=>b[1]-a[1]).forEach(([n,c])=>{h+='<div class="t '+(n===cat?'active':'')+'" onclick="SL(\''+n+'\')">'+E2(n)+' <span class="cnt">'+c+'</span></div>'});$('ts').innerHTML=h}
+const SL=c=>{cat=c;RT();R()}
+const R=()=>{const c=$('app'),e=$('es'),g=G();$('tc').textContent=P.length;if(!g.length){c.innerHTML='';e.classList.remove('hidden');return}e.classList.add('hidden')
+const gr={};for(const p of g){const k=p.category||'Autre';if(!gr[k])gr[k]={n:k,p:[]};gr[k].p.push(p)}let h=''
+for(const g2 of Object.values(gr).sort((a,b)=>b.p.length-a.p.length)){h+='<div class="st"><span>📂 '+E2(g2.n)+'</span><span class="cat-count">'+g2.p.length+'</span></div><div class="pg">'
+for(const p of g2.p){h+='<div class="pc" onclick="OP(\''+EA(p.title)+'\')"><div class="iw"><img src="'+(p.image_url||'data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22%3E%3Crect fill=%22%23111%22 width=%22100%22 height=%22100%22/%3E%3Ctext x=%2250%22 y=%2255%22 text-anchor=%22middle%22 fill=%22%23333%22 font-size=%2230%22%3E📷%3C/text%3E%3C/svg%3E')+'" alt="'+EA(p.title)+'" loading="lazy">'+(p.ref?'<div class="ref-badge">'+E2(p.ref)+'</div>':'')+'</div><div class="inf"><h3>'+E2(p.title)+'</h3><span class="cat">'+E2(p.category||'')+'</span>'+(p.price?'<div class="price">'+E2(p.price)+'</div>':'')+'</div></div>'};h+='</div>'}c.innerHTML=h}
+const OP=t=>{const p=P.find(x=>x.title===t);if(!p)return;$('mi').src=p.image_url||'';$('mi').onerror=function(){this.style.display='none'};const s=supData.find(x=>x.id===p.supplier_id);const wa=s&&s.whatsapp?`<a href="https://wa.me/${s.whatsapp.replace(/[^0-9]/g,'')}" target="_blank" class="wa-link" rel="noopener">💬 Contacter ${E2(s.whatsapp_name||'le fournisseur')}</a>`:''
+$('mb').innerHTML=(p.ref?'<div class="ref">📌 '+E2(p.ref)+'</div>':'')+'<h2>'+E2(p.title)+'</h2><div class="dr"><span class="dl">📂 Catégorie</span><span class="dv">'+E2(p.category||'—')+'</span></div>'+wa;$('mo').classList.add('open');$('md').classList.add('open')}
+const CM=()=>{$('mo').classList.remove('open');$('md').classList.remove('open')}
+const E2=s=>String(s||'').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;')
+const EA=s=>String(s||'').replace(/"/g,'&quot;').replace(/'/g,'&#39;')
+const openWA=()=>{const s=supData.find(x=>x.whatsapp);if(s&&s.whatsapp){const n=s.whatsapp.replace(/[^0-9]/g,'');window.open('https://wa.me/'+n,'_blank')}else{const n='861****5009';window.open('https://wa.me/'+n,'_blank')}}
+document.addEventListener('DOMContentLoaded',async()=>{await L();RT();R()})
 </script>
 </body>
 </html>
