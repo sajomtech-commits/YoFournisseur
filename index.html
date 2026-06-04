@@ -40,6 +40,17 @@ header{background:var(--surface);border-bottom:1px solid var(--border);padding:1
 /* WhatsApp floating button */
 .whatsapp-btn{position:fixed;bottom:calc(16px + var(--sb));right:16px;z-index:99;width:56px;height:56px;border-radius:50%;border:none;background:#25D366;color:#fff;font-size:28px;cursor:pointer;display:flex;align-items:center;justify-content:center;box-shadow:0 4px 16px rgba(37,211,102,.4);transition:transform .2s}
 .whatsapp-btn:active{transform:scale(.9)}
+/* WhatsApp menu */
+.wa-overlay{position:fixed;inset:0;z-index:2000;background:rgba(0,0,0,.5);visibility:hidden;opacity:0;transition:opacity .2s}
+.wa-overlay.open{visibility:visible;opacity:1}
+.wa-menu{position:fixed;bottom:calc(80px + var(--sb));right:16px;z-index:2001;background:var(--card);border:1px solid var(--border);border-radius:14px;overflow:hidden;min-width:220px;visibility:hidden;opacity:0;transform:scale(.9);transition:all .2s;transform-origin:bottom right}
+.wa-menu.open{visibility:visible;opacity:1;transform:scale(1)}
+.wa-menu .item{display:flex;align-items:center;gap:10px;padding:12px 16px;cursor:pointer;font-size:14px;border-bottom:1px solid var(--border)}
+.wa-menu .item:last-child{border:none}
+.wa-menu .item:active{background:var(--surface)}
+.wa-menu .item .wa-icon{font-size:20px}
+.wa-menu .item .wa-name{font-weight:500}
+.wa-menu .item .wa-num{color:var(--muted);font-size:12px}
 /* Modal */
 .mo{position:fixed;inset:0;z-index:1000;background:rgba(0,0,0,.75);display:flex;align-items:flex-end;justify-content:center;visibility:hidden;opacity:0;transition:opacity .25s}
 .mo.open{visibility:visible;opacity:1}
@@ -66,7 +77,11 @@ header{background:var(--surface);border-bottom:1px solid var(--border);padding:1
 <div class="tw"><div class="ts" id="ts"></div></div>
 <div id="app"></div>
 <div class="es hidden" id="es"><div class="big">🔍</div><h3>Aucun résultat</h3></div>
-<button class="whatsapp-btn" id="waBtn" onclick="openWA()" title="Contacter le fournisseur">💬</button>
+<button class="whatsapp-btn" id="waBtn" onclick="toggleWAMenu()" title="Contacter un fournisseur">💬</button>
+<div class="wa-overlay" id="waOverlay" onclick="hideWAMenu()"></div>
+<div class="wa-menu" id="waMenu">
+<div class="item" style="cursor:default;font-weight:600;color:var(--accent);font-size:13px">💬 Contacter</div>
+</div>
 <div class="mo" id="mo" onclick="if(event.target===this)CM()"><div class="md" id="md"><div class="mh"></div><img class="mi" id="mi" src=""><div class="mb" id="mb"></div></div></div>
 <script>
 let P=[],sup=[],supData=[],cat='';
@@ -87,7 +102,10 @@ $('mb').innerHTML=(p.ref?'<div class="ref">📌 '+E2(p.ref)+'</div>':'')+'<h2>'+
 const CM=()=>{$('mo').classList.remove('open');$('md').classList.remove('open')}
 const E2=s=>String(s||'').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;')
 const EA=s=>String(s||'').replace(/"/g,'&quot;').replace(/'/g,'&#39;')
-const openWA=()=>{const s=supData.find(x=>x.whatsapp);if(s&&s.whatsapp){const n=s.whatsapp.replace(/[^0-9]/g,'');window.open('https://wa.me/'+n,'_blank')}else{const n='861****5009';window.open('https://wa.me/'+n,'_blank')}}
+const toggleWAMenu=()=>{$('waOverlay').classList.toggle('open');$('waMenu').classList.toggle('open');buildWAMenu()}
+const hideWAMenu=()=>{$('waOverlay').classList.remove('open');$('waMenu').classList.remove('open')}
+const buildWAMenu=()=>{const el=$('waMenu');let h=el.innerHTML.split('<div class="item"')[0]+'<div class="item" style="cursor:default;font-weight:600;color:var(--accent);font-size:13px">💬 Contacter</div>';supData.filter(s=>s.whatsapp).forEach(s=>{const n=s.whatsapp.replace(/[^0-9]/g,'');h+='<div class="item" onclick="window.open(\'https://wa.me/'+n+'\',\'_blank\');hideWAMenu()"><span class="wa-icon">💬</span><div><div class="wa-name">'+E2(s.name)+'</div><div class="wa-num">'+E2(s.whatsapp)+'</div></div></div>'});if(!supData.some(s=>s.whatsapp))h+='<div class="item" style="color:var(--muted);font-size:13px">Aucun contact</div>';el.innerHTML=h}
+const openWA=sid=>{const s=supData.find(x=>x.id===sid);if(s&&s.whatsapp){const n=s.whatsapp.replace(/[^0-9]/g,'');window.open('https://wa.me/'+n,'_blank')}}
 document.addEventListener('DOMContentLoaded',async()=>{await L();RT();R()})
 </script>
 </body>
