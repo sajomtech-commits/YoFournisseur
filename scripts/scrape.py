@@ -10,7 +10,7 @@ from urllib.request import Request, urlopen
 
 OUTPUT_DIR = os.path.join(os.path.dirname(__file__), "..")
 DATA_DIR = os.path.join(OUTPUT_DIR, "data")
-IMG_DIR = os.path.join(DATA_DIR, "images")
+IMG_DIR = os.path.join(OUTPUT_DIR, "images")
 os.makedirs(IMG_DIR, exist_ok=True)
 
 UA = "Mozilla/5.0 (iPhone; CPU iPhone OS 16_0 like Mac OS X) AppleWebKit/605.1.15"
