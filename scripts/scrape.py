@@ -122,6 +122,47 @@ def get_hash(url):
     return hashlib.md5(url.encode()).hexdigest()[:12]
 
 
+# Catégories déduites du nom du produit (patterns)
+JETLIFE_CATEGORY_MAP = [
+    (r"HOODIE|SWEATSHIRT|CREWNECK|ZIP\s*UP|SWEAT", "HOODIE/SWEATER"),
+    (r"JACKET|COAT|BOMBER|PUFFER|VARSITY|TRACK\s*TOP|WINDBREAKER|SHELL", "COAT/JACKET"),
+    (r"TEE|T-SHIRT|TEE-SHIRT|SHIRT", "T-SHIRT/SHIRT"),
+    (r"PANT|JEANS|CARGO|TROUSER|SWEATPANT|JOGGER|LEGGING|CHINO", "PANT/JEANS"),
+    (r"SHORT|BERMUDA", "SHORT"),
+    (r"CAP|HAT|BEANIE|BUCKET|VISOR|SNAPBACK", "HAT/CAP"),
+    (r"SHOE|SNEAKER|TRAINER|BOOT|SLIDE|SANDAL|LOAFER", "SHOES"),
+    (r"BAG|BACKPACK|DUFFLE|TOTE|WAIST\s*BAG|CROSSBODY", "BAG"),
+    (r"VEST|GILET|WAISTCOAT", "VEST"),
+    (r"DRESS|SKIRT", "Women's Dress"),
+    (r"POLO", "POLO"),
+    (r"FLEECE", "FLEECE"),
+    (r"DOWN\s*JACKET|COTTON\s*JACKET|PUFFER|DOWN\s*VEST", "DOWN JACKET"),
+    (r"SOCK", "SOCK"),
+    (r"GLOVE", "GLOVES"),
+    (r"SCARF", "SCARF"),
+    (r"GLASSES|SUNGLASSES|EYEWEAR", "GLASSES"),
+    (r"TOY|PLUSH|FIGURE|BEAR|DOLL", "TOYS"),
+    (r"JEWELRY|RING|NECKLACE|BRACELET|CHAIN|PENDANT", "JEWELRY"),
+    (r"FOOTBALL|SOCCER|JERSEY|KIT", "FOOTBALL"),
+    (r"NBA|BASKETBALL", "NBA"),
+    (r"NFL|FOOTBALL\s*JERSEY", "NFL"),
+    (r"MLB|BASEBALL", "MLB"),
+    (r"ROCK|ROLL|BAND|MUSIC|CONCERT", "ROCK N ROLL"),
+    (r"DIGITAL|PHONE|CASE|CHARGER|HEADPHONE|EARPHONE|SPEAKER", "Digital Products"),
+    (r"BRA|UNDERWEAR|BRIEF|BOXER|PANTY|LINGERIE|UNDERPANTS", "UNDERPANTS"),
+    (r"BELT", "OTHERS"),
+]
+
+
+def guess_jetlife_category(name):
+    """Déduit la catégorie d'un produit JetLife depuis son nom"""
+    name_upper = name.upper()
+    for pattern, category in JETLIFE_CATEGORY_MAP:
+        if re.search(pattern, name_upper):
+            return category
+    return "AUTRE"
+
+
 def scrape_jetlife(supplier_id, max_total=50):
     """Scrape les 50 derniers produits de JetLife Fashion via API REST"""
     base = "http://www.jetlifefashion.com/api"
@@ -129,7 +170,19 @@ def scrape_jetlife(supplier_id, max_total=50):
     products = []
     seen = set()
 
-    url = f"{base}/album/getList?pageIndex=1&pageSize={max_total}&sort=createdAt"
+    # 1. Récupérer les catégories JetLife pour référence
+    cat_map = {}
+    try:
+        req = Request(f"{base}/category/getOptions", headers=headers)
+        with urlopen(req, timeout=10) as resp:
+            cats_data = json.loads(resp.read().decode())
+            for c in cats_data.get("data", {}).get("list", []):
+                cat_map[c["id"]] = c["name"]
+    except:
+        pass  # On utilisera le guess si l'API catégorie ne répond pas
+
+    # 2. Récupérer les 50 derniers produits (triés par createdAt)
+    url = f"{base}/album/getList?pageIndex=1&pageSize={max_total}"
     
     try:
         req = Request(url, headers=headers)
@@ -154,10 +207,12 @@ def scrape_jetlife(supplier_id, max_total=50):
         currency = item.get("cSymbol", "$")
         cprice = item.get("cPrice", 0)
         created = item.get("createdAt", "")
-        cat_name = item.get("category", "")
 
         if not name or not cover:
             continue
+
+        # Déduire la catégorie depuis le nom
+        category = guess_jetlife_category(name)
 
         # Télécharger l'image cover
         img_url = f"http://www.jetlifefashion.com/{cover}"
@@ -184,7 +239,7 @@ def scrape_jetlife(supplier_id, max_total=50):
             "supplier_name": "0832CLUB (JetLife)",
             "ref": str(pid),
             "title": name,
-            "category": cat_name,
+            "category": category,
             "image_url": img_local,
             "price": price,
             "currency": currency,

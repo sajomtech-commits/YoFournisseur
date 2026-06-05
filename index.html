@@ -74,7 +74,8 @@ header{background:var(--surface);border-bottom:1px solid var(--border);padding:1
 </div>
 <div class="sb"><input type="text" id="q" placeholder="Rechercher un article..." oninput="OS()" autocomplete="off"></div>
 </header>
-<div class="tw"><div class="ts" id="ts"></div></div>
+|<div class="tw"><div class="ts" id="fs"></div></div>
+|<div class="tw"><div class="ts" id="ts"></div></div>
 <div id="app"></div>
 <div class="es hidden" id="es"><div class="big">🔍</div><h3>Aucun résultat</h3></div>
 <button class="whatsapp-btn" id="waBtn" onclick="toggleWAMenu()" title="Contacter un fournisseur">💬</button>
@@ -84,29 +85,34 @@ header{background:var(--surface);border-bottom:1px solid var(--border);padding:1
 </div>
 <div class="mo" id="mo" onclick="if(event.target===this)CM()"><div class="md" id="md"><div class="mh"></div><img class="mi" id="mi" src=""><div class="mb" id="mb"></div></div></div>
 <script>
-let P=[],sup=[],supData=[],cat='';
+let P=[],sup=[],supData=[],cat='',FS='';
 const $=i=>document.getElementById(i);
 const L=async()=>{try{const r=await fetch('data/products.json?t='+Date.now());const d=await r.json();P=d.products||[];supData=d.suppliers||[];E();$('dateLabel').textContent=d.last_updated?new Date(d.last_updated).toLocaleDateString('fr-FR',{day:'numeric',month:'short',hour:'2-digit',minute:'2-digit'}):''}catch(e){P=[];E()}}
 const E=()=>{const m={};for(const p of P)if(p.supplier_id&&!m[p.supplier_id])m[p.supplier_id]={id:p.supplier_id,name:p.supplier_name,c:0};sup=Object.values(m).sort((a,b)=>b.c-a.c)}
 const G=()=>{let f=P;const q=$('q').value.toLowerCase().trim();if(q)f=f.filter(p=>p.title.toLowerCase().includes(q)||(p.ref||'').toLowerCase().includes(q)||(p.category||'').toLowerCase().includes(q))
+if(FS)f=f.filter(p=>p.supplier_id===FS)
 if(cat)f=f.filter(p=>p.category===cat);return f}
 const OS=()=>{cat='';RT();R()}
-const RT=()=>{let h='<div class="t '+(cat?'':'active')+'" onclick="SL(\'\')">Tous <span class="cnt">'+P.length+'</span></div>';const cats={};for(const p of P){const c=p.category||'Autre';cats[c]=(cats[c]||0)+1};Object.entries(cats).sort((a,b)=>b[1]-a[1]).forEach(([n,c])=>{h+='<div class="t '+(n===cat?'active':'')+'" onclick="SL(\''+n+'\')">'+E2(n)+' <span class="cnt">'+c+'</span></div>'});$('ts').innerHTML=h}
+const RT=()=>{let h='<div class="t '+(cat?'':'active')+'" onclick="SL(\'\')">📂 Toutes <span class="cnt">'+P.length+'</span></div>';const cats={};for(const p of P){const c=p.category||'Autre';cats[c]=(cats[c]||0)+1};Object.entries(cats).sort((a,b)=>b[1]-a[1]).forEach(([n,c])=>{h+='<div class="t '+(n===cat?'active':'')+'" onclick="SL(\''+n+'\')">'+E2(n)+' <span class="cnt">'+c+'</span></div>'});$('ts').innerHTML=h}
 const SL=c=>{cat=c;RT();R()}
+// Filtre par fournisseur
+const BFS=()=>{let h='<div class="t '+(FS?'':'active')+'" onclick="SF(\'\')">📦 Tous <span class="cnt">'+P.length+'</span></div>';for(const s of supData){const c=P.filter(p=>p.supplier_id===s.id).length;if(c)h+='<div class="t '+(FS===s.id?'active':'')+'" onclick="SF(\''+s.id+'\')">'+E2(s.name)+' <span class="cnt">'+c+'</span></div>'}$('fs').innerHTML=h}
+const SF=id=>{FS=id;cat='';BFS();RT();R()}
 const R=()=>{const c=$('app'),e=$('es'),g=G();$('tc').textContent=P.length;if(!g.length){c.innerHTML='';e.classList.remove('hidden');return}e.classList.add('hidden')
 const gr={};for(const p of g){const k=p.category||'Autre';if(!gr[k])gr[k]={n:k,p:[]};gr[k].p.push(p)}let h=''
 for(const g2 of Object.values(gr).sort((a,b)=>b.p.length-a.p.length)){h+='<div class="st"><span>📂 '+E2(g2.n)+'</span><span class="cat-count">'+g2.p.length+'</span></div><div class="pg">'
-for(const p of g2.p){h+='<div class="pc" onclick="OP(\''+EA(p.title)+'\')"><div class="iw"><img src="'+(p.image_url||'data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22%3E%3Crect fill=%22%23111%22 width=%22100%22 height=%22100%22/%3E%3Ctext x=%2250%22 y=%2255%22 text-anchor=%22middle%22 fill=%22%23333%22 font-size=%2230%22%3E📷%3C/text%3E%3C/svg%3E')+'" alt="'+EA(p.title)+'" loading="lazy">'+(p.ref?'<div class="ref-badge">'+E2(p.ref)+'</div>':'')+'</div><div class="inf"><h3>'+E2(p.title)+'</h3><span class="cat">'+E2(p.category||'')+'</span>'+(p.price?'<div class="price">'+E2(p.price)+'</div>':'')+'</div></div>'};h+='</div>'}c.innerHTML=h}
+for(const p of g2.p){h+='<div class="pc" onclick="OP('+sq(p.title)+')"><div class="iw"><img src="'+(p.image_url||'data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22%3E%3Crect fill=%22%23111%22 width=%22100%22 height=%22100%22/%3E%3Ctext x=%2250%22 y=%2255%22 text-anchor=%22middle%22 fill=%22%23333%22 font-size=%2230%22%3E📷%3C/text%3E%3C/svg%3E')+'" alt="'+sq(p.title)+'" loading="lazy">'+(p.ref?'<div class="ref-badge">'+E2(p.ref)+'</div>':'')+'</div><div class="inf"><h3>'+E2(p.title)+'</h3><div style="display:flex;gap:4px;flex-wrap:wrap;margin-top:4px"><span class="cat">'+E2(p.category||'')+'</span><span class="cat" style="color:var(--accent)">'+E2(p.supplier_name||'')+'</span></div>'+(p.cPrice?'<div class="price">'+p.currency+E2(p.cPrice)+'</div>':'')+'</div></div>'}
 const OP=t=>{const p=P.find(x=>x.title===t);if(!p)return;$('mi').src=p.image_url||'';$('mi').onerror=function(){this.style.display='none'};const s=supData.find(x=>x.id===p.supplier_id);const wa=s&&s.whatsapp?`<a href="https://wa.me/${s.whatsapp.replace(/[^0-9]/g,'')}" target="_blank" class="wa-link" rel="noopener">💬 Contacter ${E2(s.whatsapp_name||'le fournisseur')}</a>`:''
-$('mb').innerHTML=(p.ref?'<div class="ref">📌 '+E2(p.ref)+'</div>':'')+'<h2>'+E2(p.title)+'</h2><div class="dr"><span class="dl">📂 Catégorie</span><span class="dv">'+E2(p.category||'—')+'</span></div><div class="dr"><span class="dl">🔗 Fournisseur</span><span class="dv"><a href="'+EA(s&&s.url||'#')+'" target="_blank" rel="noopener">Voir sur Yupoo</a></span></div>'+wa;$('mo').classList.add('open');$('md').classList.add('open')}
+$('mb').innerHTML=(p.ref?'<div class="ref">📌 '+E2(p.ref)+'</div>':'')+'<h2>'+E2(p.title)+'</h2><div class="dr"><span class="dl">📂 Catégorie</span><span class="dv">'+E2(p.category||'—')+'</span></div><div class="dr"><span class="dl">🔗 Fournisseur</span><span class="dv"><a href="'+EA(s&&s.url||'#')+'" target="_blank" rel="noopener">'+E2(s&&s.name||'')+'</a></span></div>'+(p.cPrice?'<div class="dr"><span class="dl">💰 Prix</span><span class="dv">'+p.currency+E2(p.cPrice)+'</span></div>':'')+(p.price?'<div class="dr"><span class="dl">🏷️ Prix origine</span><span class="dv">'+p.currency+E2(p.price)+'</span></div>':'')+wa;$('mo').classList.add('open');$('md').classList.add('open')}
 const CM=()=>{$('mo').classList.remove('open');$('md').classList.remove('open')}
 const E2=s=>String(s||'').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;')
 const EA=s=>String(s||'').replace(/"/g,'&quot;').replace(/'/g,'&#39;')
+const sq=s=>String(s||'').replace(/'/g,"\\'").replace(/"/g,'&quot;')
 const toggleWAMenu=()=>{$('waOverlay').classList.toggle('open');$('waMenu').classList.toggle('open');buildWAMenu()}
 const hideWAMenu=()=>{$('waOverlay').classList.remove('open');$('waMenu').classList.remove('open')}
 const buildWAMenu=()=>{const el=$('waMenu');let h=el.innerHTML.split('<div class="item"')[0]+'<div class="item" style="cursor:default;font-weight:600;color:var(--accent);font-size:13px">💬 Contacter</div>';supData.filter(s=>s.whatsapp).forEach(s=>{const n=s.whatsapp.replace(/[^0-9]/g,'');h+='<div class="item" onclick="window.open(\'https://wa.me/'+n+'\',\'_blank\');hideWAMenu()"><span class="wa-icon">💬</span><div><div class="wa-name">'+E2(s.name)+'</div><div class="wa-num">'+E2(s.whatsapp)+'</div></div></div>'});if(!supData.some(s=>s.whatsapp))h+='<div class="item" style="color:var(--muted);font-size:13px">Aucun contact</div>';el.innerHTML=h}
 const openWA=sid=>{const s=supData.find(x=>x.id===sid);if(s&&s.whatsapp){const n=s.whatsapp.replace(/[^0-9]/g,'');window.open('https://wa.me/'+n,'_blank')}}
-document.addEventListener('DOMContentLoaded',async()=>{await L();RT();R()})
+document.addEventListener('DOMContentLoaded',async()=>{await L();BFS();RT();R()})
 </script>
 </body>
 </html>
