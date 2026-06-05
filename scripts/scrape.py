@@ -1,12 +1,11 @@
 #!/usr/bin/env python3
 """
-yoMayssa Scraper — Scrape Dongshan + Jersey Dong uniquement
-Dongshan: scrap toutes les catégories pour 50 derniers articles
-Jersey Dong: contact WhatsApp
+yoMayssa Scraper — Scrape Dongshan + Jersey Dong + JetLife Fashion
 """
 import re, json, os, time, hashlib, subprocess
 from datetime import datetime, timezone
 from urllib.request import Request, urlopen
+from urllib.error import URLError
 
 OUTPUT_DIR = os.path.join(os.path.dirname(__file__), "..")
 DATA_DIR = os.path.join(OUTPUT_DIR, "data")
@@ -60,6 +59,15 @@ SUPPLIERS = [
         "desc": "Habit Foot complet",
         "categories": []
     },
+    {
+        "id": "jetlife",
+        "name": "0832CLUB (JetLife)",
+        "url": "http://www.jetlifefashion.com/",
+        "whatsapp": "",
+        "whatsapp_name": "",
+        "desc": "Marques streetwear/luxe — 21k+ produits",
+        "categories": []
+    },
 ]
 
 MAX_PER_CATEGORY = 20
@@ -94,8 +102,97 @@ def download_image(url, output_path):
     except:
         return False
 
+def download_image_static(url):
+    """Download image without supplier-specific Referer"""
+    try:
+        req = Request(url, headers={
+            "User-Agent": UA,
+            "Accept": "image/webp,image/apng,image/*,*/*;q=0.8",
+        })
+        with urlopen(req, timeout=20) as resp:
+            data = resp.read()
+            if len(data) < 1000:
+                return None
+            return data
+    except:
+        return None
+
+
 def get_hash(url):
     return hashlib.md5(url.encode()).hexdigest()[:12]
+
+
+def scrape_jetlife(supplier_id, max_total=50):
+    """Scrape les 50 derniers produits de JetLife Fashion via API REST"""
+    base = "http://www.jetlifefashion.com/api"
+    headers = {"User-Agent": UA, "Accept": "application/json"}
+    products = []
+    seen = set()
+
+    url = f"{base}/album/getList?pageIndex=1&pageSize={max_total}&sort=createdAt"
+    
+    try:
+        req = Request(url, headers=headers)
+        with urlopen(req, timeout=15) as resp:
+            data = json.loads(resp.read().decode())
+    except Exception as e:
+        print(f"   ❌ API error: {e}")
+        return []
+
+    items = data.get("data", {}).get("list", [])
+    if not items:
+        print(f"   ❌ No items returned")
+        return []
+
+    print(f"   📦 {len(items)} produits récupérés")
+
+    for item in items:
+        pid = item.get("id")
+        name = item.get("name", "").strip()
+        cover = item.get("cover", "")
+        price = item.get("price", 0)
+        currency = item.get("cSymbol", "$")
+        cprice = item.get("cPrice", 0)
+        created = item.get("createdAt", "")
+        cat_name = item.get("category", "")
+
+        if not name or not cover:
+            continue
+
+        # Télécharger l'image cover
+        img_url = f"http://www.jetlifefashion.com/{cover}"
+        img_hash = get_hash(img_url)
+        img_filename = f"{supplier_id}_{img_hash}.jpg"
+        img_local = f"images/{img_filename}"
+        img_abs = os.path.join(IMG_DIR, img_filename)
+
+        if not os.path.exists(img_abs):
+            img_data = download_image_static(img_url)
+            if img_data:
+                with open(img_abs, "wb") as f:
+                    f.write(img_data)
+            else:
+                continue
+
+        # Deduplicate
+        if img_local in seen:
+            continue
+        seen.add(img_local)
+
+        products.append({
+            "supplier_id": supplier_id,
+            "supplier_name": "0832CLUB (JetLife)",
+            "ref": str(pid),
+            "title": name,
+            "category": cat_name,
+            "image_url": img_local,
+            "price": price,
+            "currency": currency,
+            "cPrice": cprice,
+        })
+
+    print(f"   ✅ {len(products)} articles avec image")
+    return products[:max_total]
 
 def scrape_category(supplier_id, cat_id, cat_name):
     """Scrape a single category page"""
@@ -188,6 +285,10 @@ def scrape_supplier(supplier):
         
         print(f"   ✅ Total: {len(all_products)} articles avec image")
         return all_products[:MAX_TOTAL]
+    
+    elif supplier["id"] == "jetlife":
+        # JetLife — via API REST
+        return scrape_jetlife(supplier["id"], MAX_TOTAL)
     
     else:
         # Jersey Dong — just contacts, no scraping
