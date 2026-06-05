@@ -46,9 +46,18 @@ SUPPLIERS = [
         "id": "jerseydong",
         "name": "Jersey Dong",
         "url": "https://junhaoqiumi.x.yupoo.com/",
-        "whatsapp": "+8615112085009",
+        "whatsapp": "+861****5009",
         "whatsapp_name": "Jersey Dong",
         "desc": "Maillots concept",
+        "categories": []
+    },
+    {
+        "id": "aaaajersey",
+        "name": "AAAA Jersey",
+        "url": "https://aaaajersey.x.yupoo.com/categories?page=2",
+        "whatsapp": "",
+        "whatsapp_name": "",
+        "desc": "Habit Foot complet",
         "categories": []
     },
 ]

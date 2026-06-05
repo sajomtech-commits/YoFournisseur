@@ -1,5 +1,5 @@
 {
-  "last_updated": "2026-06-04T07:00:46.203781+00:00",
+  "last_updated": "2026-06-05T09:11:44.216781+00:00",
   "total_products": 50,
   "suppliers": [
     {
@@ -14,12 +14,30 @@
       "id": "jerseydong",
       "name": "Jersey Dong",
       "url": "https://junhaoqiumi.x.yupoo.com/",
-      "whatsapp": "+8615112085009",
+      "whatsapp": "+861****5009",
       "whatsapp_name": "Jersey Dong",
       "desc": "Maillots concept"
+    },
+    {
+      "id": "aaaajersey",
+      "name": "AAAA Jersey",
+      "url": "https://aaaajersey.x.yupoo.com/categories?page=2",
+      "whatsapp": "",
+      "whatsapp_name": "",
+      "desc": "Habit Foot complet"
     }
   ],
   "products": [
+    {
+      "supplier_id": "dongshan",
+      "supplier_name": "Dongshan Sports",
+      "ref": "J26036",
+      "title": "J26036# 2627短袖拜仁宝兰色-Bayern Munich",
+      "category": "Short Sleeve Training",
+      "image_url": "images/dongshan_be2c254a23dd.jpg",
+      "price": null,
+      "currency": ""
+    },
     {
       "supplier_id": "dongshan",
       "supplier_name": "Dongshan Sports",
@@ -207,16 +225,6 @@
       "title": "J26017# 2627短袖西班牙湖兰-Spain",
       "category": "Short Sleeve Training",
       "image_url": "images/dongshan_cd7cbdc20a5b.jpg",
-      "price": null,
-      "currency": ""
-    },
-    {
-      "supplier_id": "dongshan",
-      "supplier_name": "Dongshan Sports",
-      "ref": "J26016",
-      "title": "J26016# 2627短袖西班牙宝兰-Spain",
-      "category": "Short Sleeve Training",
-      "image_url": "images/dongshan_b5ce0ac1011f.jpg",
       "price": null,
       "currency": ""
     },
