@@ -1,5 +1,5 @@
 {
-  "last_updated": "2026-06-06T07:03:56.112447+00:00",
+  "last_updated": "2026-06-07T06:01:07.946763+00:00",
   "total_products": 100,
   "suppliers": [
     {
@@ -239,6 +239,26 @@
     {
       "supplier_id": "dongshan",
       "supplier_name": "Dongshan Sports",
+      "ref": "B26058",
+      "title": "B26058# 2627半拉拜仁米色-Bayern Munich",
+      "category": "Long-sleeved Training",
+      "image_url": "images/dongshan_16ad55818d85.jpg",
+      "price": null,
+      "currency": ""
+    },
+    {
+      "supplier_id": "dongshan",
+      "supplier_name": "Dongshan Sports",
+      "ref": "B26057",
+      "title": "B26057# 2627半拉德国米色-Germany",
+      "category": "Long-sleeved Training",
+      "image_url": "images/dongshan_1bc7ac1f7551.jpg",
+      "price": null,
+      "currency": ""
+    },
+    {
+      "supplier_id": "dongshan",
+      "supplier_name": "Dongshan Sports",
       "ref": "B26056",
       "title": "B26056# 2627半拉德国深灰色-Germany",
       "category": "Long-sleeved Training",
@@ -419,20 +439,10 @@
     {
       "supplier_id": "dongshan",
       "supplier_name": "Dongshan Sports",
-      "ref": "B26038",
-      "title": "B26038# 2627半拉曼城米色-Manchester City",
-      "category": "Long-sleeved Training",
-      "image_url": "images/dongshan_ce8b64584237.jpg",
-      "price": null,
-      "currency": ""
-    },
-    {
-      "supplier_id": "dongshan",
-      "supplier_name": "Dongshan Sports",
-      "ref": "B26037",
-      "title": "B26037# 2627半拉阿根廷彩兰-Argentina",
-      "category": "Long-sleeved Training",
-      "image_url": "images/dongshan_5f263ccbdf6d.jpg",
+      "ref": "A26051",
+      "title": "A26051# 2627长拉皇马墨绿-Real Madri",
+      "category": "Jacket",
+      "image_url": "images/dongshan_121fdc2223b7.jpg",
       "price": null,
       "currency": ""
     },
@@ -523,16 +533,6 @@
       "title": "A26042# 2627长拉曼城米色-Manchester City",
       "category": "Jacket",
       "image_url": "images/dongshan_29c61ca318f5.jpg",
-      "price": null,
-      "currency": ""
-    },
-    {
-      "supplier_id": "dongshan",
-      "supplier_name": "Dongshan Sports",
-      "ref": "A26041",
-      "title": "A26041# 2627长拉西班牙米白-Spain",
-      "category": "Jacket",
-      "image_url": "images/dongshan_4faf98804eb4.jpg",
       "price": null,
       "currency": ""
     },
