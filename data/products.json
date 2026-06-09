@@ -1,5 +1,5 @@
 {
-  "last_updated": "2026-06-08T06:06:04.703123+00:00",
+  "last_updated": "2026-06-09T06:05:55.203117+00:00",
   "total_products": 100,
   "suppliers": [
     {
@@ -36,6 +36,26 @@
     }
   ],
   "products": [
+    {
+      "supplier_id": "dongshan",
+      "supplier_name": "Dongshan Sports",
+      "ref": "J26040",
+      "title": "J26040#  2627短袖西班牙米黄-Spain",
+      "category": "Short Sleeve Training",
+      "image_url": "images/dongshan_3ae746c0cf09.jpg",
+      "price": null,
+      "currency": ""
+    },
+    {
+      "supplier_id": "dongshan",
+      "supplier_name": "Dongshan Sports",
+      "ref": "J26039",
+      "title": "J26039# 2627短袖英格兰上青-England",
+      "category": "Short Sleeve Training",
+      "image_url": "images/dongshan_536e9a301b0b.jpg",
+      "price": null,
+      "currency": ""
+    },
     {
       "supplier_id": "dongshan",
       "supplier_name": "Dongshan Sports",
@@ -219,20 +239,10 @@
     {
       "supplier_id": "dongshan",
       "supplier_name": "Dongshan Sports",
-      "ref": "J26020",
-      "title": "J26020#  2627短袖迈阿密粉色-Miami",
-      "category": "Short Sleeve Training",
-      "image_url": "images/dongshan_2b60240da9e0.jpg",
-      "price": null,
-      "currency": ""
-    },
-    {
-      "supplier_id": "dongshan",
-      "supplier_name": "Dongshan Sports",
-      "ref": "J26019",
-      "title": "J26019# 2627短袖皇马宝兰-Real Madri",
-      "category": "Short Sleeve Training",
-      "image_url": "images/dongshan_c4ac08812a8b.jpg",
+      "ref": "B26059",
+      "title": "B26059# 2627半拉利物红色",
+      "category": "Long-sleeved Training",
+      "image_url": "images/dongshan_9b819c13a39d.jpg",
       "price": null,
       "currency": ""
     },
@@ -423,16 +433,6 @@
       "title": "B26040# 2627半拉德国浅绿-Germany",
       "category": "Long-sleeved Training",
       "image_url": "images/dongshan_630e517ea27e.jpg",
-      "price": null,
-      "currency": ""
-    },
-    {
-      "supplier_id": "dongshan",
-      "supplier_name": "Dongshan Sports",
-      "ref": "B26039",
-      "title": "B26039# 2627半拉皇马白色（黄色织带）-Real Madri",
-      "category": "Long-sleeved Training",
-      "image_url": "images/dongshan_219fd7d45fba.jpg",
       "price": null,
       "currency": ""
     },
