@@ -1,5 +1,5 @@
 {
-  "last_updated": "2026-06-09T06:05:55.203117+00:00",
+  "last_updated": "2026-06-10T07:01:00.145171+00:00",
   "total_products": 100,
   "suppliers": [
     {
@@ -239,6 +239,16 @@
     {
       "supplier_id": "dongshan",
       "supplier_name": "Dongshan Sports",
+      "ref": "B26060",
+      "title": "B26060# 2627半拉意大利浅兰-Italy",
+      "category": "Long-sleeved Training",
+      "image_url": "images/dongshan_94fa9efee171.jpg",
+      "price": null,
+      "currency": ""
+    },
+    {
+      "supplier_id": "dongshan",
+      "supplier_name": "Dongshan Sports",
       "ref": "B26059",
       "title": "B26059# 2627半拉利物红色",
       "category": "Long-sleeved Training",
@@ -423,16 +433,6 @@
       "title": "B26041# 2627半拉巴西湖兰-Brazil",
       "category": "Long-sleeved Training",
       "image_url": "images/dongshan_7b669ccfb057.jpg",
-      "price": null,
-      "currency": ""
-    },
-    {
-      "supplier_id": "dongshan",
-      "supplier_name": "Dongshan Sports",
-      "ref": "B26040",
-      "title": "B26040# 2627半拉德国浅绿-Germany",
-      "category": "Long-sleeved Training",
-      "image_url": "images/dongshan_630e517ea27e.jpg",
       "price": null,
       "currency": ""
     },
