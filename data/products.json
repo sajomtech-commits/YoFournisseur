@@ -1,5 +1,5 @@
 {
-  "last_updated": "2026-06-11T07:04:56.567268+00:00",
+  "last_updated": "2026-06-12T06:04:14.198566+00:00",
   "total_products": 100,
   "suppliers": [
     {
@@ -62,7 +62,7 @@
       "ref": "J26038",
       "title": "J26038# 2627短袖英格兰浅兰-England",
       "category": "Short Sleeve Training",
-      "image_url": "images/dongshan_9d0e520675d9.jpg",
+      "image_url": "images/dongshan_5d366d9db96e.jpg",
       "price": null,
       "currency": ""
     },
@@ -72,7 +72,7 @@
       "ref": "J26037",
       "title": "J26037# 2627短袖西班牙枣红-Spain",
       "category": "Short Sleeve Training",
-      "image_url": "images/dongshan_0d545de94800.jpg",
+      "image_url": "images/dongshan_a919c3b894f3.jpg",
       "price": null,
       "currency": ""
     },
@@ -92,7 +92,7 @@
       "ref": "J26035",
       "title": "J26035# 2627短袖皇马白色（玫红配色）-Real Madri",
       "category": "Short Sleeve Training",
-      "image_url": "images/dongshan_8832621494bb.jpg",
+      "image_url": "images/dongshan_777c5de78e73.jpg",
       "price": null,
       "currency": ""
     },
@@ -112,7 +112,7 @@
       "ref": "J26034",
       "title": "J26034# 2627短袖皇马深墨绿-Real Madri",
       "category": "Short Sleeve Training",
-      "image_url": "images/dongshan_24a4c0845da0.jpg",
+      "image_url": "images/dongshan_ca25dd77ece3.jpg",
       "price": null,
       "currency": ""
     },
@@ -282,7 +282,7 @@
       "ref": "B26056",
       "title": "B26056# 2627半拉德国深灰色-Germany",
       "category": "Long-sleeved Training",
-      "image_url": "images/dongshan_c66178a6269c.jpg",
+      "image_url": "images/dongshan_1208b37a4eda.jpg",
       "price": null,
       "currency": ""
     },
@@ -292,7 +292,7 @@
       "ref": "B26055",
       "title": "B26055# 2627半拉巴塞枣红-Barcelona",
       "category": "Long-sleeved Training",
-      "image_url": "images/dongshan_e57819b5e2c8.jpg",
+      "image_url": "images/dongshan_68b55bee6fca.jpg",
       "price": null,
       "currency": ""
     },
@@ -302,7 +302,7 @@
       "ref": "B26054",
       "title": "B26054# 2627半拉拜仁宝兰色-Bayern Munich",
       "category": "Long-sleeved Training",
-      "image_url": "images/dongshan_2e14d92b83c2.jpg",
+      "image_url": "images/dongshan_2990886b34ac.jpg",
       "price": null,
       "currency": ""
     },
@@ -312,7 +312,7 @@
       "ref": "B26053",
       "title": "B26053# 2627半拉英格兰浅兰-England",
       "category": "Long-sleeved Training",
-      "image_url": "images/dongshan_d208650e619b.jpg",
+      "image_url": "images/dongshan_f93c7c0e540a.jpg",
       "price": null,
       "currency": ""
     },
@@ -322,7 +322,7 @@
       "ref": "B26052",
       "title": "B26052# 2627半拉墨西哥深绿色-Mexico",
       "category": "Long-sleeved Training",
-      "image_url": "images/dongshan_9e924dbe0283.jpg",
+      "image_url": "images/dongshan_c0ce5c59d9a4.jpg",
       "price": null,
       "currency": ""
     },
@@ -332,7 +332,7 @@
       "ref": "B26051",
       "title": "B26051#  2627半拉巴黎白色（红色配色）-Paris",
       "category": "Long-sleeved Training",
-      "image_url": "images/dongshan_dc0c0bfdd2ea.jpg",
+      "image_url": "images/dongshan_d64f5abf5046.jpg",
       "price": null,
       "currency": ""
     },
@@ -689,6 +689,39 @@
       "price": 299,
       "currency": "$",
       "cPrice": 43.434
+    },
+    {
+      "supplier_id": "jetlife",
+      "supplier_name": "0832CLUB (JetLife)",
+      "ref": "56623",
+      "title": "NIKE & NOCTA SHORT",
+      "category": "SHORT",
+      "image_url": "images/jetlife_7c0988f485a2.jpg",
+      "price": 128,
+      "currency": "$",
+      "cPrice": 18.594
+    },
+    {
+      "supplier_id": "jetlife",
+      "supplier_name": "0832CLUB (JetLife)",
+      "ref": "56621",
+      "title": "NIKE & NOCTA POLO",
+      "category": "POLO",
+      "image_url": "images/jetlife_71225d404fd7.jpg",
+      "price": 148,
+      "currency": "$",
+      "cPrice": 21.499
+    },
+    {
+      "supplier_id": "jetlife",
+      "supplier_name": "0832CLUB (JetLife)",
+      "ref": "56611",
+      "title": "RALPH LAUREN SHORT",
+      "category": "SHORT",
+      "image_url": "images/jetlife_de319593caf0.jpg",
+      "price": 118,
+      "currency": "$",
+      "cPrice": 17.141
     },
     {
       "supplier_id": "jetlife",
@@ -1052,39 +1085,6 @@
       "price": 118,
       "currency": "$",
       "cPrice": 17.141
-    },
-    {
-      "supplier_id": "jetlife",
-      "supplier_name": "0832CLUB (JetLife)",
-      "ref": "48339",
-      "title": "DENIM TEARS HOODIE",
-      "category": "HOODIE/SWEATER",
-      "image_url": "images/jetlife_225dce495592.jpg",
-      "price": 118,
-      "currency": "$",
-      "cPrice": 17.141
-    },
-    {
-      "supplier_id": "jetlife",
-      "supplier_name": "0832CLUB (JetLife)",
-      "ref": "48338",
-      "title": "DENIM TEARS SHORT",
-      "category": "SHORT",
-      "image_url": "images/jetlife_5f4d31762a6d.jpg",
-      "price": 78,
-      "currency": "$",
-      "cPrice": 11.331
-    },
-    {
-      "supplier_id": "jetlife",
-      "supplier_name": "0832CLUB (JetLife)",
-      "ref": "48337",
-      "title": "DENIM TEARS T-SHIRT",
-      "category": "T-SHIRT/SHIRT",
-      "image_url": "images/jetlife_9ebfbf1de94b.jpg",
-      "price": 58,
-      "currency": "$",
-      "cPrice": 8.425
     }
   ]
 }
