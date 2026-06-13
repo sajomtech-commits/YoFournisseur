@@ -1,5 +1,5 @@
 {
-  "last_updated": "2026-06-12T07:04:23.464192+00:00",
+  "last_updated": "2026-06-13T06:02:29.325162+00:00",
   "total_products": 100,
   "suppliers": [
     {
@@ -102,7 +102,7 @@
       "ref": "J26034",
       "title": "J26034# 2627短袖巴黎白色（配红色）-Paris",
       "category": "Short Sleeve Training",
-      "image_url": "images/dongshan_919475086d74.jpg",
+      "image_url": "images/dongshan_11568f2fec22.jpg",
       "price": null,
       "currency": ""
     },
@@ -726,6 +726,17 @@
     {
       "supplier_id": "jetlife",
       "supplier_name": "0832CLUB (JetLife)",
+      "ref": "56574",
+      "title": "AUDEMARS PIGUET × SWATCH ROYAL POP",
+      "category": "AUTRE",
+      "image_url": "images/jetlife_a3cb1e6148a3.jpg",
+      "price": 299,
+      "currency": "$",
+      "cPrice": 43.434
+    },
+    {
+      "supplier_id": "jetlife",
+      "supplier_name": "0832CLUB (JetLife)",
       "ref": "56087",
       "title": "LACOSTE SHORT",
       "category": "SHORT",
@@ -1074,17 +1085,6 @@
       "price": 68,
       "currency": "$",
       "cPrice": 9.878
-    },
-    {
-      "supplier_id": "jetlife",
-      "supplier_name": "0832CLUB (JetLife)",
-      "ref": "48340",
-      "title": "DENIM TEARS PANT",
-      "category": "PANT/JEANS",
-      "image_url": "images/jetlife_cc8c920a3f54.jpg",
-      "price": 118,
-      "currency": "$",
-      "cPrice": 17.141
     }
   ]
 }
