@@ -1,5 +1,5 @@
 {
-  "last_updated": "2026-06-14T07:04:29.554237+00:00",
+  "last_updated": "2026-06-15T06:01:28.942157+00:00",
   "total_products": 100,
   "suppliers": [
     {
@@ -239,6 +239,16 @@
     {
       "supplier_id": "dongshan",
       "supplier_name": "Dongshan Sports",
+      "ref": "B26061",
+      "title": "B26061#  2627半拉巴黎黑色（红色配色）-Paris",
+      "category": "Long-sleeved Training",
+      "image_url": "images/dongshan_c61175ba15a9.jpg",
+      "price": null,
+      "currency": ""
+    },
+    {
+      "supplier_id": "dongshan",
+      "supplier_name": "Dongshan Sports",
       "ref": "B26060",
       "title": "B26060# 2627半拉意大利浅兰-Italy",
       "category": "Long-sleeved Training",
@@ -260,7 +270,17 @@
       "supplier_id": "dongshan",
       "supplier_name": "Dongshan Sports",
       "ref": "B26058",
-      "title": "B26058# 2627半拉拜仁米色-Bayern Munich",
+      "title": "B26058# 2627半拉德国深灰色-Germany",
+      "category": "Long-sleeved Training",
+      "image_url": "images/dongshan_1208b37a4eda.jpg",
+      "price": null,
+      "currency": ""
+    },
+    {
+      "supplier_id": "dongshan",
+      "supplier_name": "Dongshan Sports",
+      "ref": "B26057",
+      "title": "B26057# 2627半拉拜仁米色-Bayern Munich",
       "category": "Long-sleeved Training",
       "image_url": "images/dongshan_16ad55818d85.jpg",
       "price": null,
@@ -269,20 +289,10 @@
     {
       "supplier_id": "dongshan",
       "supplier_name": "Dongshan Sports",
-      "ref": "B26057",
-      "title": "B26057# 2627半拉德国米色-Germany",
+      "ref": "B26056",
+      "title": "B26056# 2627半拉德国米色-Germany",
       "category": "Long-sleeved Training",
       "image_url": "images/dongshan_1bc7ac1f7551.jpg",
-      "price": null,
-      "currency": ""
-    },
-    {
-      "supplier_id": "dongshan",
-      "supplier_name": "Dongshan Sports",
-      "ref": "B26056",
-      "title": "B26056# 2627半拉德国深灰色-Germany",
-      "category": "Long-sleeved Training",
-      "image_url": "images/dongshan_1208b37a4eda.jpg",
       "price": null,
       "currency": ""
     },
@@ -310,7 +320,17 @@
       "supplier_id": "dongshan",
       "supplier_name": "Dongshan Sports",
       "ref": "B26053",
-      "title": "B26053# 2627半拉英格兰浅兰-England",
+      "title": "B26053#  2627半拉巴黎白色（红色配色）-Paris",
+      "category": "Long-sleeved Training",
+      "image_url": "images/dongshan_d64f5abf5046.jpg",
+      "price": null,
+      "currency": ""
+    },
+    {
+      "supplier_id": "dongshan",
+      "supplier_name": "Dongshan Sports",
+      "ref": "B26052",
+      "title": "B26052# 2627半拉英格兰浅兰-England",
       "category": "Long-sleeved Training",
       "image_url": "images/dongshan_f93c7c0e540a.jpg",
       "price": null,
@@ -319,20 +339,10 @@
     {
       "supplier_id": "dongshan",
       "supplier_name": "Dongshan Sports",
-      "ref": "B26052",
-      "title": "B26052# 2627半拉墨西哥深绿色-Mexico",
+      "ref": "B26051",
+      "title": "B26051# 2627半拉墨西哥深绿色-Mexico",
       "category": "Long-sleeved Training",
       "image_url": "images/dongshan_c0ce5c59d9a4.jpg",
-      "price": null,
-      "currency": ""
-    },
-    {
-      "supplier_id": "dongshan",
-      "supplier_name": "Dongshan Sports",
-      "ref": "B26051",
-      "title": "B26051#  2627半拉巴黎白色（红色配色）-Paris",
-      "category": "Long-sleeved Training",
-      "image_url": "images/dongshan_d64f5abf5046.jpg",
       "price": null,
       "currency": ""
     },
@@ -350,9 +360,9 @@
       "supplier_id": "dongshan",
       "supplier_name": "Dongshan Sports",
       "ref": "B26049",
-      "title": "B26049# 2627半拉巴塞方格喷墨-Barcelona",
+      "title": "B26049# 2627半拉曼联黑色（红白织带）-Manchester United",
       "category": "Long-sleeved Training",
-      "image_url": "images/dongshan_7611e3744c45.jpg",
+      "image_url": "images/dongshan_2d4fedfa7e2c.jpg",
       "price": null,
       "currency": ""
     },
@@ -360,9 +370,9 @@
       "supplier_id": "dongshan",
       "supplier_name": "Dongshan Sports",
       "ref": "B26048",
-      "title": "B26048# 2627半拉曼联黑色（红白织带）-Manchester United",
+      "title": "B26048# 2627半拉巴塞方格喷墨-Barcelona",
       "category": "Long-sleeved Training",
-      "image_url": "images/dongshan_2d4fedfa7e2c.jpg",
+      "image_url": "images/dongshan_7611e3744c45.jpg",
       "price": null,
       "currency": ""
     },
@@ -390,9 +400,9 @@
       "supplier_id": "dongshan",
       "supplier_name": "Dongshan Sports",
       "ref": "B26045",
-      "title": "B26045# 2627半拉皇马深绿喷墨-Real Madri",
+      "title": "B26045# 2627半拉皇马深墨绿-Real Madri",
       "category": "Long-sleeved Training",
-      "image_url": "images/dongshan_d8577c31ceb9.jpg",
+      "image_url": "images/dongshan_9f0c56e7991f.jpg",
       "price": null,
       "currency": ""
     },
@@ -400,9 +410,9 @@
       "supplier_id": "dongshan",
       "supplier_name": "Dongshan Sports",
       "ref": "B26044",
-      "title": "B26044# 2627半拉皇马深墨绿-Real Madri",
+      "title": "B26044# 2627半拉皇马深绿喷墨-Real Madri",
       "category": "Long-sleeved Training",
-      "image_url": "images/dongshan_9f0c56e7991f.jpg",
+      "image_url": "images/dongshan_d8577c31ceb9.jpg",
       "price": null,
       "currency": ""
     },
@@ -429,10 +439,10 @@
     {
       "supplier_id": "dongshan",
       "supplier_name": "Dongshan Sports",
-      "ref": "B26041",
-      "title": "B26041# 2627半拉巴西湖兰-Brazil",
-      "category": "Long-sleeved Training",
-      "image_url": "images/dongshan_7b669ccfb057.jpg",
+      "ref": "A26052",
+      "title": "A26052# 2627长拉利物红色",
+      "category": "Jacket",
+      "image_url": "images/dongshan_e9e27b2416b3.jpg",
       "price": null,
       "currency": ""
     },
@@ -523,16 +533,6 @@
       "title": "A26043# 2627长拉巴西湖兰-Brazil",
       "category": "Jacket",
       "image_url": "images/dongshan_2a24524a1b82.jpg",
-      "price": null,
-      "currency": ""
-    },
-    {
-      "supplier_id": "dongshan",
-      "supplier_name": "Dongshan Sports",
-      "ref": "A26042",
-      "title": "A26042# 2627长拉曼城米色-Manchester City",
-      "category": "Jacket",
-      "image_url": "images/dongshan_29c61ca318f5.jpg",
       "price": null,
       "currency": ""
     },
