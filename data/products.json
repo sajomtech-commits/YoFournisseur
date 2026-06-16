@@ -1,5 +1,5 @@
 {
-  "last_updated": "2026-06-15T07:00:58.457057+00:00",
+  "last_updated": "2026-06-16T06:01:27.709449+00:00",
   "total_products": 100,
   "suppliers": [
     {
@@ -36,6 +36,26 @@
     }
   ],
   "products": [
+    {
+      "supplier_id": "dongshan",
+      "supplier_name": "Dongshan Sports",
+      "ref": "J26042",
+      "title": "J26042# 2627短袖巴黎黑色（配红色）-Paris",
+      "category": "Short Sleeve Training",
+      "image_url": "images/dongshan_29215f32496e.jpg",
+      "price": null,
+      "currency": ""
+    },
+    {
+      "supplier_id": "dongshan",
+      "supplier_name": "Dongshan Sports",
+      "ref": "J26041",
+      "title": "J26041# 2627短袖尤彩兰",
+      "category": "Short Sleeve Training",
+      "image_url": "images/dongshan_6a6a22c30d5d.jpg",
+      "price": null,
+      "currency": ""
+    },
     {
       "supplier_id": "dongshan",
       "supplier_name": "Dongshan Sports",
@@ -219,26 +239,6 @@
     {
       "supplier_id": "dongshan",
       "supplier_name": "Dongshan Sports",
-      "ref": "J26022",
-      "title": "J26022# 2627短袖巴西国际白色-Brazil International",
-      "category": "Short Sleeve Training",
-      "image_url": "images/dongshan_a4763b4545d1.jpg",
-      "price": null,
-      "currency": ""
-    },
-    {
-      "supplier_id": "dongshan",
-      "supplier_name": "Dongshan Sports",
-      "ref": "J26021",
-      "title": "J26021# 2627短袖迈阿密黑色-Miami",
-      "category": "Short Sleeve Training",
-      "image_url": "images/dongshan_fd0b922a5b1e.jpg",
-      "price": null,
-      "currency": ""
-    },
-    {
-      "supplier_id": "dongshan",
-      "supplier_name": "Dongshan Sports",
       "ref": "B26061",
       "title": "B26061#  2627半拉巴黎黑色（红色配色）-Paris",
       "category": "Long-sleeved Training",
@@ -282,7 +282,7 @@
       "ref": "B26057",
       "title": "B26057# 2627半拉拜仁米色-Bayern Munich",
       "category": "Long-sleeved Training",
-      "image_url": "images/dongshan_16ad55818d85.jpg",
+      "image_url": "images/dongshan_b772a1640c5f.jpg",
       "price": null,
       "currency": ""
     },
@@ -292,7 +292,7 @@
       "ref": "B26056",
       "title": "B26056# 2627半拉德国米色-Germany",
       "category": "Long-sleeved Training",
-      "image_url": "images/dongshan_1bc7ac1f7551.jpg",
+      "image_url": "images/dongshan_c82649d2945c.jpg",
       "price": null,
       "currency": ""
     },
@@ -452,7 +452,7 @@
       "ref": "A26051",
       "title": "A26051# 2627长拉皇马墨绿-Real Madri",
       "category": "Jacket",
-      "image_url": "images/dongshan_121fdc2223b7.jpg",
+      "image_url": "images/dongshan_639e86a709cf.jpg",
       "price": null,
       "currency": ""
     },
@@ -462,7 +462,7 @@
       "ref": "A26050",
       "title": "A26050# 2627长拉阿森纳红色（白色袖子）-Arsenal",
       "category": "Jacket",
-      "image_url": "images/dongshan_4f08c1205f3a.jpg",
+      "image_url": "images/dongshan_1cf02ee7ad8c.jpg",
       "price": null,
       "currency": ""
     },
@@ -689,6 +689,17 @@
       "price": 299,
       "currency": "$",
       "cPrice": 43.434
+    },
+    {
+      "supplier_id": "jetlife",
+      "supplier_name": "0832CLUB (JetLife)",
+      "ref": "56678",
+      "title": "AUDEMARS PIGUET × SWATCH ROYAL POP BATTERY POWERED QUARTZ POCKET WATCH(NON-MECHANICAL SISTE）",
+      "category": "AUTRE",
+      "image_url": "images/jetlife_0fb7d16586b5.jpg",
+      "price": 368,
+      "currency": "$",
+      "cPrice": 53.457
     },
     {
       "supplier_id": "jetlife",
@@ -1071,17 +1082,6 @@
       "title": "DENIM TEARS SHORT",
       "category": "SHORT",
       "image_url": "images/jetlife_89aed4a69c4e.jpg",
-      "price": 68,
-      "currency": "$",
-      "cPrice": 9.878
-    },
-    {
-      "supplier_id": "jetlife",
-      "supplier_name": "0832CLUB (JetLife)",
-      "ref": "48341",
-      "title": "DENIM TEARS SHIRT",
-      "category": "T-SHIRT/SHIRT",
-      "image_url": "images/jetlife_9da71ab43ec9.jpg",
       "price": 68,
       "currency": "$",
       "cPrice": 9.878
