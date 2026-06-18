@@ -1,5 +1,5 @@
 {
-  "last_updated": "2026-06-17T07:01:11.742508+00:00",
+  "last_updated": "2026-06-18T07:01:16.694132+00:00",
   "total_products": 100,
   "suppliers": [
     {
@@ -39,6 +39,16 @@
     {
       "supplier_id": "dongshan",
       "supplier_name": "Dongshan Sports",
+      "ref": "J26043",
+      "title": "J26043# 2627短袖德国浅绿-Germany",
+      "category": "Short Sleeve Training",
+      "image_url": "images/dongshan_0858fa567ab9.jpg",
+      "price": null,
+      "currency": ""
+    },
+    {
+      "supplier_id": "dongshan",
+      "supplier_name": "Dongshan Sports",
       "ref": "J26042",
       "title": "J26042# 2627短袖巴黎黑色（配红色）-Paris",
       "category": "Short Sleeve Training",
@@ -62,7 +72,7 @@
       "ref": "J26040",
       "title": "J26040#  2627短袖西班牙米黄-Spain",
       "category": "Short Sleeve Training",
-      "image_url": "images/dongshan_3ae746c0cf09.jpg",
+      "image_url": "images/dongshan_41c8ab44a670.jpg",
       "price": null,
       "currency": ""
     },
@@ -72,7 +82,7 @@
       "ref": "J26039",
       "title": "J26039# 2627短袖英格兰上青-England",
       "category": "Short Sleeve Training",
-      "image_url": "images/dongshan_536e9a301b0b.jpg",
+      "image_url": "images/dongshan_0ac56408559f.jpg",
       "price": null,
       "currency": ""
     },
@@ -229,10 +239,10 @@
     {
       "supplier_id": "dongshan",
       "supplier_name": "Dongshan Sports",
-      "ref": "J26023",
-      "title": "J26023# 2627短袖阿森纳黑色-Arsenal",
-      "category": "Short Sleeve Training",
-      "image_url": "images/dongshan_1b7837cd99c3.jpg",
+      "ref": "B26062",
+      "title": "B26062# 2627半拉英格兰上青-England",
+      "category": "Long-sleeved Training",
+      "image_url": "images/dongshan_1dfb0509fd19.jpg",
       "price": null,
       "currency": ""
     },
@@ -252,7 +262,7 @@
       "ref": "B26060",
       "title": "B26060# 2627半拉意大利浅兰-Italy",
       "category": "Long-sleeved Training",
-      "image_url": "images/dongshan_94fa9efee171.jpg",
+      "image_url": "images/dongshan_201142281665.jpg",
       "price": null,
       "currency": ""
     },
@@ -262,7 +272,7 @@
       "ref": "B26059",
       "title": "B26059# 2627半拉利物红色",
       "category": "Long-sleeved Training",
-      "image_url": "images/dongshan_9b819c13a39d.jpg",
+      "image_url": "images/dongshan_8a34023a72b7.jpg",
       "price": null,
       "currency": ""
     },
@@ -423,16 +433,6 @@
       "title": "B26043# 2627半拉荷兰黑色",
       "category": "Long-sleeved Training",
       "image_url": "images/dongshan_280e1da39783.jpg",
-      "price": null,
-      "currency": ""
-    },
-    {
-      "supplier_id": "dongshan",
-      "supplier_name": "Dongshan Sports",
-      "ref": "B26042",
-      "title": "B26042# 2627半拉法国彩兰-France",
-      "category": "Long-sleeved Training",
-      "image_url": "images/dongshan_264757db234d.jpg",
       "price": null,
       "currency": ""
     },
