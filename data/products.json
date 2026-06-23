@@ -1,5 +1,5 @@
 {
-  "last_updated": "2026-06-22T07:04:24.079664+00:00",
+  "last_updated": "2026-06-23T06:00:44.165921+00:00",
   "total_products": 100,
   "suppliers": [
     {
@@ -239,6 +239,26 @@
     {
       "supplier_id": "dongshan",
       "supplier_name": "Dongshan Sports",
+      "ref": "B26064",
+      "title": "B26064# 2627半拉尤黑色",
+      "category": "Long-sleeved Training",
+      "image_url": "images/dongshan_cf1d58386a79.jpg",
+      "price": null,
+      "currency": ""
+    },
+    {
+      "supplier_id": "dongshan",
+      "supplier_name": "Dongshan Sports",
+      "ref": "B26063",
+      "title": "B26063# 2627半拉阿根廷白色喷墨-Argentina",
+      "category": "Long-sleeved Training",
+      "image_url": "images/dongshan_b1df7291685f.jpg",
+      "price": null,
+      "currency": ""
+    },
+    {
+      "supplier_id": "dongshan",
+      "supplier_name": "Dongshan Sports",
       "ref": "B26062",
       "title": "B26062# 2627半拉英格兰上青-England",
       "category": "Long-sleeved Training",
@@ -419,20 +439,20 @@
     {
       "supplier_id": "dongshan",
       "supplier_name": "Dongshan Sports",
-      "ref": "B26044",
-      "title": "B26044# 2627半拉皇马深绿喷墨-Real Madri",
-      "category": "Long-sleeved Training",
-      "image_url": "images/dongshan_d8577c31ceb9.jpg",
+      "ref": "A26054",
+      "title": "A26054# 2627长拉意大利浅兰-Italy",
+      "category": "Jacket",
+      "image_url": "images/dongshan_3532c9a4a847.jpg",
       "price": null,
       "currency": ""
     },
     {
       "supplier_id": "dongshan",
       "supplier_name": "Dongshan Sports",
-      "ref": "B26043",
-      "title": "B26043# 2627半拉荷兰黑色",
-      "category": "Long-sleeved Training",
-      "image_url": "images/dongshan_280e1da39783.jpg",
+      "ref": "A26053",
+      "title": "A26053# 2627长拉阿根廷白色喷墨-Argentina",
+      "category": "Jacket",
+      "image_url": "images/dongshan_9bbc617b3a5b.jpg",
       "price": null,
       "currency": ""
     },
@@ -513,26 +533,6 @@
       "title": "A26045# 2627长拉曼联黑色-Manchester United",
       "category": "Jacket",
       "image_url": "images/dongshan_dc8ec0d2d238.jpg",
-      "price": null,
-      "currency": ""
-    },
-    {
-      "supplier_id": "dongshan",
-      "supplier_name": "Dongshan Sports",
-      "ref": "A26044",
-      "title": "A26044# 2627长拉皇马白色（玫红配色）Real Madri",
-      "category": "Jacket",
-      "image_url": "images/dongshan_563991bca42a.jpg",
-      "price": null,
-      "currency": ""
-    },
-    {
-      "supplier_id": "dongshan",
-      "supplier_name": "Dongshan Sports",
-      "ref": "A26043",
-      "title": "A26043# 2627长拉巴西湖兰-Brazil",
-      "category": "Jacket",
-      "image_url": "images/dongshan_2a24524a1b82.jpg",
       "price": null,
       "currency": ""
     },
