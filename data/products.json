@@ -1,5 +1,5 @@
 {
-  "last_updated": "2026-06-30T07:01:32.730565+00:00",
+  "last_updated": "2026-07-01T06:03:45.658628+00:00",
   "total_products": 100,
   "suppliers": [
     {
@@ -239,6 +239,16 @@
     {
       "supplier_id": "dongshan",
       "supplier_name": "Dongshan Sports",
+      "ref": "B26075",
+      "title": "B26075# 2627半拉法国上青-France",
+      "category": "Long-sleeved Training",
+      "image_url": "images/dongshan_f7bbeb4fd9a7.jpg",
+      "price": null,
+      "currency": ""
+    },
+    {
+      "supplier_id": "dongshan",
+      "supplier_name": "Dongshan Sports",
       "ref": "B26074",
       "title": "B26074# 2627半拉葡萄牙绿色-Portugal",
       "category": "Long-sleeved Training",
@@ -429,10 +439,20 @@
     {
       "supplier_id": "dongshan",
       "supplier_name": "Dongshan Sports",
-      "ref": "B26055",
-      "title": "B26055# 2627半拉巴塞枣红-Barcelona",
-      "category": "Long-sleeved Training",
-      "image_url": "images/dongshan_68b55bee6fca.jpg",
+      "ref": "A26060",
+      "title": "A26060# 2627长拉利物白色",
+      "category": "Jacket",
+      "image_url": "images/dongshan_8c97da447bae.jpg",
+      "price": null,
+      "currency": ""
+    },
+    {
+      "supplier_id": "dongshan",
+      "supplier_name": "Dongshan Sports",
+      "ref": "A26059",
+      "title": "A26059# 2627长拉利物黑色",
+      "category": "Jacket",
+      "image_url": "images/dongshan_dc0a2206055f.jpg",
       "price": null,
       "currency": ""
     },
@@ -513,26 +533,6 @@
       "title": "A26051# 2627长拉皇马墨绿-Real Madri",
       "category": "Jacket",
       "image_url": "images/dongshan_639e86a709cf.jpg",
-      "price": null,
-      "currency": ""
-    },
-    {
-      "supplier_id": "dongshan",
-      "supplier_name": "Dongshan Sports",
-      "ref": "A26050",
-      "title": "A26050# 2627长拉阿森纳红色（白色袖子）-Arsenal",
-      "category": "Jacket",
-      "image_url": "images/dongshan_1cf02ee7ad8c.jpg",
-      "price": null,
-      "currency": ""
-    },
-    {
-      "supplier_id": "dongshan",
-      "supplier_name": "Dongshan Sports",
-      "ref": "A26049",
-      "title": "A26049# 2627长拉墨西哥深绿色-Mexico",
-      "category": "Jacket",
-      "image_url": "images/dongshan_6fc337473989.jpg",
       "price": null,
       "currency": ""
     },
