@@ -1,5 +1,5 @@
 {
-  "last_updated": "2026-07-02T07:04:17.097155+00:00",
+  "last_updated": "2026-07-03T06:00:45.696568+00:00",
   "total_products": 100,
   "suppliers": [
     {
@@ -36,6 +36,16 @@
     }
   ],
   "products": [
+    {
+      "supplier_id": "dongshan",
+      "supplier_name": "Dongshan Sports",
+      "ref": "J26049",
+      "title": "J26049# 2627短袖阿根廷白色喷墨-Argentina",
+      "category": "Short Sleeve Training",
+      "image_url": "images/dongshan_2a4010b597c8.jpg",
+      "price": null,
+      "currency": ""
+    },
     {
       "supplier_id": "dongshan",
       "supplier_name": "Dongshan Sports",
@@ -229,10 +239,20 @@
     {
       "supplier_id": "dongshan",
       "supplier_name": "Dongshan Sports",
-      "ref": "J26029",
-      "title": "J26029# 2627短袖荷兰黑色-Netherlands",
-      "category": "Short Sleeve Training",
-      "image_url": "images/dongshan_8b2318abe3b9.jpg",
+      "ref": "B26077",
+      "title": "B26077# 2627半拉巴西白色-Brazil",
+      "category": "Long-sleeved Training",
+      "image_url": "images/dongshan_85515f8a6528.jpg",
+      "price": null,
+      "currency": ""
+    },
+    {
+      "supplier_id": "dongshan",
+      "supplier_name": "Dongshan Sports",
+      "ref": "B26076",
+      "title": "B26076# 2627半拉巴西深绿-Brazil",
+      "category": "Long-sleeved Training",
+      "image_url": "images/dongshan_a08fbc08404a.jpg",
       "price": null,
       "currency": ""
     },
@@ -322,7 +342,7 @@
       "ref": "B26067",
       "title": "B26067# 2627半拉国米彩兰-Inter Milan",
       "category": "Long-sleeved Training",
-      "image_url": "images/dongshan_5cad6eab44f1.jpg",
+      "image_url": "images/dongshan_657d5df85c1a.jpg",
       "price": null,
       "currency": ""
     },
@@ -332,7 +352,7 @@
       "ref": "B26066",
       "title": "B26066# 2627半拉切尔西黑色-Chelsea",
       "category": "Long-sleeved Training",
-      "image_url": "images/dongshan_276011078b8e.jpg",
+      "image_url": "images/dongshan_101a47e314a2.jpg",
       "price": null,
       "currency": ""
     },
@@ -342,7 +362,7 @@
       "ref": "B26065",
       "title": "B26065# 2627半拉切尔西彩兰-Chelsea",
       "category": "Long-sleeved Training",
-      "image_url": "images/dongshan_3132e214844f.jpg",
+      "image_url": "images/dongshan_328e3039aab1.jpg",
       "price": null,
       "currency": ""
     },
@@ -352,7 +372,7 @@
       "ref": "B26064",
       "title": "B26064# 2627半拉尤黑色",
       "category": "Long-sleeved Training",
-      "image_url": "images/dongshan_cf1d58386a79.jpg",
+      "image_url": "images/dongshan_2c48bb72b67c.jpg",
       "price": null,
       "currency": ""
     },
@@ -362,7 +382,7 @@
       "ref": "B26063",
       "title": "B26063# 2627半拉阿根廷白色喷墨-Argentina",
       "category": "Long-sleeved Training",
-      "image_url": "images/dongshan_b1df7291685f.jpg",
+      "image_url": "images/dongshan_1083d7794672.jpg",
       "price": null,
       "currency": ""
     },
@@ -419,26 +439,6 @@
     {
       "supplier_id": "dongshan",
       "supplier_name": "Dongshan Sports",
-      "ref": "B26057",
-      "title": "B26057# 2627半拉拜仁米色-Bayern Munich",
-      "category": "Long-sleeved Training",
-      "image_url": "images/dongshan_b772a1640c5f.jpg",
-      "price": null,
-      "currency": ""
-    },
-    {
-      "supplier_id": "dongshan",
-      "supplier_name": "Dongshan Sports",
-      "ref": "B26056",
-      "title": "B26056# 2627半拉德国米色-Germany",
-      "category": "Long-sleeved Training",
-      "image_url": "images/dongshan_c82649d2945c.jpg",
-      "price": null,
-      "currency": ""
-    },
-    {
-      "supplier_id": "dongshan",
-      "supplier_name": "Dongshan Sports",
       "ref": "A26060",
       "title": "A26060# 2627长拉利物白色",
       "category": "Jacket",
@@ -470,7 +470,7 @@
       "supplier_id": "dongshan",
       "supplier_name": "Dongshan Sports",
       "ref": "A26057",
-      "title": "A26057# 2627长拉意大利深蓝-Italy",
+      "title": "A26057# 2627长拉德国宝兰-Italy",
       "category": "Jacket",
       "image_url": "images/dongshan_e8e92195a275.jpg",
       "price": null,
@@ -502,7 +502,7 @@
       "ref": "A26054",
       "title": "A26054# 2627长拉意大利浅兰-Italy",
       "category": "Jacket",
-      "image_url": "images/dongshan_3532c9a4a847.jpg",
+      "image_url": "images/dongshan_e32299d45220.jpg",
       "price": null,
       "currency": ""
     },
@@ -512,7 +512,7 @@
       "ref": "A26053",
       "title": "A26053# 2627长拉阿根廷白色喷墨-Argentina",
       "category": "Jacket",
-      "image_url": "images/dongshan_9bbc617b3a5b.jpg",
+      "image_url": "images/dongshan_2102eeb97036.jpg",
       "price": null,
       "currency": ""
     },
@@ -522,7 +522,7 @@
       "ref": "A26052",
       "title": "A26052# 2627长拉利物红色",
       "category": "Jacket",
-      "image_url": "images/dongshan_e9e27b2416b3.jpg",
+      "image_url": "images/dongshan_15bdfb99d77b.jpg",
       "price": null,
       "currency": ""
     },
