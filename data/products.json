@@ -1,5 +1,5 @@
 {
-  "last_updated": "2026-07-07T07:06:53.943530+00:00",
+  "last_updated": "2026-07-08T07:10:54.765289+00:00",
   "total_products": 100,
   "suppliers": [
     {
@@ -72,7 +72,7 @@
       "ref": "J26046",
       "title": "J26046# 2627短袖拜仁米色-Bayern Munich",
       "category": "Short Sleeve Training",
-      "image_url": "images/dongshan_0b6cfbc869ad.jpg",
+      "image_url": "images/dongshan_77af82222a59.jpg",
       "price": null,
       "currency": ""
     },
@@ -82,7 +82,7 @@
       "ref": "J26045",
       "title": "J26045# 2627短袖巴塞枣红",
       "category": "Short Sleeve Training",
-      "image_url": "images/dongshan_f4c13fa9e114.jpg",
+      "image_url": "images/dongshan_d054ab2685c1.jpg",
       "price": null,
       "currency": ""
     },
@@ -92,7 +92,7 @@
       "ref": "J26044",
       "title": "J26044# 2627短袖意大利深蓝--Italy",
       "category": "Short Sleeve Training",
-      "image_url": "images/dongshan_bcd9694bf415.jpg",
+      "image_url": "images/dongshan_457aa4b6c217.jpg",
       "price": null,
       "currency": ""
     },
@@ -322,7 +322,7 @@
       "ref": "B26069",
       "title": "B26069# 2627半拉国米上青-Inter Milan",
       "category": "Long-sleeved Training",
-      "image_url": "images/dongshan_59b20ca26a3b.jpg",
+      "image_url": "images/dongshan_d73a0a25e4e1.jpg",
       "price": null,
       "currency": ""
     },
@@ -332,7 +332,7 @@
       "ref": "B26068",
       "title": "B26068# 2627半拉阿森纳黑色（橙色配色）-Arsenal",
       "category": "Long-sleeved Training",
-      "image_url": "images/dongshan_c5fca25023f9.jpg",
+      "image_url": "images/dongshan_3125086be64a.jpg",
       "price": null,
       "currency": ""
     },
@@ -439,6 +439,16 @@
     {
       "supplier_id": "dongshan",
       "supplier_name": "Dongshan Sports",
+      "ref": "A26061",
+      "title": "A26061# 2627长拉意大利深兰-Italy",
+      "category": "Jacket",
+      "image_url": "images/dongshan_4d67789af44f.jpg",
+      "price": null,
+      "currency": ""
+    },
+    {
+      "supplier_id": "dongshan",
+      "supplier_name": "Dongshan Sports",
       "ref": "A26060",
       "title": "A26060# 2627长拉利物黑色",
       "category": "Jacket",
@@ -472,7 +482,7 @@
       "ref": "A26057",
       "title": "A26057# 2627长拉德国宝兰-Italy",
       "category": "Jacket",
-      "image_url": "images/dongshan_e8e92195a275.jpg",
+      "image_url": "images/dongshan_7b3d9d4f73c2.jpg",
       "price": null,
       "currency": ""
     },
@@ -482,7 +492,7 @@
       "ref": "A26056",
       "title": "A26056# 2627长拉德国深灰-Germany",
       "category": "Jacket",
-      "image_url": "images/dongshan_9989dea00479.jpg",
+      "image_url": "images/dongshan_a76c5563d20f.jpg",
       "price": null,
       "currency": ""
     },
@@ -492,7 +502,7 @@
       "ref": "A26055",
       "title": "A26055# 2627长拉拜仁宝蓝-Bayern Munich",
       "category": "Jacket",
-      "image_url": "images/dongshan_7b4b5bedf678.jpg",
+      "image_url": "images/dongshan_371ed6e8819f.jpg",
       "price": null,
       "currency": ""
     },
@@ -523,16 +533,6 @@
       "title": "A26052# 2627长拉利物红色",
       "category": "Jacket",
       "image_url": "images/dongshan_15bdfb99d77b.jpg",
-      "price": null,
-      "currency": ""
-    },
-    {
-      "supplier_id": "dongshan",
-      "supplier_name": "Dongshan Sports",
-      "ref": "A26051",
-      "title": "A26051# 2627长拉皇马墨绿-Real Madri",
-      "category": "Jacket",
-      "image_url": "images/dongshan_639e86a709cf.jpg",
       "price": null,
       "currency": ""
     },
@@ -1045,17 +1045,6 @@
     {
       "supplier_id": "jetlife",
       "supplier_name": "0832CLUB (JetLife)",
-      "ref": "48348",
-      "title": "DENIM TEARS SHORT",
-      "category": "SHORT",
-      "image_url": "images/jetlife_38aaeb739dff.jpg",
-      "price": 68,
-      "currency": "$",
-      "cPrice": 9.878
-    },
-    {
-      "supplier_id": "jetlife",
-      "supplier_name": "0832CLUB (JetLife)",
       "ref": "48347",
       "title": "DENIM TEARS T-SHIRT",
       "category": "T-SHIRT/SHIRT",
@@ -1082,6 +1071,17 @@
       "title": "DENIM TEARS SHORT",
       "category": "SHORT",
       "image_url": "images/jetlife_89aed4a69c4e.jpg",
+      "price": 68,
+      "currency": "$",
+      "cPrice": 9.878
+    },
+    {
+      "supplier_id": "jetlife",
+      "supplier_name": "0832CLUB (JetLife)",
+      "ref": "48341",
+      "title": "DENIM TEARS SHIRT",
+      "category": "T-SHIRT/SHIRT",
+      "image_url": "images/jetlife_9da71ab43ec9.jpg",
       "price": 68,
       "currency": "$",
       "cPrice": 9.878
