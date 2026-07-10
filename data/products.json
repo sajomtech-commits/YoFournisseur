@@ -1,5 +1,5 @@
 {
-  "last_updated": "2026-07-10T06:09:23.017480+00:00",
+  "last_updated": "2026-07-10T07:07:04.714607+00:00",
   "total_products": 100,
   "suppliers": [
     {
@@ -439,6 +439,26 @@
     {
       "supplier_id": "dongshan",
       "supplier_name": "Dongshan Sports",
+      "ref": "A26063",
+      "title": "A26063# 2627长拉葡萄牙绿色-Portugal",
+      "category": "Jacket",
+      "image_url": "images/dongshan_d1bb6e541986.jpg",
+      "price": null,
+      "currency": ""
+    },
+    {
+      "supplier_id": "dongshan",
+      "supplier_name": "Dongshan Sports",
+      "ref": "A26062",
+      "title": "A26062# 2627长拉葡萄牙枣红-Portugal",
+      "category": "Jacket",
+      "image_url": "images/dongshan_a47a1a42937a.jpg",
+      "price": null,
+      "currency": ""
+    },
+    {
+      "supplier_id": "dongshan",
+      "supplier_name": "Dongshan Sports",
       "ref": "A26061",
       "title": "A26061# 2627长拉意大利深兰-Italy",
       "category": "Jacket",
@@ -513,26 +533,6 @@
       "title": "A26054# 2627长拉意大利浅兰-Italy",
       "category": "Jacket",
       "image_url": "images/dongshan_e32299d45220.jpg",
-      "price": null,
-      "currency": ""
-    },
-    {
-      "supplier_id": "dongshan",
-      "supplier_name": "Dongshan Sports",
-      "ref": "A26053",
-      "title": "A26053# 2627长拉阿根廷白色喷墨-Argentina",
-      "category": "Jacket",
-      "image_url": "images/dongshan_2102eeb97036.jpg",
-      "price": null,
-      "currency": ""
-    },
-    {
-      "supplier_id": "dongshan",
-      "supplier_name": "Dongshan Sports",
-      "ref": "A26052",
-      "title": "A26052# 2627长拉利物红色",
-      "category": "Jacket",
-      "image_url": "images/dongshan_15bdfb99d77b.jpg",
       "price": null,
       "currency": ""
     },
