@@ -1,5 +1,5 @@
 {
-  "last_updated": "2026-07-19T07:05:21.534421+00:00",
+  "last_updated": "2026-07-20T06:07:13.667285+00:00",
   "total_products": 100,
   "suppliers": [
     {
@@ -39,8 +39,8 @@
     {
       "supplier_id": "dongshan",
       "supplier_name": "Dongshan Sports",
-      "ref": "J26055",
-      "title": "J26055# 2627短袖尤白色",
+      "ref": "J26056",
+      "title": "J26056# 2627短袖尤白色",
       "category": "Short Sleeve Training",
       "image_url": "images/dongshan_ef1e37ba781d.jpg",
       "price": null,
@@ -262,7 +262,7 @@
       "ref": "B26081",
       "title": "B26081# 2627半拉利物黑色",
       "category": "Long-sleeved Training",
-      "image_url": "images/dongshan_fe9d7fab1c73.jpg",
+      "image_url": "images/dongshan_137803d5ec3c.jpg",
       "price": null,
       "currency": ""
     },
@@ -272,7 +272,7 @@
       "ref": "B26080",
       "title": "B26080# 2627半拉尤白色",
       "category": "Long-sleeved Training",
-      "image_url": "images/dongshan_bf15c465e849.jpg",
+      "image_url": "images/dongshan_4c8d43751efe.jpg",
       "price": null,
       "currency": ""
     },
@@ -502,7 +502,7 @@
       "ref": "A26063",
       "title": "A26063# 2627长拉葡萄牙绿色-Portugal",
       "category": "Jacket",
-      "image_url": "images/dongshan_d1bb6e541986.jpg",
+      "image_url": "images/dongshan_fd0bcdbf2153.jpg",
       "price": null,
       "currency": ""
     },
@@ -512,7 +512,7 @@
       "ref": "A26062",
       "title": "A26062# 2627长拉葡萄牙枣红-Portugal",
       "category": "Jacket",
-      "image_url": "images/dongshan_a47a1a42937a.jpg",
+      "image_url": "images/dongshan_83273a7083cd.jpg",
       "price": null,
       "currency": ""
     },
