@@ -1,5 +1,5 @@
 {
-  "last_updated": "2026-07-28T07:06:59.098987+00:00",
+  "last_updated": "2026-07-29T06:07:25.659294+00:00",
   "total_products": 100,
   "suppliers": [
     {
@@ -36,6 +36,16 @@
     }
   ],
   "products": [
+    {
+      "supplier_id": "dongshan",
+      "supplier_name": "Dongshan Sports",
+      "ref": "J26062",
+      "title": "J26062# 2627短袖利物白色",
+      "category": "Short Sleeve Training",
+      "image_url": "images/dongshan_75fcfdd4a440.jpg",
+      "price": null,
+      "currency": ""
+    },
     {
       "supplier_id": "dongshan",
       "supplier_name": "Dongshan Sports",
@@ -223,16 +233,6 @@
       "title": "J26043# 2627短袖德国浅绿-Germany",
       "category": "Short Sleeve Training",
       "image_url": "images/dongshan_b35c1e47f700.jpg",
-      "price": null,
-      "currency": ""
-    },
-    {
-      "supplier_id": "dongshan",
-      "supplier_name": "Dongshan Sports",
-      "ref": "J26042",
-      "title": "J26042# 2627短袖巴黎黑色（配红色）-Paris",
-      "category": "Short Sleeve Training",
-      "image_url": "images/dongshan_159bc12186ae.jpg",
       "price": null,
       "currency": ""
     },
