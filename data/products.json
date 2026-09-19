@@ -1,5 +1,5 @@
 {
-  "last_updated": "2026-09-18T07:01:13.753036+00:00",
+  "last_updated": "2026-09-19T06:00:47.198953+00:00",
   "total_products": 100,
   "suppliers": [
     {
@@ -239,6 +239,26 @@
     {
       "supplier_id": "dongshan",
       "supplier_name": "Dongshan Sports",
+      "ref": "B26109",
+      "title": "B26109# 2627半拉马赛兰色-Marseilles",
+      "category": "Long-sleeved Training",
+      "image_url": "images/dongshan_dcf9f49eec84.jpg",
+      "price": null,
+      "currency": ""
+    },
+    {
+      "supplier_id": "dongshan",
+      "supplier_name": "Dongshan Sports",
+      "ref": "B26108",
+      "title": "B26108# 2627半拉热刺宝兰-Tottenham",
+      "category": "Long-sleeved Training",
+      "image_url": "images/dongshan_c038f7c0fe92.jpg",
+      "price": null,
+      "currency": ""
+    },
+    {
+      "supplier_id": "dongshan",
+      "supplier_name": "Dongshan Sports",
       "ref": "B26107",
       "title": "B26107# 2627半拉马赛黑色-Marseilles",
       "category": "Long-sleeved Training",
@@ -262,7 +282,7 @@
       "ref": "B26105",
       "title": "B26105# 2627半拉曼城浅蓝-Manchester City",
       "category": "Long-sleeved Training",
-      "image_url": "images/dongshan_7a851c3812ca.jpg",
+      "image_url": "images/dongshan_722e1b2aa1be.jpg",
       "price": null,
       "currency": ""
     },
@@ -272,7 +292,7 @@
       "ref": "B26103",
       "title": "B26103# 2627半拉阿贾克斯浅兰--ajax",
       "category": "Long-sleeved Training",
-      "image_url": "images/dongshan_529d7f466f20.jpg",
+      "image_url": "images/dongshan_5107fe14c77b.jpg",
       "price": null,
       "currency": ""
     },
@@ -282,7 +302,7 @@
       "ref": "B26102",
       "title": "B26102# 2627半拉博卡宝兰-Boca",
       "category": "Long-sleeved Training",
-      "image_url": "images/dongshan_2ba74517419c.jpg",
+      "image_url": "images/dongshan_b57a354d9a13.jpg",
       "price": null,
       "currency": ""
     },
@@ -419,20 +439,10 @@
     {
       "supplier_id": "dongshan",
       "supplier_name": "Dongshan Sports",
-      "ref": "B26088",
-      "title": "B26088# 2627半拉曼联黑色-Manchester United",
-      "category": "Long-sleeved Training",
-      "image_url": "images/dongshan_9fa1b1164cbc.jpg",
-      "price": null,
-      "currency": ""
-    },
-    {
-      "supplier_id": "dongshan",
-      "supplier_name": "Dongshan Sports",
-      "ref": "B26087",
-      "title": "B26087# 2627半拉皇马米色-Real Madri",
-      "category": "Long-sleeved Training",
-      "image_url": "images/dongshan_d328ecdd2deb.jpg",
+      "ref": "A26114",
+      "title": "A26114# 2627长拉河床白色(红色袖子)-riverbed",
+      "category": "Jacket",
+      "image_url": "images/dongshan_8442eb02d771.jpg",
       "price": null,
       "currency": ""
     },
@@ -452,7 +462,7 @@
       "ref": "A26112",
       "title": "A26112# 2627长拉弗拉门戈红色-Flamengo",
       "category": "Jacket",
-      "image_url": "images/dongshan_2cecb701ebfe.jpg",
+      "image_url": "images/dongshan_ba4a7fa33c2a.jpg",
       "price": null,
       "currency": ""
     },
@@ -462,7 +472,7 @@
       "ref": "A26111",
       "title": "A26111# 2627长拉尤黑白",
       "category": "Jacket",
-      "image_url": "images/dongshan_ab883b70c6d3.jpg",
+      "image_url": "images/dongshan_ee282d020692.jpg",
       "price": null,
       "currency": ""
     },
@@ -523,16 +533,6 @@
       "title": "A26105# 2627长拉阿贾克斯黑色--ajax",
       "category": "Jacket",
       "image_url": "images/dongshan_7412f909c4d9.jpg",
-      "price": null,
-      "currency": ""
-    },
-    {
-      "supplier_id": "dongshan",
-      "supplier_name": "Dongshan Sports",
-      "ref": "A26104",
-      "title": "A26104# 2627长拉巴塞枣红",
-      "category": "Jacket",
-      "image_url": "images/dongshan_de96dead32d8.jpg",
       "price": null,
       "currency": ""
     },
