@@ -1,5 +1,5 @@
 {
-  "last_updated": "2026-09-21T07:01:09.919979+00:00",
+  "last_updated": "2026-09-22T06:00:29.841545+00:00",
   "total_products": 100,
   "suppliers": [
     {
@@ -239,6 +239,16 @@
     {
       "supplier_id": "dongshan",
       "supplier_name": "Dongshan Sports",
+      "ref": "B26110",
+      "title": "B26110# 2627半拉法国绿色-France",
+      "category": "Long-sleeved Training",
+      "image_url": "images/dongshan_e5589631dafd.jpg",
+      "price": null,
+      "currency": ""
+    },
+    {
+      "supplier_id": "dongshan",
+      "supplier_name": "Dongshan Sports",
       "ref": "B26109",
       "title": "B26109# 2627半拉马赛兰色-Marseilles",
       "category": "Long-sleeved Training",
@@ -423,16 +433,6 @@
       "title": "B26090# 2627半拉曼联红色-Manchester United",
       "category": "Long-sleeved Training",
       "image_url": "images/dongshan_e7fb0d113d23.jpg",
-      "price": null,
-      "currency": ""
-    },
-    {
-      "supplier_id": "dongshan",
-      "supplier_name": "Dongshan Sports",
-      "ref": "B26089",
-      "title": "B26089# 2627半拉西班牙黑色2星-Spain",
-      "category": "Long-sleeved Training",
-      "image_url": "images/dongshan_2b9554178fd8.jpg",
       "price": null,
       "currency": ""
     },
