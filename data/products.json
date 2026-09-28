@@ -1,5 +1,5 @@
 {
-  "last_updated": "2026-09-27T07:01:22.703922+00:00",
+  "last_updated": "2026-09-28T06:00:43.086316+00:00",
   "total_products": 100,
   "suppliers": [
     {
@@ -36,6 +36,16 @@
     }
   ],
   "products": [
+    {
+      "supplier_id": "dongshan",
+      "supplier_name": "Dongshan Sports",
+      "ref": "J26093",
+      "title": "J26093# 2627短袖巴塞彩兰喷墨-Barcelona",
+      "category": "Short Sleeve Training",
+      "image_url": "images/dongshan_f0149f10044a.jpg",
+      "price": null,
+      "currency": ""
+    },
     {
       "supplier_id": "dongshan",
       "supplier_name": "Dongshan Sports",
@@ -223,16 +233,6 @@
       "title": "J26074# 2627短袖曼联黑色-Manchester United",
       "category": "Short Sleeve Training",
       "image_url": "images/dongshan_8ae4561d14e1.jpg",
-      "price": null,
-      "currency": ""
-    },
-    {
-      "supplier_id": "dongshan",
-      "supplier_name": "Dongshan Sports",
-      "ref": "J26073",
-      "title": "J26073# 2627短袖西班牙宝兰2星-Spain",
-      "category": "Short Sleeve Training",
-      "image_url": "images/dongshan_9c1f31f4766f.jpg",
       "price": null,
       "currency": ""
     },
