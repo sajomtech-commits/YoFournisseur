@@ -1,5 +1,5 @@
 {
-  "last_updated": "2026-09-30T06:00:37.516764+00:00",
+  "last_updated": "2026-09-30T07:00:56.912482+00:00",
   "total_products": 100,
   "suppliers": [
     {
@@ -39,6 +39,16 @@
     {
       "supplier_id": "dongshan",
       "supplier_name": "Dongshan Sports",
+      "ref": "J26095",
+      "title": "J26095#  26276短袖马竞荧光绿-Atletico Madrid",
+      "category": "Short Sleeve Training",
+      "image_url": "images/dongshan_9f6ec7d3052e.jpg",
+      "price": null,
+      "currency": ""
+    },
+    {
+      "supplier_id": "dongshan",
+      "supplier_name": "Dongshan Sports",
       "ref": "J26094",
       "title": "J26094#  2526短袖马竞浅兰-Atletico Madrid",
       "category": "Short Sleeve Training",
@@ -62,7 +72,7 @@
       "ref": "J26092",
       "title": "J26092#2627短袖热刺宝兰-Tottenham",
       "category": "Short Sleeve Training",
-      "image_url": "images/dongshan_12ce3c162013.jpg",
+      "image_url": "images/dongshan_d6ea7c6151c4.jpg",
       "price": null,
       "currency": ""
     },
@@ -72,7 +82,7 @@
       "ref": "J26091",
       "title": "J26091#  2526短袖马竞黑色-Atletico Madrid",
       "category": "Short Sleeve Training",
-      "image_url": "images/dongshan_11bd9df34f91.jpg",
+      "image_url": "images/dongshan_af1430c79ccc.jpg",
       "price": null,
       "currency": ""
     },
@@ -82,7 +92,7 @@
       "ref": "J26090",
       "title": "J26090# 2627短袖巴塞浅绿-Barcelona",
       "category": "Short Sleeve Training",
-      "image_url": "images/dongshan_2d6cf2dfdeb7.jpg",
+      "image_url": "images/dongshan_385ee406a404.jpg",
       "price": null,
       "currency": ""
     },
@@ -229,16 +239,6 @@
     {
       "supplier_id": "dongshan",
       "supplier_name": "Dongshan Sports",
-      "ref": "J26075",
-      "title": "J26075# 2627短袖阿森纳橙色-Arsenal",
-      "category": "Short Sleeve Training",
-      "image_url": "images/dongshan_4db9f998efc2.jpg",
-      "price": null,
-      "currency": ""
-    },
-    {
-      "supplier_id": "dongshan",
-      "supplier_name": "Dongshan Sports",
       "ref": "B26112",
       "title": "B26112#  2627半拉巴黎白色2星-Paris",
       "category": "Long-sleeved Training",
@@ -262,7 +262,7 @@
       "ref": "B26110",
       "title": "B26110# 2627半拉法国绿色-France",
       "category": "Long-sleeved Training",
-      "image_url": "images/dongshan_e5589631dafd.jpg",
+      "image_url": "images/dongshan_e1c7311ca3e6.jpg",
       "price": null,
       "currency": ""
     },
