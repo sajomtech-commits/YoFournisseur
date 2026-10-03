@@ -1,5 +1,5 @@
 {
-  "last_updated": "2026-10-02T07:00:39.361782+00:00",
+  "last_updated": "2026-10-03T06:00:38.133828+00:00",
   "total_products": 100,
   "suppliers": [
     {
@@ -39,8 +39,8 @@
     {
       "supplier_id": "dongshan",
       "supplier_name": "Dongshan Sports",
-      "ref": "J26095",
-      "title": "J26095#  26276短袖马竞荧光绿-Atletico Madrid",
+      "ref": "J26096",
+      "title": "J26096#  26276短袖马竞荧光绿-Atletico Madrid",
       "category": "Short Sleeve Training",
       "image_url": "images/dongshan_9f6ec7d3052e.jpg",
       "price": null,
@@ -49,8 +49,8 @@
     {
       "supplier_id": "dongshan",
       "supplier_name": "Dongshan Sports",
-      "ref": "J26094",
-      "title": "J26094#  2526短袖马竞浅兰-Atletico Madrid",
+      "ref": "J26095",
+      "title": "J26095#  2627短袖热刺浅兰",
       "category": "Short Sleeve Training",
       "image_url": "images/dongshan_2ae7c570ce3d.jpg",
       "price": null,
@@ -59,8 +59,8 @@
     {
       "supplier_id": "dongshan",
       "supplier_name": "Dongshan Sports",
-      "ref": "J26093",
-      "title": "J26093# 2627短袖巴塞彩兰喷墨-Barcelona",
+      "ref": "J26094",
+      "title": "J26094# 2627短袖巴塞彩兰喷墨-Barcelona",
       "category": "Short Sleeve Training",
       "image_url": "images/dongshan_f0149f10044a.jpg",
       "price": null,
@@ -69,8 +69,8 @@
     {
       "supplier_id": "dongshan",
       "supplier_name": "Dongshan Sports",
-      "ref": "J26092",
-      "title": "J26092#2627短袖热刺宝兰-Tottenham",
+      "ref": "J26093",
+      "title": "J26093#2627短袖热刺宝兰-Tottenham",
       "category": "Short Sleeve Training",
       "image_url": "images/dongshan_d6ea7c6151c4.jpg",
       "price": null,
@@ -79,8 +79,8 @@
     {
       "supplier_id": "dongshan",
       "supplier_name": "Dongshan Sports",
-      "ref": "J26091",
-      "title": "J26091#  2526短袖马竞黑色-Atletico Madrid",
+      "ref": "J26092",
+      "title": "J26092#  2526短袖马竞黑色-Atletico Madrid",
       "category": "Short Sleeve Training",
       "image_url": "images/dongshan_af1430c79ccc.jpg",
       "price": null,
@@ -89,8 +89,8 @@
     {
       "supplier_id": "dongshan",
       "supplier_name": "Dongshan Sports",
-      "ref": "J26090",
-      "title": "J26090# 2627短袖巴塞浅绿-Barcelona",
+      "ref": "J26091",
+      "title": "J26091# 2627短袖巴塞浅绿-Barcelona",
       "category": "Short Sleeve Training",
       "image_url": "images/dongshan_385ee406a404.jpg",
       "price": null,
@@ -99,8 +99,8 @@
     {
       "supplier_id": "dongshan",
       "supplier_name": "Dongshan Sports",
-      "ref": "J26089",
-      "title": "J26089# 2627短袖阿根廷白兰-Argentina",
+      "ref": "J26090",
+      "title": "J26090# 2627短袖阿根廷白兰-Argentina",
       "category": "Short Sleeve Training",
       "image_url": "images/dongshan_91f2c3201c43.jpg",
       "price": null,
@@ -109,8 +109,8 @@
     {
       "supplier_id": "dongshan",
       "supplier_name": "Dongshan Sports",
-      "ref": "J26088",
-      "title": "J26088# 2627短袖曼城浅蓝-Manchester City",
+      "ref": "J26089",
+      "title": "J26089# 2627短袖曼城浅蓝-Manchester City",
       "category": "Short Sleeve Training",
       "image_url": "images/dongshan_09de0192d4e0.jpg",
       "price": null,
@@ -119,10 +119,20 @@
     {
       "supplier_id": "dongshan",
       "supplier_name": "Dongshan Sports",
-      "ref": "J26087",
-      "title": "J26087# 2627短袖博卡宝兰-Boca",
+      "ref": "J26088",
+      "title": "J26088# 2627短袖河床红色-riverbed",
       "category": "Short Sleeve Training",
-      "image_url": "images/dongshan_cea2723c682c.jpg",
+      "image_url": "images/dongshan_5860eb56e53d.jpg",
+      "price": null,
+      "currency": ""
+    },
+    {
+      "supplier_id": "dongshan",
+      "supplier_name": "Dongshan Sports",
+      "ref": "J26087",
+      "title": "J26087# 2627短袖巴塞黑紫喷墨-Barcelona",
+      "category": "Short Sleeve Training",
+      "image_url": "images/dongshan_cb572223e048.jpg",
       "price": null,
       "currency": ""
     },
@@ -139,20 +149,10 @@
     {
       "supplier_id": "dongshan",
       "supplier_name": "Dongshan Sports",
-      "ref": "J26085",
-      "title": "J26085# 2627短袖河床红色-riverbed",
-      "category": "Short Sleeve Training",
-      "image_url": "images/dongshan_5860eb56e53d.jpg",
-      "price": null,
-      "currency": ""
-    },
-    {
-      "supplier_id": "dongshan",
-      "supplier_name": "Dongshan Sports",
       "ref": "J26084",
-      "title": "J26084# 2627短袖巴塞黑紫喷墨-Barcelona",
+      "title": "J26084# 2627短袖博卡宝兰-Boca",
       "category": "Short Sleeve Training",
-      "image_url": "images/dongshan_cb572223e048.jpg",
+      "image_url": "images/dongshan_cea2723c682c.jpg",
       "price": null,
       "currency": ""
     },
@@ -240,9 +240,9 @@
       "supplier_id": "dongshan",
       "supplier_name": "Dongshan Sports",
       "ref": "B26112",
-      "title": "B26112#  2627半拉巴黎白色2星-Paris",
+      "title": "B26112# 2627半拉巴塞彩兰钢印-Barcelona",
       "category": "Long-sleeved Training",
-      "image_url": "images/dongshan_9441485ae866.jpg",
+      "image_url": "images/dongshan_0f149d8a539a.jpg",
       "price": null,
       "currency": ""
     },
@@ -250,9 +250,9 @@
       "supplier_id": "dongshan",
       "supplier_name": "Dongshan Sports",
       "ref": "B26111",
-      "title": "B26111# 2627半拉巴塞彩兰钢印-Barcelona",
+      "title": "B26111#  2627半拉巴黎白色2星-Paris",
       "category": "Long-sleeved Training",
-      "image_url": "images/dongshan_0f149d8a539a.jpg",
+      "image_url": "images/dongshan_9441485ae866.jpg",
       "price": null,
       "currency": ""
     },
@@ -450,9 +450,9 @@
       "supplier_id": "dongshan",
       "supplier_name": "Dongshan Sports",
       "ref": "A26115",
-      "title": "A26115# 2627长拉河床红色-riverbed",
+      "title": "A26115# 2627长拉河床白色(红色袖子)-riverbed",
       "category": "Jacket",
-      "image_url": "images/dongshan_734b3598a64f.jpg",
+      "image_url": "images/dongshan_8442eb02d771.jpg",
       "price": null,
       "currency": ""
     },
@@ -460,9 +460,9 @@
       "supplier_id": "dongshan",
       "supplier_name": "Dongshan Sports",
       "ref": "A26114",
-      "title": "A26114# 2627长拉河床白色(红色袖子)-riverbed",
+      "title": "A26114# 2627长拉河床红色-riverbed",
       "category": "Jacket",
-      "image_url": "images/dongshan_8442eb02d771.jpg",
+      "image_url": "images/dongshan_734b3598a64f.jpg",
       "price": null,
       "currency": ""
     },
