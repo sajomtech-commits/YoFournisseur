@@ -1,5 +1,5 @@
 {
-  "last_updated": "2026-10-03T07:01:00.388517+00:00",
+  "last_updated": "2026-10-04T06:00:32.250560+00:00",
   "total_products": 100,
   "suppliers": [
     {
@@ -439,6 +439,16 @@
     {
       "supplier_id": "dongshan",
       "supplier_name": "Dongshan Sports",
+      "ref": "A26117",
+      "title": "A26117# 2627长拉拜仁灰紫-Bayern Munich",
+      "category": "Jacket",
+      "image_url": "images/dongshan_5c4f7fc4b347.jpg",
+      "price": null,
+      "currency": ""
+    },
+    {
+      "supplier_id": "dongshan",
+      "supplier_name": "Dongshan Sports",
       "ref": "A26116",
       "title": "A26116# 2627长拉巴塞浅绿-Barcelona",
       "category": "Jacket",
@@ -523,16 +533,6 @@
       "title": "A26108# 2627长拉拜仁米色配宝兰-Bayern Munich",
       "category": "Jacket",
       "image_url": "images/dongshan_e9d431cf5f81.jpg",
-      "price": null,
-      "currency": ""
-    },
-    {
-      "supplier_id": "dongshan",
-      "supplier_name": "Dongshan Sports",
-      "ref": "A26107",
-      "title": "A26107# 2627长拉阿森纳中兰-Arsenal",
-      "category": "Jacket",
-      "image_url": "images/dongshan_4844e3c4c78d.jpg",
       "price": null,
       "currency": ""
     },
