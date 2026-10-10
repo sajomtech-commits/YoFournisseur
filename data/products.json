@@ -1,5 +1,5 @@
 {
-  "last_updated": "2026-10-09T07:01:11.018154+00:00",
+  "last_updated": "2026-10-10T06:00:46.009346+00:00",
   "total_products": 100,
   "suppliers": [
     {
@@ -36,6 +36,16 @@
     }
   ],
   "products": [
+    {
+      "supplier_id": "dongshan",
+      "supplier_name": "Dongshan Sports",
+      "ref": "J26098",
+      "title": "J26098# 2627短袖那不勒斯黑色 -Naples",
+      "category": "Short Sleeve Training",
+      "image_url": "images/dongshan_339e200e5ed6.jpg",
+      "price": null,
+      "currency": ""
+    },
     {
       "supplier_id": "dongshan",
       "supplier_name": "Dongshan Sports",
@@ -223,16 +233,6 @@
       "title": "J26078# 2627短袖皇马米色-Real Madrid",
       "category": "Short Sleeve Training",
       "image_url": "images/dongshan_79076809f2ce.jpg",
-      "price": null,
-      "currency": ""
-    },
-    {
-      "supplier_id": "dongshan",
-      "supplier_name": "Dongshan Sports",
-      "ref": "J26077",
-      "title": "J26077# 2627短袖巴塞紫色",
-      "category": "Short Sleeve Training",
-      "image_url": "images/dongshan_a638add9eaa7.jpg",
       "price": null,
       "currency": ""
     },
@@ -439,6 +439,16 @@
     {
       "supplier_id": "dongshan",
       "supplier_name": "Dongshan Sports",
+      "ref": "A26122",
+      "title": "A26122# 2627长拉巴塞黑色-Barcelona",
+      "category": "Jacket",
+      "image_url": "images/dongshan_2c4bd6b0d168.jpg",
+      "price": null,
+      "currency": ""
+    },
+    {
+      "supplier_id": "dongshan",
+      "supplier_name": "Dongshan Sports",
       "ref": "A26121",
       "title": "A26121# 2627长拉那不勒斯湖兰 -Naples",
       "category": "Jacket",
@@ -523,16 +533,6 @@
       "title": "A26113# 2627长拉曼联红色配黑色-Manchester United",
       "category": "Jacket",
       "image_url": "images/dongshan_c695d96a21d3.jpg",
-      "price": null,
-      "currency": ""
-    },
-    {
-      "supplier_id": "dongshan",
-      "supplier_name": "Dongshan Sports",
-      "ref": "A26112",
-      "title": "A26112# 2627长拉弗拉门戈红色-Flamengo",
-      "category": "Jacket",
-      "image_url": "images/dongshan_ba4a7fa33c2a.jpg",
       "price": null,
       "currency": ""
     },
