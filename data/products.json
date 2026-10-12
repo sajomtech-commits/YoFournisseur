@@ -1,5 +1,5 @@
 {
-  "last_updated": "2026-10-11T07:00:38.254184+00:00",
+  "last_updated": "2026-10-12T06:01:09.675519+00:00",
   "total_products": 100,
   "suppliers": [
     {
@@ -439,6 +439,36 @@
     {
       "supplier_id": "dongshan",
       "supplier_name": "Dongshan Sports",
+      "ref": "A26125",
+      "title": "A26125# 2627长拉那不勒斯墨兰 -Naples",
+      "category": "Jacket",
+      "image_url": "images/dongshan_a8c23f21fa8c.jpg",
+      "price": null,
+      "currency": ""
+    },
+    {
+      "supplier_id": "dongshan",
+      "supplier_name": "Dongshan Sports",
+      "ref": "A26124",
+      "title": "A26124# 2627长拉巴塞彩兰钢印-Barcelona",
+      "category": "Jacket",
+      "image_url": "images/dongshan_4a2d09e4a97c.jpg",
+      "price": null,
+      "currency": ""
+    },
+    {
+      "supplier_id": "dongshan",
+      "supplier_name": "Dongshan Sports",
+      "ref": "A26123",
+      "title": "A26123# 2627长拉巴塞紫色-Barcelona",
+      "category": "Jacket",
+      "image_url": "images/dongshan_b68c5ef2b4e9.jpg",
+      "price": null,
+      "currency": ""
+    },
+    {
+      "supplier_id": "dongshan",
+      "supplier_name": "Dongshan Sports",
       "ref": "A26122",
       "title": "A26122# 2627长拉巴塞黑色-Barcelona",
       "category": "Jacket",
@@ -503,36 +533,6 @@
       "title": "A26116# 2627长拉巴塞浅绿-Barcelona",
       "category": "Jacket",
       "image_url": "images/dongshan_2f62e86c3fa9.jpg",
-      "price": null,
-      "currency": ""
-    },
-    {
-      "supplier_id": "dongshan",
-      "supplier_name": "Dongshan Sports",
-      "ref": "A26115",
-      "title": "A26115# 2627长拉河床白色(红色袖子)-riverbed",
-      "category": "Jacket",
-      "image_url": "images/dongshan_8442eb02d771.jpg",
-      "price": null,
-      "currency": ""
-    },
-    {
-      "supplier_id": "dongshan",
-      "supplier_name": "Dongshan Sports",
-      "ref": "A26114",
-      "title": "A26114# 2627长拉河床红色-riverbed",
-      "category": "Jacket",
-      "image_url": "images/dongshan_734b3598a64f.jpg",
-      "price": null,
-      "currency": ""
-    },
-    {
-      "supplier_id": "dongshan",
-      "supplier_name": "Dongshan Sports",
-      "ref": "A26113",
-      "title": "A26113# 2627长拉曼联红色配黑色-Manchester United",
-      "category": "Jacket",
-      "image_url": "images/dongshan_c695d96a21d3.jpg",
       "price": null,
       "currency": ""
     },
