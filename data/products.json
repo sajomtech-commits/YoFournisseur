@@ -1,5 +1,5 @@
 {
-  "last_updated": "2026-10-13T07:00:44.152946+00:00",
+  "last_updated": "2026-10-14T06:02:00.840438+00:00",
   "total_products": 100,
   "suppliers": [
     {
@@ -39,10 +39,50 @@
     {
       "supplier_id": "dongshan",
       "supplier_name": "Dongshan Sports",
-      "ref": "J26098",
-      "title": "J26098# 2627短袖那不勒斯黑色 -Naples",
+      "ref": "J26102",
+      "title": "J26102# 2627短袖多特黑色-Dortmund",
+      "category": "Short Sleeve Training",
+      "image_url": "images/dongshan_6b5fbed32f37.jpg",
+      "price": null,
+      "currency": ""
+    },
+    {
+      "supplier_id": "dongshan",
+      "supplier_name": "Dongshan Sports",
+      "ref": "J26101",
+      "title": "J26101# 2627短袖那不勒斯白色 -Naples",
+      "category": "Short Sleeve Training",
+      "image_url": "images/dongshan_e073962a7ce9.jpg",
+      "price": null,
+      "currency": ""
+    },
+    {
+      "supplier_id": "dongshan",
+      "supplier_name": "Dongshan Sports",
+      "ref": "J26100",
+      "title": "J26100# 2627短袖那不勒斯湖兰 -Naples",
+      "category": "Short Sleeve Training",
+      "image_url": "images/dongshan_491599f4567c.jpg",
+      "price": null,
+      "currency": ""
+    },
+    {
+      "supplier_id": "dongshan",
+      "supplier_name": "Dongshan Sports",
+      "ref": "J26099",
+      "title": "J26099# 2627短袖那不勒斯黑色 -Naples",
       "category": "Short Sleeve Training",
       "image_url": "images/dongshan_339e200e5ed6.jpg",
+      "price": null,
+      "currency": ""
+    },
+    {
+      "supplier_id": "dongshan",
+      "supplier_name": "Dongshan Sports",
+      "ref": "J26098",
+      "title": "J26098# 2627短袖阿森纳黑色配橙色-Arsenal",
+      "category": "Short Sleeve Training",
+      "image_url": "images/dongshan_980c6f352831.jpg",
       "price": null,
       "currency": ""
     },
@@ -193,46 +233,6 @@
       "title": "J26082# 2627短袖巴西深绿-Brazil",
       "category": "Short Sleeve Training",
       "image_url": "images/dongshan_b40f89700f69.jpg",
-      "price": null,
-      "currency": ""
-    },
-    {
-      "supplier_id": "dongshan",
-      "supplier_name": "Dongshan Sports",
-      "ref": "J26081",
-      "title": "J26081# 2627短袖西班牙黑色2星-Spain",
-      "category": "Short Sleeve Training",
-      "image_url": "images/dongshan_39f3f34a1e5a.jpg",
-      "price": null,
-      "currency": ""
-    },
-    {
-      "supplier_id": "dongshan",
-      "supplier_name": "Dongshan Sports",
-      "ref": "D26080",
-      "title": "D26080# 2627短袖葡萄牙白色-Portugal",
-      "category": "Short Sleeve Training",
-      "image_url": "images/dongshan_b86dddf9568b.jpg",
-      "price": null,
-      "currency": ""
-    },
-    {
-      "supplier_id": "dongshan",
-      "supplier_name": "Dongshan Sports",
-      "ref": "J26079",
-      "title": "J26079# 2627短袖葡萄牙兰色-Portugal",
-      "category": "Short Sleeve Training",
-      "image_url": "images/dongshan_7971213b8305.jpg",
-      "price": null,
-      "currency": ""
-    },
-    {
-      "supplier_id": "dongshan",
-      "supplier_name": "Dongshan Sports",
-      "ref": "J26078",
-      "title": "J26078# 2627短袖皇马米色-Real Madrid",
-      "category": "Short Sleeve Training",
-      "image_url": "images/dongshan_79076809f2ce.jpg",
       "price": null,
       "currency": ""
     },
@@ -440,17 +440,7 @@
       "supplier_id": "dongshan",
       "supplier_name": "Dongshan Sports",
       "ref": "A26125",
-      "title": "A26125# 2627长拉那不勒斯墨兰 -Naples",
-      "category": "Jacket",
-      "image_url": "images/dongshan_a8c23f21fa8c.jpg",
-      "price": null,
-      "currency": ""
-    },
-    {
-      "supplier_id": "dongshan",
-      "supplier_name": "Dongshan Sports",
-      "ref": "A26124",
-      "title": "A26124# 2627长拉巴塞彩兰钢印-Barcelona",
+      "title": "A26125# 2627长拉巴塞彩兰钢印-Barcelona",
       "category": "Jacket",
       "image_url": "images/dongshan_4a2d09e4a97c.jpg",
       "price": null,
@@ -459,10 +449,20 @@
     {
       "supplier_id": "dongshan",
       "supplier_name": "Dongshan Sports",
-      "ref": "A26123",
-      "title": "A26123# 2627长拉巴塞紫色-Barcelona",
+      "ref": "A26124",
+      "title": "A26124# 2627长拉巴塞紫色-Barcelona",
       "category": "Jacket",
       "image_url": "images/dongshan_b68c5ef2b4e9.jpg",
+      "price": null,
+      "currency": ""
+    },
+    {
+      "supplier_id": "dongshan",
+      "supplier_name": "Dongshan Sports",
+      "ref": "A26123",
+      "title": "A26123# 2627长拉那不勒斯墨兰 -Naples",
+      "category": "Jacket",
+      "image_url": "images/dongshan_a8c23f21fa8c.jpg",
       "price": null,
       "currency": ""
     },
