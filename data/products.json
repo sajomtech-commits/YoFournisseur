@@ -1,5 +1,5 @@
 {
-  "last_updated": "2026-10-14T07:00:40.536261+00:00",
+  "last_updated": "2026-10-15T06:00:54.548379+00:00",
   "total_products": 100,
   "suppliers": [
     {
@@ -439,6 +439,36 @@
     {
       "supplier_id": "dongshan",
       "supplier_name": "Dongshan Sports",
+      "ref": "A26128",
+      "title": "A26128# 2627长拉皇马白色（配紫色）Real Madri",
+      "category": "Jacket",
+      "image_url": "images/dongshan_037e105f7429.jpg",
+      "price": null,
+      "currency": ""
+    },
+    {
+      "supplier_id": "dongshan",
+      "supplier_name": "Dongshan Sports",
+      "ref": "A26127",
+      "title": "A26127# 2627长拉阿森纳宝兰配红色-Arsenal",
+      "category": "Jacket",
+      "image_url": "images/dongshan_bf107a60ab42.jpg",
+      "price": null,
+      "currency": ""
+    },
+    {
+      "supplier_id": "dongshan",
+      "supplier_name": "Dongshan Sports",
+      "ref": "A26126",
+      "title": "A26126# 2627长拉尤黑金",
+      "category": "Jacket",
+      "image_url": "images/dongshan_440f5bf2e9a9.jpg",
+      "price": null,
+      "currency": ""
+    },
+    {
+      "supplier_id": "dongshan",
+      "supplier_name": "Dongshan Sports",
       "ref": "A26125",
       "title": "A26125# 2627长拉巴塞彩兰钢印-Barcelona",
       "category": "Jacket",
@@ -503,36 +533,6 @@
       "title": "A26119#   2627长拉热刺浅兰",
       "category": "Jacket",
       "image_url": "images/dongshan_ab9a38de3245.jpg",
-      "price": null,
-      "currency": ""
-    },
-    {
-      "supplier_id": "dongshan",
-      "supplier_name": "Dongshan Sports",
-      "ref": "A26118",
-      "title": "A26118# 2627长拉马赛黑色-Marseilles",
-      "category": "Jacket",
-      "image_url": "images/dongshan_de1e873b8432.jpg",
-      "price": null,
-      "currency": ""
-    },
-    {
-      "supplier_id": "dongshan",
-      "supplier_name": "Dongshan Sports",
-      "ref": "A26117",
-      "title": "A26117# 2627长拉拜仁灰紫-Bayern Munich",
-      "category": "Jacket",
-      "image_url": "images/dongshan_63e91752f4f3.jpg",
-      "price": null,
-      "currency": ""
-    },
-    {
-      "supplier_id": "dongshan",
-      "supplier_name": "Dongshan Sports",
-      "ref": "A26116",
-      "title": "A26116# 2627长拉巴塞浅绿-Barcelona",
-      "category": "Jacket",
-      "image_url": "images/dongshan_5e2b485b8566.jpg",
       "price": null,
       "currency": ""
     },
